@@ -10,8 +10,5 @@
 ; Usability
 (fset 'yes-or-no-p 'y-or-n-p) ; yes/no turns to y/n
 
-; starting a daemon process
-(server-start)
-
 ; Always-on modes
 (ido-mode)
