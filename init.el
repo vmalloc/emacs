@@ -1,3 +1,7 @@
+0;95;c; init.el utils
+(defun in-emacs-d (path)
+  (concat "~/.emacs.d/" path))
+
 ; Window settings
 (menu-bar-mode -1) ; get rid of the annoying menubars/toolbars etc.
 (tool-bar-mode 0)
