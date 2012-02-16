@@ -35,6 +35,11 @@
 (setq make-backup-files nil)
 
 ; Usability
+;    some sane keyboard bindings
+;        home/end
+(global-set-key [(end)]                  'end-of-line)
+(global-set-key [(home)]                 'beginning-of-line)
+
 ;    yes/no turns to y/n
 (fset 'yes-or-no-p 'y-or-n-p)
 ;    don't ask about running processes
