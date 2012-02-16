@@ -50,3 +50,10 @@
 ; -------- Languages --------
 ; C
 (setq c-basic-offset 4)
+
+; Python
+(let ((python-mode-dir (in-emacs-d "modes/python-mode/")))
+  (add-to-list 'load-path python-mode-dir)
+  (autoload 'python-mode "python-mode" "python-mode" t)
+  (setq py-install-directory python-mode-dir))
+
