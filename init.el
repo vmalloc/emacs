@@ -26,6 +26,11 @@
 ; Usability
 (fset 'yes-or-no-p 'y-or-n-p) ; yes/no turns to y/n
 
+; Terminal settings
+; properly handle SHIFT+up for selection
+(if in-terminal
+    (define-key input-decode-map "\e[1;2A" [S-up])) 
+
 ; Always-on modes
 (ido-mode)
 
