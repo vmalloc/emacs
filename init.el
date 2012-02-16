@@ -86,6 +86,13 @@
 (require 'ido-recentf-open)
 (global-set-key (kbd "C-x C-r") 'ido-recentf-open)
 
+; auto-complete
+(add-to-list 'load-path (in-modes-d "auto-complete"))
+(require 'auto-complete)
+(global-auto-complete-mode t)
+(require 'auto-complete-config)
+(ac-config-default)
+
 ; YASnippet
 (add-to-list 'load-path (in-modes-d "yasnippet"))
 (require 'yasnippet)
