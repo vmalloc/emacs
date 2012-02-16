@@ -2,9 +2,10 @@
 ; init.el utils
 (defun in-emacs-d (path)
   (concat "~/.emacs.d/" path))
+(setq mode-dir (in-emacs-d "modes/"))
 (defun in-modes-d (path)
-  (concat (in-emacs-d "modes/") path))
-
+  (concat mode-dir path))
+(add-to-list 'load-path mode-dir)
 (setq in-terminal (not window-system))
 
 ; Display settings
@@ -22,7 +23,14 @@
 (add-to-list 'custom-theme-load-path (in-emacs-d "themes"))
 (load-theme 'manoj-dark t)
 
-; Autosave/recentf
+; recentf - save history of recently visited files
+(require 'recentf)
+(setq recentf-auto-cleanup 'never)
+(setq recentf-max-saved-items 1000)
+(recentf-mode 1)
+(run-with-idle-timer (* 5 60) t 'recentf-save-list)
+
+; autosave settings
 (setq auto-save-list-file-prefix nil)
 (setq make-backup-files nil)
 
@@ -70,6 +78,8 @@
 ; ------- Modes ---------
 ; ido
 (ido-mode)
+(require 'ido-recentf-open)
+(global-set-key (kbd "C-x C-r") 'ido-recentf-open)
 
 ; YASnippet
 (add-to-list 'load-path (in-modes-d "yasnippet"))
