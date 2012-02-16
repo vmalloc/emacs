@@ -39,9 +39,6 @@
 (if in-terminal
     (define-key input-decode-map "\e[1;2A" [S-up])) 
 
-; Always-on modes
-(ido-mode)
-
 ; --------  Basic editing facilities ---------
 
 ; assume new files are always modified (useful for creating empty files)
@@ -71,6 +68,9 @@
   (setq py-install-directory python-mode-dir))
 
 ; ------- Modes ---------
+; ido
+(ido-mode)
+
 ; YASnippet
 (add-to-list 'load-path (in-modes-d "yasnippet"))
 (require 'yasnippet)
