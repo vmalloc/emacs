@@ -7,7 +7,8 @@
 
 (setq in-terminal (not window-system))
 
-; Window settings
+; Display settings
+(display-time) ; useful for full-screen terminals
 (menu-bar-mode -1) ; get rid of the annoying menubars/toolbars etc.
 (if (boundp 'tool-bar-mode)
     (tool-bar-mode 0))
