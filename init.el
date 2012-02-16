@@ -2,6 +2,8 @@
 ; init.el utils
 (defun in-emacs-d (path)
   (concat "~/.emacs.d/" path))
+(defun in-modes-d (path)
+  (concat (in-emacs-d "modes/") path))
 
 (setq in-terminal (not window-system))
 
@@ -62,3 +64,9 @@
   (autoload 'python-mode "python-mode" "python-mode" t)
   (setq py-install-directory python-mode-dir))
 
+; ------- Modes ---------
+; YASnippet
+(add-to-list 'load-path (in-modes-d "yasnippet"))
+(require 'yasnippet)
+(yas/global-mode 1)
+(setq yas/indent-line 'fixed) ; for indented snippets

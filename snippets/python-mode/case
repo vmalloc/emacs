@@ -1,0 +1,11 @@
+# -*- coding: utf-8 -*-
+# name: case
+# key: case
+# --
+class $1(${2:unittest.TestCase}):
+    def setUp(self):
+        super($1, self).setUp()
+    def tearDown(self):
+        super($1, self).tearDown()
+    def test__${3:something}(self):
+        ${4:self.skipTest("not implemented")}

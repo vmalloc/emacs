@@ -1,0 +1,5 @@
+# -*- coding: utf-8 -*-
+# name: ni
+# key: ni
+# --
+raise NotImplementedError() # pragma: no cover

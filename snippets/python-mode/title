@@ -1,0 +1,5 @@
+# -*- coding: utf-8 -*-
+# name: title
+# key: title
+# --
+${1:$(make-string (- (ceiling (/ (- 80.0 (string-width text)) 2)) 1) ?#)} ${1:title} ${1:$(make-string (- (floor (/ (- 80.0 (string-width text)) 2)) 1) ?#)}

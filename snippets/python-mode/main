@@ -1,0 +1,33 @@
+# -*- coding: utf-8 -*-
+# name: main
+# key: main
+# --
+#! /usr/bin/python
+from __future__ import print_function
+import argparse
+import logging
+import sys
+
+parser = argparse.ArgumentParser(usage="%(prog)s [options] args...")
+parser.add_argument("-v", "--verbose", action="store_true", default=False)
+
+def main(args):
+    $0
+    return 0
+
+################################## Boilerplate #################################
+def _configure_logging():
+    logging.basicConfig(
+        stream=sys.stderr,
+        level=logging.DEBUG,
+        format="%(asctime)s -- %(message)s"
+        )
+
+#### For use with entry_points/console_scripts
+def main_entry_point():
+    args = parser.parse_args()
+    if args.verbose:
+        _configure_logging()
+    sys.exit(main(args))
+if __name__ == '__main__':
+    main_entry_point()

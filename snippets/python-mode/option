@@ -1,0 +1,5 @@
+# -*- coding: utf-8 -*-
+# name: option
+# key: option
+# --
+${1:parser}.add_option("-${2:f}", dest="${3:flag}", action="${4:store}", default=${5:None})
