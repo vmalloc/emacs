@@ -76,3 +76,8 @@
 (require 'yasnippet)
 (yas/global-mode 1)
 (setq yas/indent-line 'fixed) ; for indented snippets
+
+; ace-jump - quickly navigate to any character
+(autoload 'ace-jump-char-mode (in-modes-d "ace-jump-mode/ace-jump-mode.el") nil t)
+(setq ace-jump-mode-case-sensitive-search nil)
+(global-set-key (kbd "C-x j") 'ace-jump-char-mode)
