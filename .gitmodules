@@ -4,3 +4,6 @@
 [submodule "modes/ace-jump-mode"]
 	path = modes/ace-jump-mode
 	url = https://github.com/winterTTr/ace-jump-mode.git
+[submodule "modes/drag-stuff"]
+	path = modes/drag-stuff
+	url = https://github.com/rejeep/drag-stuff.git

@@ -81,3 +81,9 @@
 (autoload 'ace-jump-char-mode (in-modes-d "ace-jump-mode/ace-jump-mode.el") nil t)
 (setq ace-jump-mode-case-sensitive-search nil)
 (global-set-key (kbd "C-x j") 'ace-jump-char-mode)
+
+; drag stuff
+(autoload 'drag-stuff-global-mode (in-modes-d "drag-stuff/drag-stuff.el") nil t)
+(drag-stuff-global-mode t)
+(define-key drag-stuff-mode-map (kbd "<C-up>") 'drag-stuff-up)
+(define-key drag-stuff-mode-map (kbd "<C-down>") 'drag-stuff-down)
