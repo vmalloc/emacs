@@ -26,7 +26,12 @@
 (setq make-backup-files nil)
 
 ; Usability
-(fset 'yes-or-no-p 'y-or-n-p) ; yes/no turns to y/n
+;    yes/no turns to y/n
+(fset 'yes-or-no-p 'y-or-n-p)
+;    don't ask about running processes
+(defadvice save-buffers-kill-emacs (around no-query-kill-emacs activate)
+  "Prevent annoying \"Active processes exist\" query when you quit Emacs."
+  (flet ((process-list ())) ad-do-it))
 
 ; Terminal settings
 ; properly handle SHIFT+up for selection
