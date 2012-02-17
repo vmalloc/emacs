@@ -136,7 +136,4 @@
 ; ------- Utilities -----
 ; browse-kill-ring
 (autoload 'browse-kill-ring (in-utils-d "browse-kill-ring.el") nil t)
-(global-set-key (kbd "C-c C-y") '(lambda ()
-                           (interactive)
-                           (popup-menu 'yank-menu)))
 
