@@ -25,7 +25,7 @@
 
 ; Color theme
 (add-to-list 'custom-theme-load-path (in-emacs-d "themes"))
-(load-theme 'manoj-dark t)
+(load-theme 'vmalloc t)
 
 ; recentf - save history of recently visited files
 (require 'recentf)
