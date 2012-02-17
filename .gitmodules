@@ -13,3 +13,6 @@
 [submodule "modes/nxhtml-mode"]
 	path = modes/nxhtml-mode
 	url = https://github.com/emacsmirror/nxhtml.git
+[submodule "modes/smex"]
+	path = modes/smex
+	url = https://github.com/nonsequitur/smex.git

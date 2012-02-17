@@ -102,6 +102,11 @@
 (require 'ido-recentf-open)
 (global-set-key (kbd "C-x C-r") 'ido-recentf-open)
 
+; smex (ido for M-x commands)
+(autoload 'smex-initialize (in-modes-d "smex/smex.el"))
+(smex-initialize)
+(global-set-key (kbd "M-x") 'smex)
+
 ; uniquify
 (require 'uniquify)
 (setq
