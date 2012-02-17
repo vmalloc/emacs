@@ -93,6 +93,19 @@
 (require 'auto-complete-config)
 (ac-config-default)
 
+; autopair
+(require 'autopair)
+(autopair-global-mode)
+;    compatibility with delete-selection-mode
+(put 'autopair-insert-opening 'delete-selection t)
+(put 'autopair-skip-close-maybe 'delete-selection t)
+(put 'autopair-insert-or-skip-quote 'delete-selection t)
+(put 'autopair-extra-insert-opening 'delete-selection t)
+(put 'autopair-extra-skip-close-maybe 'delete-selection t)
+(put 'autopair-backspace 'delete-selection 'supersede)
+(put 'autopair-newline 'delete-selection t)
+
+
 ; YASnippet
 (add-to-list 'load-path (in-modes-d "yasnippet"))
 (require 'yasnippet)
