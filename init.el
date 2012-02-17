@@ -19,6 +19,7 @@
     (tool-bar-mode 0))
 (if (fboundp 'scroll-bar-mode)
     (scroll-bar-mode 0))
+(setq ring-bell-function 'ignore)
 
 ; Customizations beyond this configuration - separate to a different file
 (setq custom-file "~/.emacs-custom.el")
