@@ -116,7 +116,6 @@
 (put 'autopair-backspace 'delete-selection 'supersede)
 (put 'autopair-newline 'delete-selection t)
 
-
 ; YASnippet
 (add-to-list 'load-path (in-modes-d "yasnippet"))
 (require 'yasnippet)
@@ -131,8 +130,8 @@
 ; drag stuff
 (autoload 'drag-stuff-global-mode (in-modes-d "drag-stuff/drag-stuff.el") nil t)
 (drag-stuff-global-mode t)
-(define-key drag-stuff-mode-map (kbd "<C-up>") 'drag-stuff-up)
-(define-key drag-stuff-mode-map (kbd "<C-down>") 'drag-stuff-down)
+(define-key drag-stuff-mode-map (kbd "<C-M-up>") 'drag-stuff-up)
+(define-key drag-stuff-mode-map (kbd "<C-M-down>") 'drag-stuff-down)
 
 ; ------- Utilities -----
 ; browse-kill-ring
