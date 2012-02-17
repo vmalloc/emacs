@@ -80,6 +80,14 @@
   (autoload 'python-mode "python-mode" "python-mode" t)
   (setq py-install-directory python-mode-dir))
 
+; Haskell
+(autoload 'haskell-mode (in-modes-d "haskell-mode/haskell-mode.el") nil t)
+(add-to-list 'auto-mode-alist '("\\.hs$" . haskell-mode))
+(autoload 'turn-on-haskell-ghci "haskell-ghci"
+  "Turn on interaction with a GHCi interpreter." t)
+(add-hook 'haskell-mode-hook 'turn-on-haskell-ghci)
+
+
 ; ------- Modes ---------
 ; ido
 (ido-mode)
