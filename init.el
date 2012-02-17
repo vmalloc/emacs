@@ -108,6 +108,9 @@
 (smex-initialize)
 (global-set-key (kbd "M-x") 'smex)
 
+; show-paren
+(show-paren-mode)
+
 ; uniquify
 (require 'uniquify)
 (setq
