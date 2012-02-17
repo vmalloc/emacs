@@ -149,3 +149,8 @@
 ; ------- Utilities -----
 ; browse-kill-ring
 (autoload 'browse-kill-ring (in-utils-d "browse-kill-ring.el") nil t)
+
+; rainbow-mode
+(autoload 'rainbow-mode (in-utils-d "rainbow-mode.el") nil t)
+(rainbow-mode)
+
