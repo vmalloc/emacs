@@ -5,6 +5,9 @@
 (setq mode-dir (in-emacs-d "modes/"))
 (defun in-modes-d (path)
   (concat mode-dir path))
+(setq utils-dir (in-emacs-d "utils/"))
+(defun in-utils-d (path)
+  (concat utils-dir path))
 (add-to-list 'load-path mode-dir)
 (setq in-terminal (not window-system))
 
@@ -130,3 +133,11 @@
 (drag-stuff-global-mode t)
 (define-key drag-stuff-mode-map (kbd "<C-up>") 'drag-stuff-up)
 (define-key drag-stuff-mode-map (kbd "<C-down>") 'drag-stuff-down)
+
+; ------- Utilities -----
+; browse-kill-ring
+(autoload 'browse-kill-ring (in-utils-d "browse-kill-ring.el") nil t)
+(global-set-key (kbd "C-c C-y") '(lambda ()
+                           (interactive)
+                           (popup-menu 'yank-menu)))
+
