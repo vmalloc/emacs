@@ -12,6 +12,7 @@
 (setq in-terminal (not window-system))
 
 ; Display settings
+(setq frame-title-format '(buffer-file-name "%f" ("%b")))
 (display-time) ; useful for full-screen terminals
 (menu-bar-mode -1) ; get rid of the annoying menubars/toolbars etc.
 (if (boundp 'tool-bar-mode)
