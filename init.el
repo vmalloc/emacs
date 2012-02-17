@@ -92,9 +92,7 @@
 (add-hook 'haskell-mode-hook 'turn-on-haskell-ghci)
 
 ; HTML
-(defun nxhtml-mode () (interactive)
-  (load (in-modes-d "nxhtml-mode/autostart.el"))
-  nxhtml-mode)
+(autoload 'nxhtml-mode (in-modes-d "nxhtml-mode/autostart.el") nil t)
 (add-to-list 'auto-mode-alist '("\\.html$" . nxhtml-mode))
 
 
