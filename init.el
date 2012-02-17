@@ -90,6 +90,12 @@
   "Turn on interaction with a GHCi interpreter." t)
 (add-hook 'haskell-mode-hook 'turn-on-haskell-ghci)
 
+; HTML
+(defun nxhtml-mode () (interactive)
+  (load (in-modes-d "nxhtml-mode/autostart.el"))
+  nxhtml-mode)
+(add-to-list 'auto-mode-alist '("\\.html$" . nxhtml-mode))
+
 
 ; ------- Modes ---------
 ; ido

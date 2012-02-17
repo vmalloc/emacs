@@ -10,3 +10,6 @@
 [submodule "modes/auto-complete"]
 	path = modes/auto-complete
 	url = http://cx4a.org/repo/auto-complete.git/
+[submodule "modes/nxhtml-mode"]
+	path = modes/nxhtml-mode
+	url = https://github.com/emacsmirror/nxhtml.git
