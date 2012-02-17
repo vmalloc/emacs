@@ -54,7 +54,7 @@
 ; Terminal settings
 ; properly handle SHIFT+up for selection
 (if in-terminal
-    (define-key input-decode-map "\e[1;2A" [S-up])) 
+    (define-key input-decode-map "\e[1;2A" [S-up]))
 
 ; --------  Basic editing facilities ---------
 
@@ -104,6 +104,12 @@
 (require 'ido-recentf-open)
 (global-set-key (kbd "C-x C-r") 'ido-recentf-open)
 
+; uniquify
+(require 'uniquify)
+(setq
+  uniquify-buffer-name-style 'post-forward
+  uniquify-separator ":")
+
 ; auto-complete
 (add-to-list 'load-path (in-modes-d "auto-complete"))
 (require 'auto-complete)
@@ -143,4 +149,3 @@
 ; ------- Utilities -----
 ; browse-kill-ring
 (autoload 'browse-kill-ring (in-utils-d "browse-kill-ring.el") nil t)
-
