@@ -24,10 +24,10 @@
   "The Vmalloc theme.")
 
 (let ( (vmalloc-fg		"#dcdccc")
-       (vmalloc-bg-1		"#000000")
+       (vmalloc-bg-1		"#ff0000")
        (vmalloc-bg		"#000000")
-       (vmalloc-bg+1		"#000000")
-       (vmalloc-bg+2		"#000000")
+       (vmalloc-bg+1		"#eeddaa")
+       (vmalloc-bg+2		"#ffeebb")
        (vmalloc-red+1		"#dca3a3")
        (vmalloc-red		"#cc9393")
        (vmalloc-red-1		"#bc8383")
@@ -383,9 +383,9 @@
     '(info-header-node ((t (:weight normal))))
 
     ;; isearch
-    `(isearch ((t (:foreground ,vmalloc-yellow :background ,vmalloc-bg-1))))
-    `(isearch-fail ((t (:foreground ,vmalloc-fg :background ,vmalloc-red-4))))
-    `(lazy-highlight ((t (:foreground ,vmalloc-yellow :background ,vmalloc-bg+2))))
+    `(isearch ((t (:foreground ,vmalloc-bg :background ,vmalloc-bg-1))))
+    `(isearch-fail ((t (:foreground ,vmalloc-bg :background ,vmalloc-red-4))))
+    `(lazy-highlight ((t (:foreground ,vmalloc-bg :background ,vmalloc-bg+2))))
 
     ;; jabber-mode
     '(jabber-roster-user-chatty ((t (:inherit 'vmalloc-primary-1))))
