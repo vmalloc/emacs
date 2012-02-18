@@ -171,3 +171,4 @@
 ; ------- Keyboard shortcuts -----
 ; F keys
 (global-set-key [(f7)] 'magit-status)
+(global-set-key [(f12)] 'delete-trailing-whitespace)
