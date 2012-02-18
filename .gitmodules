@@ -19,3 +19,6 @@
 [submodule "modes/magit"]
 	path = modes/magit
 	url = https://github.com/magit/magit.git
+[submodule "modes/org-mode"]
+	path = modes/org-mode
+	url = git://orgmode.org/org-mode.git

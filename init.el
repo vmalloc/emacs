@@ -157,6 +157,10 @@
 (define-key drag-stuff-mode-map (kbd "<C-M-up>") 'drag-stuff-up)
 (define-key drag-stuff-mode-map (kbd "<C-M-down>") 'drag-stuff-down)
 
+; org-mode
+(add-to-list 'load-path (in-modes-d "org-mode/lisp"))
+(autoload 'org-mode "org.el" nil t)
+
 ; ------- Utilities -----
 ; browse-kill-ring
 (autoload 'browse-kill-ring (in-utils-d "browse-kill-ring.el") nil t)
