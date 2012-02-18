@@ -27,7 +27,7 @@
        (vmalloc-bg-1		"#ff0000")
        (vmalloc-bg		"#000000")
        (vmalloc-bg+1		"#eeddaa")
-       (vmalloc-bg+2		"#ffeebb")
+       (vmalloc-bg+2		"#ffffff")
        (vmalloc-red+1		"#dca3a3")
        (vmalloc-red		"#cc9393")
        (vmalloc-red-1		"#bc8383")
@@ -383,9 +383,9 @@
     '(info-header-node ((t (:weight normal))))
 
     ;; isearch
-    `(isearch ((t (:foreground ,vmalloc-bg :background ,vmalloc-bg-1))))
+    `(isearch ((t (:foreground ,vmalloc-bg :background ,vmalloc-fg))))
     `(isearch-fail ((t (:foreground ,vmalloc-bg :background ,vmalloc-red-4))))
-    `(lazy-highlight ((t (:foreground ,vmalloc-bg :background ,vmalloc-bg+2))))
+    `(lazy-highlight ((t (:foreground ,vmalloc-bg :background ,vmalloc-bg+1))))
 
     ;; jabber-mode
     '(jabber-roster-user-chatty ((t (:inherit 'vmalloc-primary-1))))
