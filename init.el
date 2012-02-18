@@ -82,8 +82,8 @@
 ; Python
 (let ((python-mode-dir (in-emacs-d "modes/python-mode/")))
   (add-to-list 'load-path python-mode-dir)
-  (autoload 'python-mode "python-mode" "python-mode" t)
-  (setq py-install-directory python-mode-dir))
+  (setq py-install-directory python-mode-dir)
+  (autoload 'python-mode "python-mode.el" nil t))
 
 ; Haskell
 (autoload 'haskell-mode (in-modes-d "haskell-mode/haskell-mode.el") nil t)
@@ -160,4 +160,7 @@
 ; rainbow-mode
 (autoload 'rainbow-mode (in-utils-d "rainbow-mode.el") nil t)
 (rainbow-mode)
+
+(autoload 'python-auto-super (in-utils-d "python-auto-super.el") nil t)
+(eval-after-load "python-mode" '(define-key python-mode-map [(control ?x) ?p ?s] 'python-auto-super))
 
