@@ -111,6 +111,10 @@
 ; show-paren
 (show-paren-mode)
 
+; magit
+(add-to-list 'load-path (in-modes-d "magit"))
+(autoload 'magit-status "magit" nil t)
+
 ; uniquify
 (require 'uniquify)
 (setq
@@ -164,3 +168,6 @@
 (autoload 'python-auto-super (in-utils-d "python-auto-super.el") nil t)
 (eval-after-load "python-mode" '(define-key python-mode-map [(control ?x) ?p ?s] 'python-auto-super))
 
+; ------- Keyboard shortcuts -----
+; F keys
+(global-set-key [(f7)] 'magit-status)

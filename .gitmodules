@@ -16,3 +16,6 @@
 [submodule "modes/smex"]
 	path = modes/smex
 	url = https://github.com/nonsequitur/smex.git
+[submodule "modes/magit"]
+	path = modes/magit
+	url = https://github.com/magit/magit.git
