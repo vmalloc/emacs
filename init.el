@@ -182,7 +182,7 @@
 
 ; rainbow-mode
 (autoload 'rainbow-mode (in-utils-d "rainbow-mode.el") nil t)
-(rainbow-mode)
+(add-to-list 'find-file-hook 'rainbow-mode)
 
 (autoload 'python-auto-super (in-utils-d "python-auto-super.el") nil t)
 (eval-after-load "python-mode" '(define-key python-mode-map [(control ?x) ?p ?s] 'python-auto-super))
