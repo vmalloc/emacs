@@ -176,6 +176,7 @@
 
 (autoload 'python-auto-super (in-utils-d "python-auto-super.el") nil t)
 (eval-after-load "python-mode" '(define-key python-mode-map [(control ?x) ?p ?s] 'python-auto-super))
+(eval-after-load "python-mode" '(load-file (in-modes-d "virtualenv/virtualenv.el")))
 
 ; ------- Keyboard shortcuts -----
 ; F keys
