@@ -163,6 +163,9 @@
 (add-to-list 'load-path (in-modes-d "org-mode/lisp"))
 (autoload 'org-mode "org.el" nil t)
 
+; nyan-mode (no .emacs.d is whole without it)
+(autoload 'nyan-mode (in-modes-d "nyan-mode/nyan-mode.el") nil t)
+
 ; ------- Utilities -----
 ; browse-kill-ring
 (autoload 'browse-kill-ring (in-utils-d "browse-kill-ring.el") nil t)

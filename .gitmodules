@@ -22,3 +22,6 @@
 [submodule "modes/org-mode"]
 	path = modes/org-mode
 	url = git://orgmode.org/org-mode.git
+[submodule "modes/nyan-mode"]
+	path = modes/nyan-mode
+	url = https://github.com/TeMPOraL/nyan-mode.git
