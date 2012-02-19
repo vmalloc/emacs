@@ -14,6 +14,7 @@
 ; Display settings
 (setq frame-title-format '(buffer-file-name "%f" ("%b")))
 (display-time) ; useful for full-screen terminals
+(display-battery-mode t)
 (menu-bar-mode -1) ; get rid of the annoying menubars/toolbars etc.
 (if (boundp 'tool-bar-mode)
     (tool-bar-mode 0))
