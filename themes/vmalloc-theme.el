@@ -123,9 +123,9 @@
     `(minibuffer-prompt ((t (:foreground ,vmalloc-yellow))))
     `(mode-line ((t (:foreground ,vmalloc-yellow :background "#1e2320"
 		      :box (:color "#1e2320" :line-width 2)))))
-    `(region ((t (:foreground nil :background ,vmalloc-bg+2))))
+    `(region ((t (:foreground ,vmalloc-bg :background ,vmalloc-fg))))
     `(scroll-bar ((t (:background ,vmalloc-bg+2))))
-    `(secondary-selection ((t (:foreground nil :background ,vmalloc-bg+2))))
+    `(secondary-selection ((t (:foreground ,vmalloc-bg :background ,vmalloc-fg))))
     `(tool-bar ((t (:background ,vmalloc-bg+2))))
 
     ;; apt-utils
