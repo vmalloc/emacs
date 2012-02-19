@@ -1,1 +1,5 @@
+# -*- coding: utf-8 -*-
+# name: skip
+# key: skip
+# --
 self.skipTest("Skipped for now")
