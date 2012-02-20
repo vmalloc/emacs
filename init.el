@@ -88,6 +88,7 @@
 (setq default-tab-indent 4)
 
 ; -------- Languages --------
+(global-linum-mode t)
 ; C
 (setq c-basic-offset 4)
 
