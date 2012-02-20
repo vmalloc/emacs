@@ -11,6 +11,11 @@
 (add-to-list 'load-path mode-dir)
 (setq in-terminal (not window-system))
 
+(defun autoload-and-run (symbol file interactive callback)
+  (autoload symbol file nil interactive)
+  (eval-after-load (symbol-name symbol) callback)
+  )
+
 ; Display settings
 (setq frame-title-format '(buffer-file-name "%f" ("%b")))
 (display-time) ; useful for full-screen terminals
@@ -118,18 +123,16 @@
 
 ; anything
 (add-to-list 'load-path (in-modes-d "anything"))
-(autoload 'anything "anything.el" nil t)
-(defun load-anything-config ()
-  (require 'anything-config)
-  (add-to-list 'anything-sources 'anything-c-source-locate)
-  (add-to-list 'anything-sources 'anything-c-source-mac-spotlight)
-  (add-to-list 'anything-sources 'anything-c-source-kill-ring)
-  (add-to-list 'anything-sources 'anything-c-source-occur)
-  )
+(autoload-and-run 'anything "anything.el" t 
+		  '(progn 
+		    (require 'anything-config)
+		    (add-to-list 'anything-sources 'anything-c-source-locate)
+		    (add-to-list 'anything-sources 'anything-c-source-mac-spotlight)
+		    (add-to-list 'anything-sources 'anything-c-source-kill-ring)
+		    (add-to-list 'anything-sources 'anything-c-source-occur)
+		    ))
 (autoload 'anything-config "anything-config.el")
 (global-set-key [(control x) (a)] 'anything)
-(eval-after-load "anything.el" 
-  '(load-anything-config))
 
 
 ; smex (ido for M-x commands)
