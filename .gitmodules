@@ -28,3 +28,6 @@
 [submodule "modes/virtualenv"]
 	path = modes/virtualenv
 	url = https://github.com/aculich/virtualenv.el.git
+[submodule "modes/anything"]
+	path = modes/anything
+	url = git://repo.or.cz/anything-config.git

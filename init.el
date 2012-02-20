@@ -115,6 +115,22 @@
 (require 'ido-recentf-open)
 (global-set-key (kbd "C-x C-r") 'ido-recentf-open)
 
+; anything
+(add-to-list 'load-path (in-modes-d "anything"))
+(autoload 'anything "anything.el" nil t)
+(defun load-anything-config ()
+  (require 'anything-config)
+  (add-to-list 'anything-sources 'anything-c-source-locate)
+  (add-to-list 'anything-sources 'anything-c-source-mac-spotlight)
+  (add-to-list 'anything-sources 'anything-c-source-kill-ring)
+  (add-to-list 'anything-sources 'anything-c-source-occur)
+  )
+(autoload 'anything-config "anything-config.el")
+(global-set-key [(control x) (a)] 'anything)
+(eval-after-load "anything.el" 
+  '(load-anything-config))
+
+
 ; smex (ido for M-x commands)
 (autoload 'smex-initialize (in-modes-d "smex/smex.el"))
 (smex-initialize)
