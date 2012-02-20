@@ -347,6 +347,9 @@
     ;; highlight
     '(highlight-current-line ((t (:inherit 'vmalloc-highlight-subtle))))
 
+    ;; linum
+    '(linum ((t (:foreground "#555555"))))
+
     ;; hightlight the current line
     `(hl-line ((t (:inherit nil :background ,vmalloc-bg-1))))
 
