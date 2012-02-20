@@ -31,3 +31,7 @@
 [submodule "modes/anything"]
 	path = modes/anything
 	url = git://repo.or.cz/anything-config.git
+[submodule "utils/pylookup"]
+	path = utils/pylookup
+	url = https://github.com/tsgates/pylookup.git
+
