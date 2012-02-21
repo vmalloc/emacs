@@ -17,6 +17,7 @@
   )
 
 ; Display settings
+(setq inhibit-splash-screen t)
 (setq frame-title-format '(buffer-file-name "%f" ("%b")))
 (display-time) ; useful for full-screen terminals
 (display-battery-mode t)
