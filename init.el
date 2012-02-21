@@ -25,8 +25,10 @@
 (setq custom-file "~/.emacs-custom.el")
 
 ; Color theme
-(add-to-list 'custom-theme-load-path (in-emacs-d "themes"))
-(load-theme 'vmalloc t)
+(cond 
+ ((>= emacs-major-version 24)  
+  (add-to-list 'custom-theme-load-path (in-emacs-d "themes"))
+  (load-theme 'vmalloc t)))
 
 ; recentf - save history of recently visited files
 (require 'recentf)
