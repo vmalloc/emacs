@@ -28,6 +28,11 @@
     (scroll-bar-mode 0))
 (setq ring-bell-function 'ignore)
 
+; display trailing whitespaces
+(custom-set-variables
+ '(show-trailing-whitespace t)
+)
+
 ; Customizations beyond this configuration - separate to a different file
 (setq custom-file "~/.emacs-custom.el")
 (if (file-exists-p custom-file) 
