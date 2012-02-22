@@ -9,6 +9,8 @@
 (defun in-utils-d (path)
   (concat utils-dir path))
 (add-to-list 'load-path mode-dir)
+(add-to-list 'load-path utils-dir)
+
 (setq in-terminal (not window-system))
 
 (defun autoload-and-run (symbol file interactive callback)
@@ -243,6 +245,12 @@
 (add-to-list 'load-path pylookup-dir)
 (autoload 'pylookup-lookup "pylookup.el" nil t)
 (eval-after-load "python-mode" '(define-key python-mode-map [(control ?x) ?p ?l] 'pylookup-lookup))
+
+; pbcopy - use OS X's clipboard if we're in the terminal
+(cond ((and in-terminal (string-equal system-type "darwin"))
+    (require 'pbcopy)
+    (turn-on-pbcopy)
+    ))
 
 ; ------- Keyboard shortcuts -----
 ; F keys
