@@ -37,7 +37,13 @@
 (cond 
  ((>= emacs-major-version 24)  
   (add-to-list 'custom-theme-load-path (in-emacs-d "themes"))
-  (load-theme 'vmalloc t)))
+  (load-theme 'vmalloc t))
+ ((< emacs-major-version 24)  
+  (add-to-list 'load-path (in-emacs-d "themes-legacy/"))
+  (load-library "color-theme")
+  (require 'color-theme)
+  (color-theme-initialize)
+  (color-theme-dark-laptop)))
 
 ; recentf - save history of recently visited files
 (require 'recentf)
