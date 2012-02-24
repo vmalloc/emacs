@@ -61,7 +61,7 @@
 (global-set-key (kbd "C-x <right>") 'windmove-right)
 (global-set-key (kbd "C-x <left>") 'windmove-left)
 ;    ibuffer key binding
-(global-set-key (kbd "C-x C-b") 'ibuffer-list-buffers)
+(global-set-key (kbd "C-x C-b") 'ibuffer)
 
 ;    yes/no turns to y/n
 (fset 'yes-or-no-p 'y-or-n-p)
