@@ -28,16 +28,17 @@
     (scroll-bar-mode 0))
 (setq ring-bell-function 'ignore)
 
-; Customizations beyond this configuration - separate to a different file
-(setq custom-file "~/.emacs-custom.el")
-(if (file-exists-p custom-file) 
-    (load-file custom-file))
-
 ; Color theme
 (cond 
  ((>= emacs-major-version 24)  
   (add-to-list 'custom-theme-load-path (in-emacs-d "themes"))
-  (load-theme 'vmalloc t)))
+  (load-theme 'vmalloc t))
+ ((< emacs-major-version 24)  
+  (add-to-list 'load-path (in-emacs-d "themes-legacy/"))
+  (load-library "color-theme")
+  (require 'color-theme)
+  (color-theme-initialize)
+  (color-theme-dark-laptop)))
 
 ; recentf - save history of recently visited files
 (require 'recentf)
@@ -222,3 +223,8 @@
 (eval-after-load "cc-mode" '(define-key c-mode-map [(f6)] 'ff-find-other-file))
 (global-set-key [(f7)] 'magit-status)
 (global-set-key [(f12)] 'delete-trailing-whitespace)
+
+; Customizations beyond this configuration - separate to a different file
+(setq custom-file "~/.emacs-custom.el")
+(if (file-exists-p custom-file) 
+    (load-file custom-file))
