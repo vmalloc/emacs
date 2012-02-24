@@ -61,7 +61,32 @@
 (global-set-key (kbd "C-x <right>") 'windmove-right)
 (global-set-key (kbd "C-x <left>") 'windmove-left)
 ;    ibuffer key binding
-(global-set-key (kbd "C-x C-b") 'ibuffer-list-buffers)
+(require 'ibuffer) 
+(setq ibuffer-saved-filter-groups
+  (quote (("default"      
+            ("Programming" ;; prog stuff not already in MyProjectX
+              (or
+                (mode . c-mode)
+                (mode . sh-mode)
+                (mode . c++-mode)
+                (mode . makefile-gmake-mode)
+                (mode . perl-mode)
+                (mode . python-mode)
+                ;; etc
+                ))
+            ("Elisp"
+              (mode . emacs-lisp-mode))
+            ("Magit"
+              (name . "\*magit.*\*"))
+            ("Terminal"
+              (mode . term-mode))
+            ("Emacs"
+              (name . "\*.*\*"))))))
+
+(add-hook 'ibuffer-mode-hook
+  (lambda ()
+    (ibuffer-switch-to-saved-filter-groups "default")))
+(global-set-key (kbd "C-x C-b") 'ibuffer)
 
 ;    yes/no turns to y/n
 (fset 'yes-or-no-p 'y-or-n-p)
