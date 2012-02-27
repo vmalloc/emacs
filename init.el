@@ -164,6 +164,9 @@
 (autoload 'nxhtml-mode (in-modes-d "nxhtml-mode/autostart.el") nil t)
 (add-to-list 'auto-mode-alist '("\\.html$" . nxhtml-mode))
 
+; Markdown
+(autoload 'markdown-mode "markdown-mode.el" nil t)
+(add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode))
 
 ; ------- Modes ---------
 ; ido
