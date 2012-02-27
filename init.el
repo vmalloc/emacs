@@ -118,8 +118,11 @@
 
 ; Terminal settings
 ; properly handle SHIFT+up for selection
-(if in-terminal
-    (define-key input-decode-map "\e[1;2A" [S-up]))
+(defadvice terminal-init-xterm (around map-keys-properly activate)
+  (define-key input-decode-map "\e[1;2A" [S-up])
+  ad-do-it
+)
+
 
 ; --------  Basic editing facilities ---------
 
