@@ -274,6 +274,9 @@
     (turn-on-pbcopy)
     ))
 
+; pomodoro - time management technique
+(autoload 'pomodoro "pomodoro.el" nil t)
+
 ; ------- Keyboard shortcuts -----
 ; F keys
 (eval-after-load "c-mode" '(define-key c-mode-map [(f6)] 'ff-find-other-file))
