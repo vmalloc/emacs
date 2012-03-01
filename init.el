@@ -123,6 +123,12 @@
   ad-do-it
 )
 
+;--------------------------------------------
+; browse kill ring
+;--------------------------------------------
+(add-to-list 'load-path (in-modes-d "browse-kill-ring"))
+( when (require 'browse-kill-ring nil 'noerror)
+  (browse-kill-ring-default-keybindings))
 
 ; --------  Basic editing facilities ---------
 
@@ -167,6 +173,8 @@
 ; Markdown
 (autoload 'markdown-mode "markdown-mode.el" nil t)
 (add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode))
+
+
 
 ; ------- Modes ---------
 ; ido
