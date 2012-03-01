@@ -35,3 +35,6 @@
 	path = utils/pylookup
 	url = https://github.com/tsgates/pylookup.git
 
+[submodule "modes/browse-kill-ring"]
+	path = modes/browse-kill-ring
+	url = https://github.com/todesschaf/browse-kill-ring.git
