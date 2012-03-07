@@ -285,6 +285,7 @@
 (eval-after-load "c-mode" '(define-key c-mode-map [(f6)] 'ff-find-other-file))
 (eval-after-load "cc-mode" '(define-key c-mode-map [(f6)] 'ff-find-other-file))
 (global-set-key [(f7)] 'magit-status)
+(global-set-key [(f9)] 'compile)
 (global-set-key [(f12)] 'delete-trailing-whitespace)
 
 ; Customizations beyond this configuration - separate to a different file
