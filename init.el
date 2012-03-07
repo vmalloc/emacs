@@ -174,6 +174,9 @@
 (require 'ido-recentf-open)
 (global-set-key (kbd "C-x C-r") 'ido-recentf-open)
 
+; iedit
+(require 'iedit)
+
 ; anything
 (add-to-list 'load-path (in-modes-d "anything"))
 (autoload-and-run 'anything "anything.el" t
