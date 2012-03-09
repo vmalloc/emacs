@@ -35,3 +35,6 @@
 	path = utils/pylookup
 	url = https://github.com/tsgates/pylookup.git
 
+[submodule "modes/ghc-mod"]
+	path = modes/ghc-mod
+	url = https://github.com/kazu-yamamoto/ghc-mod.git
