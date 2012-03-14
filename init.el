@@ -245,6 +245,10 @@
 (autoload 'ace-jump-char-mode (in-modes-d "ace-jump-mode/ace-jump-mode.el") nil t)
 (setq ace-jump-mode-case-sensitive-search nil)
 (global-set-key (kbd "C-x j") 'ace-jump-char-mode)
+;   only use lowercase letters for lookup
+(setq ace-jump-mode-move-keys
+  (nconc (loop for i from ?a to ?z collect i)))
+
 
 ; drag stuff
 (autoload 'drag-stuff-global-mode (in-modes-d "drag-stuff/drag-stuff.el") nil t)
