@@ -132,6 +132,9 @@
   (when (not (file-exists-p (buffer-file-name)))
     (set-buffer-modified-p t)))
 
+; always revert files when they change on disk
+(global-auto-revert-mode t)
+
 ; mark always active for selecting
 (setq transient-mark-mode t)
 
