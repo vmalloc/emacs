@@ -123,7 +123,6 @@
   ad-do-it
 )
 
-
 ; --------  Basic editing facilities ---------
 
 ; assume new files are always modified (useful for creating empty files)
