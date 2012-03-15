@@ -182,6 +182,7 @@
 
 ; iedit
 (require 'iedit)
+(global-set-key (kbd "C-x i") 'iedit-mode)
 
 ; anything
 (add-to-list 'load-path (in-modes-d "anything"))
