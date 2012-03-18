@@ -1,5 +1,67 @@
 Python Mode News
 ================
+New in version 6.0.5
+--------------------
+
+- Menu reworked and extended
+
+- extended commands combine executing statement/block... with dedidi  cated/switch... etc. This may remove some need of customization.  
+
+- local environments support started
+  If calls to common `py-shell' should use local executable
+  instead of default system Python set
+  `py-use-local-default' alongside with
+  `py-shell-local-path'
+
+- `py-toggle-shells' alias of more powerful `py-switch-shells'
+  Toggles between the interpreter customized in `py-shell-toggle-1' resp. `py-shell-toggle-2'. Was hard-coded CPython and Jython in earlier versions, now starts with Python2 and Python3 by default.
+
+- `py-shell-name' accepts PATH/TO/EXECUTABLE
+  in addition to name of an installed default Python-Shell.
+  Permits installing commands like
+  (defun python-XYZ-shell (&optional argprompt)
+    "Start an Python-XYZ interpreter ... "
+    (interactive)
+    (let ((py-shell-name "PATH/TO/PYTHON-XYZ"))
+      (py-shell argprompt)))
+
+-  new commands `indent-tabs-mode', `toggle-indent-tabs-mode', 
+  `indent-tabs-mode-on', `indent-tabs-mode-off'
+
+  feature after a request at Stack Exchange asked Jul
+  13 '11 at 13:23 saying
+  `tab-width' now follows `py-indent-offset'
+
+- new command `py-execute-region-default' forces the
+  systems default Python interpreter to execute, ignores
+  shebang
+
+  related functions redesigned, `async' argument dropped
+  `py-execute-region' now reads:
+
+  (defun py-execute-region (start end &optional shell dedicated)
+    "Send the region to a Python interpreter.
+
+  When called with \\[univeral-argument], execution through `default-value' of `py-shell-name' is forced.
+  When called with \\[univeral-argument] followed by a number different from 4 and 1, user is prompted to specify a shell. This might be the name of a system-wide shell or include the path to a virtual environment.
+
+  When called from a programm, it accepts a string specifying a shell which will be forced upon execute as argument. "
+  [ ... ]
+
+- new `py-number-face',
+  visible only when customized and `py-use-number-face-p' is `t',
+  inherits default face
+  With large files fontifying numbers may cause a delay
+  Credits to github.com/fgallina/python.el/issues42
+
+- new boolean `py-verbose-p'
+  if `t', reached indent level etc. is messaged
+
+- new commands py-execute-buffer-dedicated, py-execute-buffer-switch  -dedicated
+
+- `toggle-py-smart-indentation' new command
+   also `py-smart-indentation-on', -off
+
 New in version 6.0.4
 --------------------
 
