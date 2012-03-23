@@ -251,10 +251,10 @@
 
 
 ; drag stuff
-(autoload 'drag-stuff-global-mode (in-modes-d "drag-stuff/drag-stuff.el") nil t)
+(add-to-list 'load-path (in-modes-d "drag-stuff"))
+(setq drag-stuff-modifier '(meta control))
+(require 'drag-stuff)
 (drag-stuff-global-mode t)
-(define-key drag-stuff-mode-map (kbd "<C-M-up>") 'drag-stuff-up)
-(define-key drag-stuff-mode-map (kbd "<C-M-down>") 'drag-stuff-down)
 
 ; org-mode
 (add-to-list 'load-path (in-modes-d "org-mode/lisp"))
