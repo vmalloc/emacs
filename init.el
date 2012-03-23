@@ -258,6 +258,7 @@
 
 ; org-mode
 (add-to-list 'load-path (in-modes-d "org-mode/lisp"))
+(add-to-list 'load-path (in-modes-d "org-mode/contrib/lisp"))
 (autoload 'org-mode "org.el" nil t)
 
 ; nyan-mode (no .emacs.d is whole without it)
