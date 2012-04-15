@@ -53,11 +53,11 @@
   (color-theme-dark-laptop)))
 
 ; recentf - save history of recently visited files
-(require 'recentf)
+(autoload 'recentf-mode "recentf.el" nil t)
+(autoload 'recentf-save-list "recentf.el" nil t)
+(run-with-idle-timer (* 5 60) t 'recentf-save-list)
 (setq recentf-auto-cleanup 'never)
 (setq recentf-max-saved-items 1000)
-(recentf-mode 1)
-(run-with-idle-timer (* 5 60) t 'recentf-save-list)
 
 ; autosave settings
 (setq auto-save-list-file-prefix nil)
@@ -178,7 +178,11 @@
 ; ido
 (ido-mode)
 (require 'ido-recentf-open)
-(global-set-key (kbd "C-x C-r") 'ido-recentf-open)
+(defun ido-recentf-open-lazy () (interactive)
+  (recentf-mode 1)
+  (ido-recentf-open)
+)
+(global-set-key (kbd "C-x C-r") 'ido-recentf-open-lazy)
 
 ; iedit
 (require 'iedit)
