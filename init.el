@@ -30,15 +30,22 @@
     (scroll-bar-mode 0))
 (setq ring-bell-function 'ignore)
 
+; YASnippet - should appear before custom-set-variables
+(add-to-list 'load-path (in-modes-d "yasnippet"))
+(require 'yasnippet)
+(yas/global-mode 1)
+(setq yas/indent-line 'fixed) ; for indented snippets
+
+(setq custom-file "~/.emacs-custom.el")
+
 ; display trailing whitespaces
 (custom-set-variables
  '(show-trailing-whitespace t)
 )
 
 ; Customizations beyond this configuration - separate to a different file
-(setq custom-file "~/.emacs-custom.el")
-(if (file-exists-p custom-file)
-    (load-file custom-file))
+;(if (file-exists-p custom-file)
+;    (load-file custom-file))
 
 ; Color theme
 (cond
@@ -247,12 +254,6 @@
 (put 'autopair-extra-skip-close-maybe 'delete-selection t)
 (put 'autopair-backspace 'delete-selection 'supersede)
 (put 'autopair-newline 'delete-selection t)
-
-; YASnippet
-(add-to-list 'load-path (in-modes-d "yasnippet"))
-(require 'yasnippet)
-(yas/global-mode 1)
-(setq yas/indent-line 'fixed) ; for indented snippets
 
 ; ace-jump - quickly navigate to any character
 (autoload 'ace-jump-char-mode (in-modes-d "ace-jump-mode/ace-jump-mode.el") nil t)
