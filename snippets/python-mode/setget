@@ -1,0 +1,9 @@
+# -*- coding: utf-8 -*-
+# name: setget
+# key: setget
+# --
+_${1:x} = None
+def set_$1(self, $1):
+    self._$1 = $1
+def get_$1(self):
+    return self._$1

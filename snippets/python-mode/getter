@@ -1,0 +1,6 @@
+# -*- coding: utf-8 -*-
+# name: getter
+# key: getter
+# --
+def get_${1:x}(self):
+    return self._$1
