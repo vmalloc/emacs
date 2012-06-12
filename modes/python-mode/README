@@ -4,6 +4,8 @@ Customize default Python shell as `py-shell-name'
 shell command `type' would display, but also a
 PATH/TO/(I)PYTHON, of a virtualenv for example
 
+To change the Python default shell see also INSTALL
+
 Most python-mode.el commands start with prefix `py-'
 
 `M-x py- TAB'
@@ -31,3 +33,5 @@ Install a local shell by evaluating
 (defun MY-LOCAL-SHELL ()
   (interactive)
   (py-shell nil DEDICATED PATH-TO-LOCAL-SHELL))
+
+If `py-complete-function' is set, it takes precedence 
