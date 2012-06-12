@@ -198,6 +198,8 @@
 ; ------- Modes ---------
 ; ido
 (ido-mode)
+(setq ido-max-prospects 200)
+
 (require 'ido-recentf-open)
 (defun ido-recentf-open-lazy () (interactive)
   (recentf-mode 1)
