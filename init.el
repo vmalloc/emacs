@@ -201,11 +201,8 @@
 (setq ido-max-prospects 200)
 
 (require 'ido-recentf-open)
-(defun ido-recentf-open-lazy () (interactive)
-  (recentf-mode 1)
-  (ido-recentf-open)
-)
-(global-set-key (kbd "C-x C-r") 'ido-recentf-open-lazy)
+(recentf-mode 1)
+(global-set-key (kbd "C-x C-r") 'ido-recentf-open)
 
 ; iedit
 (require 'iedit)
