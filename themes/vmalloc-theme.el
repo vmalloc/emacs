@@ -457,7 +457,7 @@
     '(org-agenda-structure
        ((t (:inherit font-lock-comment))))
     `(org-archived ((t (:foreground ,vmalloc-fg :weight bold))))
-    `(org-checkbox ((t (:background ,vmalloc-bg+2 :foreground "white"
+    `(org-checkbox ((t (:background ,vmalloc-green-4 :foreground "white"
 			      :box (:line-width 1 :style released-button)))))
     `(org-date ((t (:foreground ,vmalloc-blue :underline t))))
     `(org-deadline-announce ((t (:foreground ,vmalloc-red-1))))
