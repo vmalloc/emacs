@@ -274,6 +274,11 @@
 (put 'autopair-backspace 'delete-selection 'supersede)
 (put 'autopair-newline 'delete-selection t)
 
+; Disable the autopair mapping in term mode
+(add-hook 'term-mode-hook
+          '(lambda ()
+	     (setq autopair-dont-activate t)))
+
 ; ace-jump - quickly navigate to any character
 (autoload 'ace-jump-char-mode (in-modes-d "ace-jump-mode/ace-jump-mode.el") nil t)
 (setq ace-jump-mode-case-sensitive-search nil)
