@@ -45,6 +45,18 @@
 (custom-set-variables
  '(show-trailing-whitespace t)
 )
+(add-hook 'term-mode-hook
+	  (lambda ()
+	    (setq show-trailing-whitespace nil)))
+(add-hook 'eshell-mode-hook
+	  (lambda ()
+	    (setq show-trailing-whitespace nil)))
+(add-hook 'shell-mode-hook
+	  (lambda ()
+	    (setq show-trailing-whitespace nil)))
+(add-hook 'inferior-python-mode-hook
+	  (lambda ()
+	    (setq show-trailing-whitespace nil)))
 
 ; Customizations beyond this configuration - separate to a different file
 ;(if (file-exists-p custom-file)
@@ -71,6 +83,7 @@
 (run-with-idle-timer (* 5 60) t 'recentf-save-list)
 (setq recentf-auto-cleanup 'never)
 (setq recentf-max-saved-items 1000)
+
 
 ; autosave settings
 (setq auto-save-list-file-prefix nil)
@@ -260,6 +273,11 @@
 (put 'autopair-extra-skip-close-maybe 'delete-selection t)
 (put 'autopair-backspace 'delete-selection 'supersede)
 (put 'autopair-newline 'delete-selection t)
+
+; Disable the autopair mapping in term mode
+(add-hook 'term-mode-hook
+          '(lambda ()
+	     (setq autopair-dont-activate t)))
 
 ; ace-jump - quickly navigate to any character
 (autoload 'ace-jump-char-mode (in-modes-d "ace-jump-mode/ace-jump-mode.el") nil t)
