@@ -45,6 +45,15 @@
 (custom-set-variables
  '(show-trailing-whitespace t)
 )
+(add-hook 'term-mode-hook
+	  (lambda ()
+	    (setq show-trailing-whitespace nil)))
+(add-hook 'eshell-mode-hook
+	  (lambda ()
+	    (setq show-trailing-whitespace nil)))
+(add-hook 'shell-mode-hook
+	  (lambda ()
+	    (setq show-trailing-whitespace nil)))
 
 ; Customizations beyond this configuration - separate to a different file
 ;(if (file-exists-p custom-file)
@@ -71,6 +80,7 @@
 (run-with-idle-timer (* 5 60) t 'recentf-save-list)
 (setq recentf-auto-cleanup 'never)
 (setq recentf-max-saved-items 1000)
+
 
 ; autosave settings
 (setq auto-save-list-file-prefix nil)
