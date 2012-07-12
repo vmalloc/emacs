@@ -54,6 +54,9 @@
 (add-hook 'shell-mode-hook
 	  (lambda ()
 	    (setq show-trailing-whitespace nil)))
+(add-hook 'inferior-python-mode-hook
+	  (lambda ()
+	    (setq show-trailing-whitespace nil)))
 
 ; Customizations beyond this configuration - separate to a different file
 ;(if (file-exists-p custom-file)
