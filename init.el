@@ -42,21 +42,7 @@
 (setq custom-file "~/.emacs-custom.el")
 
 ; display trailing whitespaces
-(custom-set-variables
- '(show-trailing-whitespace t)
-)
-(add-hook 'term-mode-hook
-	  (lambda ()
-	    (setq show-trailing-whitespace nil)))
-(add-hook 'eshell-mode-hook
-	  (lambda ()
-	    (setq show-trailing-whitespace nil)))
-(add-hook 'shell-mode-hook
-	  (lambda ()
-	    (setq show-trailing-whitespace nil)))
-(add-hook 'inferior-python-mode-hook
-	  (lambda ()
-	    (setq show-trailing-whitespace nil)))
+(add-hook 'prog-mode-hook (lambda () show-trailing-whitespace t))
 
 ; Customizations beyond this configuration - separate to a different file
 ;(if (file-exists-p custom-file)
