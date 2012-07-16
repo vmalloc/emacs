@@ -218,7 +218,8 @@
 (global-set-key (kbd "C-x C-r") 'ido-recentf-open)
 
 ; undo-tree
-(autoload 'undo-tree-visualize (in-modes-d "undo-tree.el") nil t)
+(require 'undo-tree)
+(global-undo-tree-mode t)
 
 ; iedit
 (require 'iedit)
