@@ -205,6 +205,13 @@
 (recentf-mode 1)
 (global-set-key (kbd "C-x C-r") 'ido-recentf-open)
 
+; fill-column-indicator
+(autoload 'fci-mode (in-modes-d "fci-mode/fill-column-indicator.el") nil t)
+(setq fci-rule-column 80)
+(add-hook 'python-mode-hook
+	  (lambda ()
+	     (fci-mode)))
+
 ; undo-tree
 (require 'undo-tree)
 (global-undo-tree-mode t)
