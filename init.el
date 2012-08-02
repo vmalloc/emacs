@@ -280,6 +280,15 @@
 (setq ace-jump-mode-move-keys
   (nconc (loop for i from ?a to ?z collect i)))
 
+(defun add-super-char-to-ace-jump-word-mode (c)
+  (global-set-key
+   (read-kbd-macro (concat "s-" (string c)))
+   `(lambda () (interactive) (ace-jump-char-mode ,c))))
+(loop for c from ?0 to ?9 do (add-super-char-to-ace-jump-word-mode c))
+(loop for c from ?A to ?Z do (add-super-char-to-ace-jump-word-mode c))
+(loop for c from ?a to ?z do (add-super-char-to-ace-jump-word-mode c))
+(loop for c from ?( to ?) do (add-super-char-to-ace-jump-word-mode c))
+(loop for c from ?{ to ?} do (add-super-char-to-ace-jump-word-mode c))
 
 ; drag stuff
 (add-to-list 'load-path (in-modes-d "drag-stuff"))
