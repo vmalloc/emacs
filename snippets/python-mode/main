@@ -9,17 +9,25 @@ import logging
 import sys
 
 parser = argparse.ArgumentParser(usage="%(prog)s [options] args...")
-parser.add_argument("-v", "--verbose", action="store_true", default=False)
+parser.add_argument('-v', action='append_const', const=1, dest='verbosity', default=[], 
+                    help="Be more verbose. Can be specified multiple times to increase verbosity further")
 
 def main(args):
     $0
     return 0
 
 ################################## Boilerplate #################################
-def _configure_logging():
+def _configure_logging(args):
+    verbosity_level = len(args.verbosity)
+    if verbosity_level == 0:
+        level = "WARNING"
+    elif verbosity_level == 1:
+        level = "INFO"
+    else:
+        level = "DEBUG"
     logging.basicConfig(
         stream=sys.stderr,
-        level=logging.DEBUG,
+        level=level,
         format="%(asctime)s -- %(message)s"
         )
 
@@ -27,7 +35,7 @@ def _configure_logging():
 def main_entry_point():
     args = parser.parse_args()
     if args.verbose:
-        _configure_logging()
+        _configure_logging(args)
     sys.exit(main(args))
 if __name__ == '__main__':
     main_entry_point()
