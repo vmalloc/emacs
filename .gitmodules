@@ -38,3 +38,6 @@
 [submodule "modes/ghc-mod"]
 	path = modes/ghc-mod
 	url = https://github.com/kazu-yamamoto/ghc-mod.git
+[submodule "modes/expand-region"]
+	path = modes/expand-region
+	url = https://github.com/magnars/expand-region.el.git

@@ -316,6 +316,11 @@
 
 ; ------- Utilities -----
 
+; expand-region
+(add-to-list 'load-path (in-modes-d "expand-region"))
+(require 'expand-region)
+(global-set-key (kbd "C-=") 'er/expand-region)
+
 ; better compilation window
 ;   make the compilation window always appear at the bottom
 (defun organize-compilation-window ()
