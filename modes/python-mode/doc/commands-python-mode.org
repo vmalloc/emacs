@@ -682,6 +682,8 @@ http://docs.python.org/reference/compound_stmts.html
 
 A a compound python expression might be concatenated by "." operator, thus composed by minor python expressions.
 
+If already at the beginning or before a expression, go to next expression in buffer upwards
+
 Expression here is conceived as the syntactical component of a statement in Python. See http://docs.python.org/reference
 Operators however are left aside resp. limit py-expression designed for edit-purposes.
 
@@ -698,7 +700,9 @@ Operators however are left aside resp. limit py-expression designed for edit-pur
 
 "." operators delimit a minor expression on their level.
 Expression here is conceived as the syntactical component of a statement in Python. See http://docs.python.org/reference
-Operators however are left aside resp. limit py-expression designed for edit-purposes. 
+Operators however are left aside resp. limit py-expression designed for edit-purposes.
+
+If already at the beginning or before a partial-expression, go to next partial-expression in buffer upwards 
 * py-end-of-partial-expression
    Go to the end of a minor python expression.
 
@@ -1049,6 +1053,11 @@ Optional C-u prompts for options to pass to the Python2.7 interpreter. See `py-p
    Optional DEDICATED SWITCH are provided for use from programs. 
 * jython
    Start an Jython interpreter.
+
+Optional C-u prompts for options to pass to the Jython interpreter. See `py-python-command-args'.
+   Optional DEDICATED SWITCH are provided for use from programs. 
+* bpython
+   Start an BPython interpreter.
 
 Optional C-u prompts for options to pass to the Jython interpreter. See `py-python-command-args'.
    Optional DEDICATED SWITCH are provided for use from programs. 
@@ -1610,16 +1619,72 @@ Returns value of `py-switch-buffers-on-execute-p'.
    Do some sanity check for `py-install-directory'.
 
 Returns `t' if successful. 
-* py-load-pymacs
-   Load Pymacs as delivered with python-mode.el.
-
-Pymacs has been written by François Pinard and many others.
-See original source: http://pymacs.progiciels-bpi.ca
 * py-guess-py-install-directory
    Takes value of user directory aka $HOME
 if `(locate-library "python-mode")' is not succesful. 
 * py-set-load-path
    Include needed subdirs of python-mode directory. 
+* autopair-insert-or-skip-quote
+   Insert or possibly skip over a quoting character.
+
+Works by scheduling possible autopair behaviour, then calls
+original command as if autopair didn't exist.
+* autopair-insert-opening
+   Insert opening delimiter and possibly automatically close it.
+
+Works by scheduling possible autopair behaviour, then calls
+original command as if autopair didn't exist.
+* autopair-skip-close-maybe
+   Insert or possibly skip over a closing delimiter.
+
+Works by scheduling possible autopair behaviour, then calls
+original command as if autopair didn't exist.
+* autopair-backspace
+   Possibly delete a pair of paired delimiters.
+
+Works by scheduling possible autopair behaviour, then calls
+original command as if autopair didn't exist.
+* autopair-newline
+   Do a smart newline when right between parenthesis.
+
+In other words, insert an extra newline along with the one inserted normally
+by this command. Then place point after the first, indented.
+
+Works by scheduling possible autopair behaviour, then calls
+original command as if autopair didn't exist.
+* autopair-extra-insert-opening
+   Insert (an extra) opening delimiter and possibly automatically close it.
+
+Works by scheduling possible autopair behaviour, then calls
+original command as if autopair didn't exist.
+* autopair-extra-skip-close-maybe
+   Insert or possibly skip over a (and extra) closing delimiter.
+
+Works by scheduling possible autopair behaviour, then calls
+original command as if autopair didn't exist.
+* autopair-insert-or-skip-paired-delimiter
+   Insert or possibly skip over a character with a syntax-class of "paired delimiter".Works by scheduling possible autopair behaviour, then calls
+original command as if autopair didn't exist.
+* py-edit-abbrevs
+   Jumps to `python-mode-abbrev-table' in a buffer containing lists of abbrev definitions.
+You can edit them and type C-c C-c to redefine abbrevs
+according to your editing.
+Buffer contains a header line for each abbrev table,
+ which is the abbrev table name in parentheses.
+This is followed by one line per abbrev in that table:
+NAME   USECOUNT   EXPANSION   HOOK
+where NAME and EXPANSION are strings with quotes,
+USECOUNT is an integer, and HOOK is any valid function
+or may be omitted (it is usually omitted).  
+* py-add-abbrev
+   Defines python-mode specific abbrev for last expressions before point.
+Argument is how many `py-partial-expression's form the expansion; or zero means the region is the expansion.
+
+Reads the abbreviation in the minibuffer; with numeric arg it displays a proposal for an abbrev.
+Proposal is composed from the initial character(s) of the
+expansion.
+
+Don't use this function in a Lisp program; use `define-abbrev' instead.
 * py-def-or-class-beginning-position
    Returns beginning position of function or class definition. 
 * py-def-or-class-end-position
@@ -1663,13 +1728,6 @@ If the file has extension `.py' import or reload it as a module.
 Treating it as a module keeps the global namespace clean, provides
 function location information for debugging, and supports users of
 module-qualified names.
-* py-set-proc
-   Set the default value of `python-buffer' to correspond to this buffer.
-
-If the current buffer has a local value of `python-buffer', set the
-default (global) value to that.  The associated Python process is
-the one that gets input from M-x py-send-region et al when used
-in a buffer that doesn't have a local value of `python-buffer'.
 * py-completion-at-point
    An alternative completion, similar the way python.el does it. 
 * py-script-complete
@@ -1686,9 +1744,7 @@ in a buffer that doesn't have a local value of `python-buffer'.
    Complete the python symbol before point.
 
 If no completion available, insert a TAB.
-Returns the completed symbol, a string, if successful, nil otherwise.
-
-Bug: if no IPython-shell is running, fails first time due to header returned, which messes up the result. Please repeat once then. 
+Returns the completed symbol, a string, if successful, nil otherwise. 
 * ipython-complete-py-shell-name
    Complete the python symbol before point.
 
