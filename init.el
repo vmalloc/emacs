@@ -83,6 +83,7 @@
 ;        home/end
 (global-set-key [(end)]                  'end-of-line)
 (global-set-key [(home)]                 'beginning-of-line)
+(add-hook 'prog-mode-hook (lambda () (local-set-key [(return)] 'newline-and-indent)))
 ;    window moving
 (global-set-key (kbd "<M-up>") 'windmove-up)
 (global-set-key (kbd "<M-down>") 'windmove-down)
