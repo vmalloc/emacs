@@ -322,6 +322,7 @@
 (add-to-list 'load-path (in-modes-d "expand-region"))
 (require 'expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)
+(global-set-key (kbd "C--") 'er/contract-region)
 
 ; better compilation window
 ;   make the compilation window always appear at the bottom
