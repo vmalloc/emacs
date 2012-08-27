@@ -219,20 +219,10 @@
 (require 'iedit)
 (global-set-key (kbd "C-x i") 'iedit-mode)
 
-; anything
-(add-to-list 'load-path (in-modes-d "anything"))
-(autoload-and-run 'anything "anything.el" t
-		  '(progn
-		    (require 'anything-config)
-                    (add-to-list 'anything-sources 'anything-c-source-emacs-functions)
-		    (add-to-list 'anything-sources 'anything-c-source-locate)
-		    (add-to-list 'anything-sources 'anything-c-source-mac-spotlight)
-		    (add-to-list 'anything-sources 'anything-c-source-kill-ring)
-		    (add-to-list 'anything-sources 'anything-c-source-occur)
-		    ))
-(autoload 'anything-config "anything-config.el")
-(global-set-key [(control x) (a)] 'anything)
-
+; helm mode
+(add-to-list 'load-path (in-modes-d "helm"))
+(require 'helm-config)
+(global-set-key (kbd "C-c h") 'helm-mini)
 
 ; smex (ido for M-x commands)
 (autoload 'smex-initialize (in-modes-d "smex/smex.el"))

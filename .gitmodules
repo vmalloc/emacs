@@ -28,9 +28,6 @@
 [submodule "modes/virtualenv"]
 	path = modes/virtualenv
 	url = https://github.com/aculich/virtualenv.el.git
-[submodule "modes/anything"]
-	path = modes/anything
-	url = git://repo.or.cz/anything-config.git
 [submodule "utils/pylookup"]
 	path = utils/pylookup
 	url = https://github.com/tsgates/pylookup.git
@@ -41,3 +38,6 @@
 [submodule "modes/expand-region"]
 	path = modes/expand-region
 	url = https://github.com/magnars/expand-region.el.git
+[submodule "modes/helm"]
+	path = modes/helm
+	url = https://github.com/emacs-helm/helm.git
