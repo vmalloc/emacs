@@ -223,9 +223,11 @@
 (global-set-key (kbd "C-x i") 'iedit-mode)
 
 ; helm mode
+(setq helm-input-idle-delay 0)
 (add-to-list 'load-path (in-modes-d "helm"))
 (require 'helm-config)
 (global-set-key (kbd "C-c h") 'helm-mini)
+(global-set-key (kbd "M-i") 'helm-semantic-or-imenu)
 
 ; smex (ido for M-x commands)
 (autoload 'smex-initialize (in-modes-d "smex/smex.el"))
