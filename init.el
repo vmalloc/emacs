@@ -16,6 +16,9 @@
 (if (not in-terminal)
     (server-start))
 
+; enable all disabled commands
+(setq disabled-command-function nil)
+
 (defun autoload-and-run (symbol file interactive callback)
   (autoload symbol file nil interactive)
   (eval-after-load (symbol-name symbol) callback)
