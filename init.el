@@ -288,7 +288,9 @@
 
 (unless (string-equal system-type "windows-nt")
   ;bind most printable characters to S-<character>
-  (loop for c from ?\" to ?~ do (my/set-super-char-to-ace-jump-mode c)))
+  (loop for c from ?\" to ?~ do (my/set-super-char-to-ace-jump-mode c))
+  (loop for c in (list ?! ?@ ?# ?$ ?% ?^ ?& ?*) do (my/set-super-char-to-ace-jump-mode c))
+  )
 
 ; drag stuff
 (add-to-list 'load-path (in-modes-d "drag-stuff"))
