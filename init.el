@@ -226,8 +226,10 @@
 (setq helm-input-idle-delay 0)
 (add-to-list 'load-path (in-modes-d "helm"))
 (require 'helm-config)
+(helm-mode t)
 (global-set-key (kbd "C-c h") 'helm-mini)
 (global-set-key (kbd "M-i") 'helm-semantic-or-imenu)
+(global-set-key (kdb "C-x y") 'helm-show-kill-ring)
 
 ; smex (ido for M-x commands)
 (autoload 'smex-initialize (in-modes-d "smex/smex.el"))
@@ -274,7 +276,6 @@
 
 ; ace-jump - quickly navigate to any character
 (autoload 'ace-jump-char-mode (in-modes-d "ace-jump-mode/ace-jump-mode.el") nil t)
-(setq ace-jump-mode-case-sensitive-search nil)
 (global-set-key (kbd "C-x j") 'ace-jump-char-mode)
 ;   only use lowercase letters for lookup
 (setq ace-jump-mode-move-keys
