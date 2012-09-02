@@ -229,7 +229,7 @@
 (helm-mode t)
 (global-set-key (kbd "C-c h") 'helm-mini)
 (global-set-key (kbd "M-i") 'helm-semantic-or-imenu)
-(global-set-key (kdb "C-x y") 'helm-show-kill-ring)
+(global-set-key (kbd "C-x y") 'helm-show-kill-ring)
 
 ; smex (ido for M-x commands)
 (autoload 'smex-initialize (in-modes-d "smex/smex.el"))
