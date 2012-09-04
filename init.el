@@ -313,6 +313,8 @@
 
 ; nyan-mode (no .emacs.d is whole without it)
 (autoload 'nyan-mode (in-modes-d "nyan-mode/nyan-mode.el") nil t)
+(unless in-terminal
+  (nyan-mode t))
 
 ; ------- Utilities -----
 
