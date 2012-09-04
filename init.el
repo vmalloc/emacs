@@ -186,10 +186,15 @@
   (setq py-install-directory python-mode-dir)
   (autoload 'python-mode "python-mode.el" nil t))
 
+(add-hook 'python-mode-hook
+          '(lambda ()
+             (local-set-key (kbd "C-c #") 'comment-or-uncomment-region)))
+
 ; Haskell
 (autoload 'haskell-mode (in-modes-d "haskell-mode/haskell-mode.el") nil t)
 (add-to-list 'auto-mode-alist '("\\.hs$" . haskell-mode))
 (autoload 'turn-on-haskell-ghci "haskell-ghci"
+
   "Turn on interaction with a GHCi interpreter." t)
 (add-hook 'haskell-mode-hook 'turn-on-haskell-ghci)
 (add-to-list 'load-path (in-modes-d "ghc-mod/elisp"))
