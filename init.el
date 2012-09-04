@@ -50,8 +50,6 @@
 
 ; display trailing whitespaces
 (add-hook 'prog-mode-hook (lambda () (setq show-trailing-whitespace t)))
-; python-mode is not in prog-mode yet :-(
-(add-hook 'python-mode-hook (lambda () (setq show-trailing-whitespace t)))
 
 ; Customizations beyond this configuration - separate to a different file
 ;(if (file-exists-p custom-file)
@@ -181,10 +179,7 @@
 (setq c-basic-offset 4)
 
 ; Python
-(let ((python-mode-dir (in-emacs-d "modes/python-mode/")))
-  (add-to-list 'load-path python-mode-dir)
-  (setq py-install-directory python-mode-dir)
-  (autoload 'python-mode "python-mode.el" nil t))
+(require 'python)
 
 (add-hook 'python-mode-hook
           '(lambda ()
@@ -359,8 +354,7 @@
 (add-to-list 'find-file-hook 'rainbow-mode)
 
 (autoload 'python-auto-super (in-utils-d "python-auto-super.el") nil t)
-(eval-after-load "python-mode" '(define-key python-mode-map [(control ?x) ?p ?s] 'python-auto-super))
-(eval-after-load "python-mode" '(load-file (in-modes-d "virtualenv/virtualenv.el")))
+(define-key python-mode-map [(control ?x) ?p ?s] 'python-auto-super)
 
 (setq pylookup-dir (in-utils-d "pylookup"))
 (setq pylookup-program (concat pylookup-dir "/pylookup.py"))
