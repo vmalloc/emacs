@@ -41,3 +41,6 @@
 [submodule "modes/helm"]
 	path = modes/helm
 	url = https://github.com/emacs-helm/helm.git
+[submodule "modes/lua-mode"]
+	path = modes/lua-mode
+	url = https://github.com/immerrr/lua-mode.git

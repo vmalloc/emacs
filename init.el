@@ -197,6 +197,12 @@
 (add-hook 'haskell-mode-hook (lambda () (ghc-init) (flymake-mode)))
 (setq ghc-module-command "~/.cabal/bin/ghc-mod")
 
+; lua
+(add-to-list 'load-path (in-modes-d "lua-mode"))
+(autoload 'lua-mode "lua-mode" "Lua editing mode." t)
+(add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
+(add-to-list 'interpreter-mode-alist '("lua" . lua-mode))
+
 ; HTML
 (autoload 'nxhtml-mode (in-modes-d "nxhtml-mode/autostart.el") nil t)
 (add-to-list 'auto-mode-alist '("\\.html$" . nxhtml-mode))
