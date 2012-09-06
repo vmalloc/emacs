@@ -393,3 +393,6 @@
 (setq custom-file "~/.emacs-custom.el")
 (if (file-exists-p custom-file)
     (load-file custom-file))
+
+;; Don't require double escaping the re-builder
+(setq reb-re-syntax 'string)
