@@ -389,3 +389,7 @@
 
 ;; Don't require double escaping the re-builder
 (setq reb-re-syntax 'string)
+
+;; Scroll without moving the cursor
+(global-set-key "\M-n"  (lambda () (interactive) (scroll-up   4)) )
+(global-set-key "\M-p"  (lambda () (interactive) (scroll-down 4)) )
