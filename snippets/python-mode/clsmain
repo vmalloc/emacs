@@ -1,0 +1,47 @@
+# name: clsmain
+# key: clsmain
+# --
+#!/usr/bin/env python
+import argparse
+import logging
+import sys
+
+parser = argparse.ArgumentParser(usage="%(prog)s [options] args...")
+parser.add_argument('-v', action='append_const', const=1, dest='verbosity', default=[],
+                    help="Be more verbose. Can be specified multiple times to increase verbosity further")
+
+class Application(object):
+    def __init__(self, args):
+        self._args = args
+
+    def main(self):
+        $0
+        return 0
+
+
+################################## Boilerplate ################################
+def _configure_logging(args):
+    verbosity_level = len(args.verbosity)
+    if verbosity_level == 0:
+        level = 'WARNING'
+    elif verbosity_level == 1:
+        level = 'INFO'
+    else:
+        level = 'DEBUG'
+    logging.basicConfig(
+        stream=sys.stderr,
+        level=level,
+        format='%(asctime)s -- %(message)s'
+        )
+
+
+#### For use with entry_points/console_scripts
+def main_entry_point():
+    args = parser.parse_args()
+    _configure_logging(args)
+    app = Application(args)
+    sys.exit(app.main())
+
+
+if __name__ == '__main__':
+    main_entry_point()
