@@ -46,7 +46,7 @@
 (yas/global-mode 1)
 (setq yas/indent-line 'fixed) ; for indented snippets
 
-(setq custom-file "~/.emacs-custom.el")
+(setq custom-file (in-emacs-d "emacs-custom.el"))
 
 ; display trailing whitespaces
 (add-hook 'prog-mode-hook (lambda () (setq show-trailing-whitespace t)))
