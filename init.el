@@ -326,6 +326,14 @@
 (global-set-key (kbd "C-=") 'er/expand-region)
 (global-set-key (kbd "C--") 'er/contract-region)
 
+;mark-multiple
+(add-to-list 'load-path (in-modes-d "mark-multiple.el"))
+
+(require 'mark-more-like-this)
+(global-set-key (kbd "C-<") 'mark-previous-like-this)
+(global-set-key (kbd "C->") 'mark-next-like-this)
+(global-set-key (kbd "C-*") 'mark-all-like-this)
+
 ; better compilation window
 ;   make the compilation window always appear at the bottom
 (defun organize-compilation-window ()

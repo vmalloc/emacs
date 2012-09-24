@@ -44,3 +44,6 @@
 [submodule "modes/lua-mode"]
 	path = modes/lua-mode
 	url = https://github.com/immerrr/lua-mode.git
+[submodule "modes/mark-multiple.el"]
+	path = modes/mark-multiple.el
+	url = https://github.com/magnars/mark-multiple.el.git
