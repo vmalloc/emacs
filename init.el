@@ -254,9 +254,12 @@
 
 ; auto-complete
 (add-to-list 'load-path (in-modes-d "auto-complete"))
+(add-to-list 'load-path (in-modes-d "auto-complete/lib/ert"))
+(add-to-list 'load-path (in-modes-d "auto-complete/lib/fuzzy"))
+(add-to-list 'load-path (in-modes-d "auto-complete/lib/popup"))
 (require 'auto-complete)
-(global-auto-complete-mode t)
 (require 'auto-complete-config)
+(global-auto-complete-mode t)
 (ac-config-default)
 
 ; autopair
