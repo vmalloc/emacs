@@ -289,10 +289,19 @@
          (read-kbd-macro (concat "s-" (string c)))
          `(lambda () (interactive) (ace-jump-char-mode ,c))))
 
+(defun my/set-super-char-to-register-jump (c)
+  (global-set-key
+         (read-kbd-macro (concat "C-s-" (string c)))
+         `(lambda () (interactive) (point-to-register ,c)))
+  (global-set-key
+         (read-kbd-macro (concat "M-s-" (string c)))
+         `(lambda () (interactive) (jump-to-register ,c))))
+
 (unless (string-equal system-type "windows-nt")
   ;bind most printable characters to S-<character>
   (loop for c from ?\" to ?~ do (my/set-super-char-to-ace-jump-mode c))
   (loop for c in (list ?! ?@ ?# ?$ ?% ?^ ?& ?*) do (my/set-super-char-to-ace-jump-mode c))
+  (loop for c from ?\" to ?~ do (my/set-super-char-to-register-jump c))
   )
 
 ; drag stuff
