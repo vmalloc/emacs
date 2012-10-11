@@ -47,3 +47,6 @@
 [submodule "modes/mark-multiple.el"]
 	path = modes/mark-multiple.el
 	url = https://github.com/magnars/mark-multiple.el.git
+[submodule "modes/multiple-cursors.el"]
+	path = modes/multiple-cursors.el
+	url = https://github.com/magnars/multiple-cursors.el.git
