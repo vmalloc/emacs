@@ -50,3 +50,6 @@
 [submodule "modes/multiple-cursors.el"]
 	path = modes/multiple-cursors.el
 	url = https://github.com/magnars/multiple-cursors.el.git
+[submodule "modes/python.el"]
+	path = modes/python.el
+	url = https://github.com/fgallina/python.el.git

@@ -179,6 +179,7 @@
 (setq c-basic-offset 4)
 
 ; Python
+(add-to-list 'load-path (in-modes-d "python.el"))
 (require 'python)
 
 (add-hook 'python-mode-hook
