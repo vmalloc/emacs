@@ -208,6 +208,11 @@
 (autoload 'nxhtml-mode (in-modes-d "nxhtml-mode/autostart.el") nil t)
 (add-to-list 'auto-mode-alist '("\\.html$" . nxhtml-mode))
 
+(add-to-list 'load-path (in-modes-d "zencoding"))
+(require 'zencoding-mode)
+(add-hook 'sgml-mode-hook 'zencoding-mode)
+
+
 ; Markdown
 (autoload 'markdown-mode "markdown-mode.el" nil t)
 (add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode))

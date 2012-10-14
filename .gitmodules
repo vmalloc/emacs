@@ -53,3 +53,6 @@
 [submodule "modes/python.el"]
 	path = modes/python.el
 	url = https://github.com/fgallina/python.el.git
+[submodule "modes/zencoding"]
+	path = modes/zencoding
+	url = https://github.com/rooney/zencoding.git
