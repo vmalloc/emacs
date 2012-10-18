@@ -30,8 +30,10 @@
 (display-time) ; useful for full-screen terminals
 
 ; Try to display battery info (only if applicable)
-(unwind-protect
-  (display-battery-mode t))
+(condition-case ex
+    (display-battery-mode t)
+  ('error (message "Cannot display battery"))
+  )
 
 (menu-bar-mode -1) ; get rid of the annoying menubars/toolbars etc.
 (if (boundp 'tool-bar-mode)
