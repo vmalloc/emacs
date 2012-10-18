@@ -367,7 +367,7 @@
 (add-to-list 'find-file-hook 'rainbow-mode)
 
 (autoload 'python-auto-super (in-utils-d "python-auto-super.el") nil t)
-(define-key python-mode-map [(control ?x) ?p ?s] 'python-auto-super)
+(define-key python-mode-map [(control ?c) ?s] 'python-auto-super)
 
 (setq pylookup-dir (in-utils-d "pylookup"))
 (setq pylookup-program (concat pylookup-dir "/pylookup.py"))
