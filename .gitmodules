@@ -56,3 +56,6 @@
 [submodule "modes/auto-complete"]
 	path = modes/auto-complete
 	url = https://github.com/auto-complete/auto-complete.git
+[submodule "modes/web-mode"]
+	path = modes/web-mode
+	url = https://github.com/fxbois/web-mode.git

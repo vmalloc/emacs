@@ -101,6 +101,7 @@
             ("Web"
              (or
               (mode . nxhtml-mode)
+	      (mode . web-mode)
               (mode . javascript-mode)
               (mode . js-mode)
               (mode . css-mode)
@@ -206,13 +207,23 @@
 (add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
 (add-to-list 'interpreter-mode-alist '("lua" . lua-mode))
 
-; HTML
+; nxml/nxhtml - a bloated mode for fancy XML/HTML editing with multiple-major-mode support.
+; It is only autoloaded, not wired to any format, since it's very clumsy and requires getting
+; used to...
 (autoload 'nxhtml-mode (in-modes-d "nxhtml-mode/autostart.el") nil t)
-(add-to-list 'auto-mode-alist '("\\.html$" . nxhtml-mode))
+
+; web
+
+; web-mode
+(add-to-list 'load-path (in-modes-d "web-mode"))
+(require 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.html$" . web-mode))
 
 (add-to-list 'load-path (in-modes-d "zencoding"))
 (require 'zencoding-mode)
+(setq zencoding-indentation web-mode-html-offset)
 (add-hook 'sgml-mode-hook 'zencoding-mode)
+(add-hook 'web-mode-hook 'zencoding-mode)
 
 
 ; Markdown
