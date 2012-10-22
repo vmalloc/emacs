@@ -239,6 +239,11 @@
 (recentf-mode 1)
 (global-set-key (kbd "C-x C-r") 'ido-recentf-open)
 
+; minimap
+(add-to-list 'load-path (in-modes-d "minimap"))
+(require 'minimap)
+
+
 ; undo-tree
 (require 'undo-tree)
 (global-undo-tree-mode t)
