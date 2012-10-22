@@ -48,8 +48,6 @@
 (yas/global-mode 1)
 (setq yas/indent-line 'fixed) ; for indented snippets
 
-(setq custom-file (in-emacs-d "emacs-custom.el"))
-
 ; display trailing whitespaces
 (add-hook 'prog-mode-hook (lambda () (setq show-trailing-whitespace t)))
 
@@ -242,6 +240,12 @@
 ; minimap
 (add-to-list 'load-path (in-modes-d "minimap"))
 (require 'minimap)
+(defun minimap-toggle ()
+  "Toggle minimap for current buffer."
+  (interactive)
+  (if (null minimap-bufname)
+      (minimap-create)
+    (minimap-kill)))
 
 
 ; undo-tree
@@ -411,7 +415,7 @@
 (global-set-key [(f12)] 'delete-trailing-whitespace)
 
 ; Customizations beyond this configuration - separate to a different file
-(setq custom-file (in-emacs-d ".emacs-custom.el")
+(setq custom-file (in-emacs-d ".emacs-custom.el"))
 (if (file-exists-p custom-file)
     (load-file custom-file))
 
