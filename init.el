@@ -290,8 +290,15 @@
 (global-auto-complete-mode t)
 (ac-config-default)
 
-; electric-pair
-(add-hook 'prog-mode-hook (lambda () (electric-pair-mode t)))
+; autopair
+(add-to-list 'load-path (in-modes-d "autopair"))
+(require 'autopair)
+(autopair-global-mode)
+
+; Disable the autopair mapping in term mode
+(add-hook 'term-mode-hook
+          '(lambda ()
+	     (setq autopair-dont-activate t)))
 
 ; ace-jump - quickly navigate to any character
 (autoload 'ace-jump-char-mode (in-modes-d "ace-jump-mode/ace-jump-mode.el") nil t)

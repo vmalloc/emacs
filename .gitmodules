@@ -62,3 +62,6 @@
 [submodule "modes/minimap"]
 	path = modes/minimap
 	url = git://randomsample.de/minimap.git
+[submodule "modes/autopair"]
+	path = modes/autopair
+	url = https://github.com/capitaomorte/autopair.git
