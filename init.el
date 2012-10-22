@@ -411,7 +411,7 @@
 (global-set-key [(f12)] 'delete-trailing-whitespace)
 
 ; Customizations beyond this configuration - separate to a different file
-(setq custom-file "~/.emacs-custom.el")
+(setq custom-file (in-emacs-d ".emacs-custom.el")
 (if (file-exists-p custom-file)
     (load-file custom-file))
 
