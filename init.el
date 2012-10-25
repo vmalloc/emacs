@@ -294,6 +294,8 @@
 (add-to-list 'load-path (in-modes-d "autopair"))
 (require 'autopair)
 (autopair-global-mode)
+(setq autopair-autowrap t) ; wrap selected region with quotes/parens/etc.
+(setq autpair-blink t)
 
 ; Disable the autopair mapping in term mode
 (add-hook 'term-mode-hook
