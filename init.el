@@ -395,15 +395,33 @@
 (autoload 'rainbow-mode (in-utils-d "rainbow-mode.el") nil t)
 (add-to-list 'find-file-hook 'rainbow-mode)
 
+; python-auto-super
 (autoload 'python-auto-super (in-utils-d "python-auto-super.el") nil t)
 (define-key python-mode-map [(control ?c) ?s] 'python-auto-super)
 
+; pylookup
 (setq pylookup-dir (in-utils-d "pylookup"))
 (setq pylookup-program (concat pylookup-dir "/pylookup.py"))
 (setq pylookup-db-file (concat pylookup-dir "/pylookup.db"))
 (add-to-list 'load-path pylookup-dir)
 (autoload 'pylookup-lookup "pylookup.el" nil t)
 (eval-after-load "python-mode" '(define-key python-mode-map [(control ?c) ?l] 'pylookup-lookup))
+
+; epylint + flymake
+(setq pycodechecker "epylint")
+(if (executable-find pycodechecker)
+    (when (load "flymake" t)
+      (defun flymake-pycodecheck-init ()
+	(let* ((temp-file (flymake-init-create-temp-buffer-copy
+			   'flymake-create-temp-inplace))
+	       (local-file (file-relative-name
+			    temp-file
+			    (file-name-directory buffer-file-name))))
+	  (list pycodechecker (list local-file))))
+      (add-to-list 'flymake-allowed-file-name-masks
+		   '("\\.py\\'" flymake-pycodecheck-init)))
+  (message (format "Cannot find executable %s. Flymake python code check will be disabled." pycodechecker))
+  )
 
 ; pbcopy - use OS X's clipboard if we're in the terminal
 (cond ((and in-terminal (string-equal system-type "darwin"))
