@@ -366,6 +366,7 @@
 (require 'multiple-cursors)
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(add-to-list 'mc/unsupported-minor-modes 'autopair-mode)
 
 ; better compilation window
 ;   make the compilation window always appear at the bottom
