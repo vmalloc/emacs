@@ -361,11 +361,11 @@
 (global-set-key (kbd "C-=") 'er/expand-region)
 (global-set-key (kbd "C--") 'er/contract-region)
 
-
 (add-to-list 'load-path (in-modes-d "multiple-cursors.el"))
 (require 'multiple-cursors)
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c m l") 'mc/edit-ends-of-lines)
 
 ; better compilation window
 ;   make the compilation window always appear at the bottom
