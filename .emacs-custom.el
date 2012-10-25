@@ -10,6 +10,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :background "#000000" :foreground "#dedede" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 140 :width normal :foundry "apple" :family "Monaco"))))
+ '(ace-jump-face-foreground ((t (:foreground "yellow" :weight bold))))
  '(highlight ((t (:background "Yellow" :foreground "black"))))
  '(linum ((t (:inherit (shadow default) :background "#000" :foreground "#444"))))
- '(minimap-active-region-background ((t (:background "#333")))))
+ '(minimap-active-region-background ((t (:background "#333"))))
+ '(region ((t (:background "White" :foreground "black")))))
