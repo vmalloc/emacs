@@ -16,6 +16,9 @@
 (if (not in-terminal)
     (server-start))
 
+; add /usr/local/bin to exec-path
+(add-to-list 'exec-path "/usr/local/bin")
+
 ; enable all disabled commands
 (setq disabled-command-function nil)
 
