@@ -410,6 +410,10 @@
 (autoload 'pylookup-lookup "pylookup.el" nil t)
 (eval-after-load "python-mode" '(define-key python-mode-map [(control ?c) ?l] 'pylookup-lookup))
 
+; flycheck
+(add-to-list 'load-path (in-modes-d "flycheck"))
+(require 'flycheck)
+
 ; epylint + flymake
 (setq pycodechecker "epylint")
 (if (executable-find pycodechecker)

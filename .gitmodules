@@ -65,3 +65,6 @@
 [submodule "modes/autopair"]
 	path = modes/autopair
 	url = https://github.com/capitaomorte/autopair.git
+[submodule "modes/flycheck"]
+	path = modes/flycheck
+	url = https://github.com/lunaryorn/flycheck.git
