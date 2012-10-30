@@ -410,6 +410,14 @@
 (autoload 'pylookup-lookup "pylookup.el" nil t)
 (eval-after-load "python-mode" '(define-key python-mode-map [(control ?c) ?l] 'pylookup-lookup))
 
+; dash support
+(defun dash-lookup-current-word ()
+  (interactive)
+  (browse-url (format "dash://%s" (current-word)))
+  )
+
+(global-set-key (kbd "C-c d") 'dash-lookup-current-word)
+
 ; flycheck
 (add-to-list 'load-path (in-modes-d "flycheck"))
 (require 'flycheck)
