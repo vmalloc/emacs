@@ -418,6 +418,11 @@
 
 (global-set-key (kbd "C-c d") 'dash-lookup-current-word)
 
+; flymake
+(add-to-list 'load-path (in-modes-d "flymake"))
+(require 'flymake)
+(global-set-key [(f1)] 'flymake-display-err-menu-for-current-line)
+
 ; flycheck
 (add-to-list 'load-path (in-modes-d "flycheck"))
 (require 'flycheck)

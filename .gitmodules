@@ -68,3 +68,6 @@
 [submodule "modes/flycheck"]
 	path = modes/flycheck
 	url = https://github.com/lunaryorn/flycheck.git
+[submodule "modes/flymake"]
+	path = modes/flymake
+	url = https://github.com/illusori/emacs-flymake.git
