@@ -11,6 +11,13 @@
 (add-to-list 'load-path mode-dir)
 (add-to-list 'load-path utils-dir)
 
+(defun require-from-modes-d (path &optional symbol)
+  (add-to-list 'load-path (in-modes-d path))
+  (if symbol
+      (require symbol)
+    (load-library path))
+  )
+
 (setq in-terminal (not window-system))
 
 (if (not in-terminal)
@@ -46,8 +53,7 @@
 (setq ring-bell-function 'ignore)
 
 ; YASnippet - should appear before custom-set-variables
-(add-to-list 'load-path (in-modes-d "yasnippet"))
-(require 'yasnippet)
+(require-from-modes-d "yasnippet")
 (yas/global-mode 1)
 (setq yas/indent-line 'fixed) ; for indented snippets
 
@@ -183,9 +189,7 @@
 (setq c-basic-offset 4)
 
 ; Python
-(add-to-list 'load-path (in-modes-d "python.el"))
-(require 'python)
-
+(require-from-modes-d "python.el" 'python)
 (add-hook 'python-mode-hook
           '(lambda ()
              (local-set-key (kbd "C-c #") 'comment-or-uncomment-region)))
@@ -216,12 +220,10 @@
 ; web
 
 ; web-mode
-(add-to-list 'load-path (in-modes-d "web-mode"))
-(require 'web-mode)
+(require-from-modes-d "web-mode")
 (add-to-list 'auto-mode-alist '("\\.html$" . web-mode))
 
-(add-to-list 'load-path (in-modes-d "zencoding"))
-(require 'zencoding-mode)
+(require-from-modes-d "zencoding" 'zencoding-mode)
 (setq zencoding-indentation web-mode-html-offset)
 (add-hook 'sgml-mode-hook 'zencoding-mode)
 (add-hook 'web-mode-hook 'zencoding-mode)
@@ -242,10 +244,11 @@
 
 ; minimap
 (add-to-list 'load-path (in-modes-d "minimap"))
-(require 'minimap)
+(autoload 'minimap "minimap")
 (defun minimap-toggle ()
   "Toggle minimap for current buffer."
   (interactive)
+  (require 'minimap)
   (if (null minimap-bufname)
       (minimap-create)
     (minimap-kill)))
@@ -260,10 +263,9 @@
 (global-set-key (kbd "C-x i") 'iedit-mode)
 
 ; helm mode
-(setq helm-input-idle-delay 0)
-(add-to-list 'load-path (in-modes-d "helm"))
-(require 'helm-config)
+(require-from-modes-d "helm" 'helm-config)
 (helm-mode t)
+(setq helm-input-idle-delay 0)
 (global-set-key (kbd "C-c h") 'helm-mini)
 (global-set-key (kbd "M-i") 'helm-semantic-or-imenu)
 (global-set-key (kbd "C-x y") 'helm-show-kill-ring)
@@ -294,8 +296,7 @@
 (ac-config-default)
 
 ; autopair
-(add-to-list 'load-path (in-modes-d "autopair"))
-(require 'autopair)
+(require-from-modes-d "autopair")
 (autopair-global-mode)
 (setq autopair-autowrap t) ; wrap selected region with quotes/parens/etc.
 (setq autpair-blink t)
@@ -334,9 +335,8 @@
   )
 
 ; drag stuff
-(add-to-list 'load-path (in-modes-d "drag-stuff"))
+(require-from-modes-d "drag-stuff")
 (setq drag-stuff-modifier '(meta control))
-(require 'drag-stuff)
 (drag-stuff-global-mode t)
 
 ; org-mode
@@ -359,13 +359,11 @@
 ; ------- Utilities -----
 
 ; expand-region
-(add-to-list 'load-path (in-modes-d "expand-region"))
-(require 'expand-region)
+(require-from-modes-d "expand-region")
 (global-set-key (kbd "C-=") 'er/expand-region)
 (global-set-key (kbd "C--") 'er/contract-region)
 
-(add-to-list 'load-path (in-modes-d "multiple-cursors.el"))
-(require 'multiple-cursors)
+(require-from-modes-d "multiple-cursors.el" 'multiple-cursors)
 (global-set-key (kbd "C->") 'mc/mark-next-symbol-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-symbol-like-this)
 (global-set-key (kbd "C-c m l") 'mc/edit-ends-of-lines)
@@ -419,29 +417,11 @@
 (global-set-key (kbd "C-c d") 'dash-lookup-current-word)
 
 ; flymake
-(add-to-list 'load-path (in-modes-d "flymake"))
-(require 'flymake)
+(require-from-modes-d "flymake")
 (global-set-key [(f1)] 'flymake-display-err-menu-for-current-line)
 
 ; flycheck
-(add-to-list 'load-path (in-modes-d "flycheck"))
-(require 'flycheck)
-
-; epylint + flymake
-(setq pycodechecker "epylint")
-(if (executable-find pycodechecker)
-    (when (load "flymake" t)
-      (defun flymake-pycodecheck-init ()
-	(let* ((temp-file (flymake-init-create-temp-buffer-copy
-			   'flymake-create-temp-inplace))
-	       (local-file (file-relative-name
-			    temp-file
-			    (file-name-directory buffer-file-name))))
-	  (list pycodechecker (list local-file))))
-      (add-to-list 'flymake-allowed-file-name-masks
-		   '("\\.py\\'" flymake-pycodecheck-init)))
-  (message (format "Cannot find executable %s. Flymake python code check will be disabled." pycodechecker))
-  )
+(require-from-modes-d "flycheck")
 
 ; pbcopy - use OS X's clipboard if we're in the terminal
 (cond ((and in-terminal (string-equal system-type "darwin"))
