@@ -365,7 +365,10 @@
 
 (require-from-modes-d "multiple-cursors.el" 'multiple-cursors)
 (global-set-key (kbd "C->") 'mc/mark-next-symbol-like-this)
+(global-set-key (kbd "C-.") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-symbol-like-this)
+(global-set-key (kbd "C-,") 'mc/mark-previous-like-this)
+
 (global-set-key (kbd "C-c m l") 'mc/edit-ends-of-lines)
 
 ; better compilation window
