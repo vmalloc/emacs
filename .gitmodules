@@ -25,10 +25,6 @@
 [submodule "modes/virtualenv"]
 	path = modes/virtualenv
 	url = https://github.com/aculich/virtualenv.el.git
-[submodule "utils/pylookup"]
-	path = utils/pylookup
-	url = https://github.com/tsgates/pylookup.git
-
 [submodule "modes/ghc-mod"]
 	path = modes/ghc-mod
 	url = https://github.com/kazu-yamamoto/ghc-mod.git
@@ -71,3 +67,6 @@
 [submodule "modes/flymake"]
 	path = modes/flymake
 	url = https://github.com/illusori/emacs-flymake.git
+[submodule "modes/pylookup"]
+	path = modes/pylookup
+	url = https://github.com/tsgates/pylookup.git

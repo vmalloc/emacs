@@ -404,12 +404,12 @@
 (define-key python-mode-map [(control ?c) ?s] 'python-auto-super)
 
 ; pylookup
-(setq pylookup-dir (in-utils-d "pylookup"))
+(setq pylookup-dir (in-modes-d "pylookup"))
 (setq pylookup-program (concat pylookup-dir "/pylookup.py"))
 (setq pylookup-db-file (concat pylookup-dir "/pylookup.db"))
 (add-to-list 'load-path pylookup-dir)
 (autoload 'pylookup-lookup "pylookup.el" nil t)
-(eval-after-load "python-mode" '(define-key python-mode-map [(control ?c) ?l] 'pylookup-lookup))
+(define-key python-mode-map [(control ?c) ?l] 'pylookup-lookup)
 
 ; dash support
 (defun dash-lookup-current-word ()
