@@ -228,6 +228,9 @@
 (add-hook 'sgml-mode-hook 'zencoding-mode)
 (add-hook 'web-mode-hook 'zencoding-mode)
 
+; YAML
+(require-from-modes-d "yaml-mode")
+(add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
 
 ; Markdown
 (autoload 'markdown-mode "markdown-mode.el" nil t)
