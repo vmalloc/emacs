@@ -5,11 +5,11 @@
 (setq mode-dir (in-emacs-d "modes/"))
 (defun in-modes-d (path)
   (concat mode-dir path))
-(setq utils-dir (in-emacs-d "utils/"))
-(defun in-utils-d (path)
-  (concat utils-dir path))
+(setq custom-dir (in-emacs-d "custom/"))
+(defun in-custom-d (path)
+  (concat custom-dir path))
 (add-to-list 'load-path mode-dir)
-(add-to-list 'load-path utils-dir)
+
 
 (defun require-from-modes-d (path &optional symbol)
   (add-to-list 'load-path (in-modes-d path))
@@ -78,6 +78,10 @@
   (require 'color-theme)
   (color-theme-initialize)
   (color-theme-dark-laptop)))
+
+; rainbow-mode
+(autoload 'rainbow-mode (in-modes-d "rainbow-mode.el") nil t)
+(add-to-list 'find-file-hook 'rainbow-mode)
 
 ; recentf - save history of recently visited files
 (autoload 'recentf-mode "recentf.el" nil t)
@@ -398,14 +402,6 @@
               (message "NO COMPILATION ERRORS!")))))
 (add-hook 'compilation-mode-hook 'organize-compilation-window)
 
-; rainbow-mode
-(autoload 'rainbow-mode (in-utils-d "rainbow-mode.el") nil t)
-(add-to-list 'find-file-hook 'rainbow-mode)
-
-; python-auto-super
-(autoload 'python-auto-super (in-utils-d "python-auto-super.el") nil t)
-(define-key python-mode-map [(control ?c) ?s] 'python-auto-super)
-
 ; pylookup
 (setq pylookup-dir (in-modes-d "pylookup"))
 (setq pylookup-program (concat pylookup-dir "/pylookup.py"))
@@ -463,3 +459,9 @@
 (global-set-key "\M-p"  (lambda () (interactive) (scroll-down 4)) )
 (global-set-key "\C-\M-n"  (lambda () (interactive) (scroll-other-window   4)) )
 (global-set-key "\C-\M-p"  (lambda () (interactive) (scroll-other-window-down 4)) )
+
+;; My stuff
+; python-auto-super
+(autoload 'python-auto-super (in-custom-d "python-auto-super.el") nil t)
+(define-key python-mode-map [(control ?c) ?s] 'python-auto-super)
+
