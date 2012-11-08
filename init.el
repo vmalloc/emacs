@@ -447,6 +447,9 @@
 (global-set-key [(f9)] 'compile)
 (global-set-key [(f12)] 'delete-trailing-whitespace)
 
+; open shell with C-z
+(global-set-key (kbd "C-z") 'shell)
+
 ; Customizations beyond this configuration - separate to a different file
 (setq custom-file (in-emacs-d ".emacs-custom.el"))
 (if (file-exists-p custom-file)
