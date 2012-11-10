@@ -12,3 +12,5 @@
       (setq classname (match-string 1)))
     (insert (format "super(%s, self).%s()" classname methodname))
     (backward-char)))
+
+(provide 'python-auto-super)

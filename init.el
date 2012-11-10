@@ -463,7 +463,7 @@
 
 ;; My stuff
 ; python-auto-super
-(autoload 'python-auto-super (in-custom-d "python-auto-super.el") nil t)
+(require 'python-auto-super)
 (define-key python-mode-map [(control ?c) ?s] 'python-auto-super)
 
 ; python-auto-import
