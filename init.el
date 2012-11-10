@@ -9,6 +9,7 @@
 (defun in-custom-d (path)
   (concat custom-dir path))
 (add-to-list 'load-path mode-dir)
+(add-to-list 'load-path custom-dir)
 
 
 (defun require-from-modes-d (path &optional symbol)
@@ -464,4 +465,8 @@
 ; python-auto-super
 (autoload 'python-auto-super (in-custom-d "python-auto-super.el") nil t)
 (define-key python-mode-map [(control ?c) ?s] 'python-auto-super)
+
+; python-auto-import
+(require 'python-auto-import)
+(define-key python-mode-map [(control ?c) ?i] 'python-auto-import)
 
