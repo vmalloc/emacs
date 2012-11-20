@@ -454,6 +454,10 @@
 (global-set-key "\C-\M-p"  (lambda () (interactive) (scroll-other-window-down 4)) )
 
 ;; My stuff
+; run redgreen in current project
+(require 'redgreen-at-project-root)
+(define-key python-mode-map [(control ?c) ?r] 'redgreen-at-project-root)
+
 ; python-auto-super
 (require 'python-auto-super)
 (define-key python-mode-map [(control ?c) ?s] 'python-auto-super)
