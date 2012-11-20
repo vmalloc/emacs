@@ -11,7 +11,6 @@
 (add-to-list 'load-path mode-dir)
 (add-to-list 'load-path custom-dir)
 
-
 (defun require-from-modes-d (path &optional symbol)
   (add-to-list 'load-path (in-modes-d path))
   (if symbol
@@ -23,9 +22,6 @@
 
 (if (not in-terminal)
     (server-start))
-
-; add /usr/local/bin to exec-path
-(add-to-list 'exec-path "/usr/local/bin")
 
 ; enable all disabled commands
 (setq disabled-command-function nil)
@@ -60,10 +56,6 @@
 
 ; display trailing whitespaces
 (add-hook 'prog-mode-hook (lambda () (setq show-trailing-whitespace t)))
-
-; Customizations beyond this configuration - separate to a different file
-;(if (file-exists-p custom-file)
-;    (load-file custom-file))
 
 ; cua-selection-mode - enables typing over a region to replace it
 (cua-selection-mode t)
@@ -470,3 +462,8 @@
 (require 'python-auto-import)
 (define-key python-mode-map [(control ?c) ?i] 'python-auto-import)
 
+; ------------------ Custom site-specific settings ------------------
+(setq site-specific-filename (expand-file-name "~/.emacs-site.el"))
+(if (file-exists-p site-specific-filename)
+    (load site-specific-filename)
+    )
