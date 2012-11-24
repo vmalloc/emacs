@@ -74,7 +74,8 @@
 
 ; rainbow-mode
 (autoload 'rainbow-mode (in-modes-d "rainbow-mode.el") nil t)
-(add-to-list 'find-file-hook 'rainbow-mode)
+(add-to-list 'find-file-hook
+	     (lambda () (unless (derived-mode-p 'web-mode) (rainbow-mode))))
 
 ; recentf - save history of recently visited files
 (autoload 'recentf-mode "recentf.el" nil t)
@@ -221,7 +222,7 @@
 (add-to-list 'auto-mode-alist '("\\.html$" . web-mode))
 
 (require-from-modes-d "zencoding" 'zencoding-mode)
-(setq zencoding-indentation web-mode-html-offset)
+(setq zencoding-indentation 2)
 (add-hook 'sgml-mode-hook 'zencoding-mode)
 (add-hook 'web-mode-hook 'zencoding-mode)
 
