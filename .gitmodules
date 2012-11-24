@@ -73,3 +73,9 @@
 [submodule "modes/yaml-mode"]
 	path = modes/yaml-mode
 	url = https://github.com/yoshiki/yaml-mode.git
+[submodule "modes/smartparens"]
+	path = modes/smartparens
+	url = https://github.com/Fuco1/smartparens.git
+[submodule "modes/dash"]
+	path = modes/dash
+	url = https://github.com/magnars/dash.el.git
