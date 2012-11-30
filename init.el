@@ -449,10 +449,10 @@
 (setq reb-re-syntax 'string)
 
 ;; Scroll without moving the cursor
-(global-set-key "\M-n"  (lambda () (interactive) (scroll-up   4)) )
-(global-set-key "\M-p"  (lambda () (interactive) (scroll-down 4)) )
-(global-set-key "\C-\M-n"  (lambda () (interactive) (scroll-other-window   4)) )
-(global-set-key "\C-\M-p"  (lambda () (interactive) (scroll-other-window-down 4)) )
+(global-set-key "\C-n"  (lambda () (interactive) (scroll-up   4)) )
+(global-set-key "\C-p"  (lambda () (interactive) (scroll-down 4)) )
+(global-set-key "\M-n"  (lambda () (interactive) (scroll-other-window   4)) )
+(global-set-key "\M-p"  (lambda () (interactive) (scroll-other-window-down 4)) )
 
 ;; My stuff
 ; run redgreen in current project
