@@ -296,11 +296,10 @@
 (global-auto-complete-mode t)
 (ac-config-default)
 
-; autopair
-(require-from-modes-d "autopair")
-(autopair-global-mode)
-(setq autopair-autowrap t) ; wrap selected region with quotes/parens/etc.
-(setq autpair-blink t)
+; smart parens
+(require-from-modes-d "dash") ; no relations to dash lookup below!
+(require-from-modes-d "smartparens")
+(smartparens-global-mode 1)
 
 ; Disable the autopair mapping in term mode
 (add-hook 'term-mode-hook
