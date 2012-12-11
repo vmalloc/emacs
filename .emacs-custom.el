@@ -5,6 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(minimap-window-location (quote right))
  '(ns-pop-up-frames nil)
+ '(sp-autoescape-string-quote-if-empty (quote (python-mode)))
  '(sp-cancel-autoskip-on-backward-movement nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
