@@ -4,10 +4,23 @@
     (let ((compilation-scroll-output t)
 	  (compilation-window-height 30)
 	  )
-      (compile (format "cd %s && redgreen -- --with-snort -w tests -x --nologcapture" root) t)
+      (compile (format "cd %s && %s -t \"%s\" -- --with-snort -w tests -x --nologcapture" root (get-redgreen-executable) (get-nosetests-executable)) t)
       )
     )
   )
+
+(defun get-nosetests-executable ()
+  (get-python-utility "nosetests"))
+
+(defun get-redgreen-executable ()
+  (get-python-utility "redgreen"))
+
+(defun get-python-utility (name)
+  (let ((dir (file-name-directory python-shell-interpreter)))
+    (if dir
+	(concat dir name)
+	name
+	)))
 
 (defun napr/find-project-root (&optional root)
   "Determines the current project root by recursively searching for an indicator."
