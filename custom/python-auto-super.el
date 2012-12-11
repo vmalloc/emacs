@@ -3,10 +3,11 @@
   (let (methodname classname)
     (save-excursion
       (python-nav-beginning-of-defun)
-      (or (looking-at "[ \t]*def[ \t]+\\([a-zA-Z0-9_]+\\)")
+      (back-to-indentation)
+      (or (looking-at "def[ \t]+\\([a-zA-Z0-9_]+\\)")
           (error "Can't determine method name"))
       (setq methodname (match-string 1))
-      (python-nav-backward-block)
+      (python-nav-backward-up-list)
       (or (looking-at "[ \t]*class[ \t]+\\([a-zA-Z0-9_]+\\)")
           (error "Can't determine class name"))
       (setq classname (match-string 1)))
