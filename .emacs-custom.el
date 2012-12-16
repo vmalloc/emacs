@@ -6,6 +6,7 @@
  '(minimap-window-location (quote right))
  '(ns-pop-up-frames nil)
  '(sp-autoescape-string-quote-if-empty (quote (python-mode)))
+ '(sp-autoinsert-quote-if-followed-by-closing-pair nil)
  '(sp-cancel-autoskip-on-backward-movement nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
