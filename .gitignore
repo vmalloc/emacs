@@ -4,3 +4,4 @@ tramp
 *.pyc
 semanticdb
 .mc-lists.el
+elpa
