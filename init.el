@@ -73,7 +73,7 @@
   (color-theme-dark-laptop)))
 
 ; rainbow-mode
-(autoload 'rainbow-mode (in-modes-d "rainbow-mode.el") nil t)
+(require 'rainbow-mode)
 (add-to-list 'find-file-hook
 	     (lambda () (unless (derived-mode-p 'web-mode) (rainbow-mode))))
 
@@ -475,8 +475,19 @@
 (require 'python-auto-import)
 (define-key python-mode-map [(control ?c) ?i] 'python-auto-import)
 
+; Diminish modes from mode-line (http://whattheemacsd.com/init.el-04.html)
+(require 'diminish)
+(diminish 'auto-complete-mode)
+(diminish 'drag-stuff-mode)
+(diminish 'helm-mode)
+(diminish 'rainbow-mode)
+(diminish 'smartparens-mode)
+(diminish 'undo-tree-mode)
+(diminish 'yas-minor-mode)
+
 ; ------------------ Custom site-specific settings ------------------
 (setq site-specific-filename (expand-file-name "~/.emacs-site.el"))
 (if (file-exists-p site-specific-filename)
     (load site-specific-filename)
     )
+
