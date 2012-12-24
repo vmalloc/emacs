@@ -175,36 +175,7 @@
 )
 
 ; --------  Basic editing facilities ---------
-
-; assume new files are always modified (useful for creating empty files)
-(add-hook 'find-file-hooks 'assume-new-is-modified)
-(defun assume-new-is-modified ()
-  (when (not (file-exists-p (buffer-file-name)))
-    (set-buffer-modified-p t)))
-
-; always revert files when they change on disk
-(global-auto-revert-mode t)
-
-; mark always active for selecting
-(setq transient-mark-mode t)
-
-; prevent dabbrev from replacing case
-(setq dabbrev-case-replace nil)
-
-; indentation/tabs
-(setq default-tab-width 8)
-(setq default-tab-indent 4)
-
-; temporarily show line numbers when going-to-line (http://whattheemacsd.com//key-bindings.el-01.html)
-(global-set-key (vector 'remap 'goto-line) 'goto-line-with-feedback)
-(defun goto-line-with-feedback ()
-  "Show line numbers temporarily, while prompting for the line number input"
-  (interactive)
-  (unwind-protect
-      (progn
-        (linum-mode 1)
-        (goto-line (read-number "Goto line: ")))
-    (linum-mode -1)))
+(load-file (in-emacs-d "001-defaults.el"))
 
 ; -------- Languages --------
 ; C
