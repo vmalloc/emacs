@@ -1,14 +1,15 @@
-(defun python-auto-import ()
-  (interactive)
-  (python-insert-import-line-at-beginning-of-buffer (python-get-needed-import-string))
+(defun python-auto-import (only-first-component)
+  "automatically import the required symbol under the cursor. With prefix argument, only takes first module path component (so 'os.path.exists' will cause importing of 'os' alone)"
+  (interactive "P")
+  (python-insert-import-line-at-beginning-of-buffer (python-get-needed-import-string only-first-component))
   )
 
-(defun python-get-needed-import-string ()
+(defun python-get-needed-import-string (only-first-component)
   (let ((symbol (python-info-current-symbol)))
     (let ((parts (split-string symbol "\\.")))
       (if (<= (list-length parts) 1)
 	  (format "from %s import %s" (read-string (format "import %s from? " symbol)) symbol)
-          (format "import %s" (mapconcat 'identity (nbutlast parts 1) ".")))
+          (format "import %s" (if only-first-component (car parts) (mapconcat 'identity (nbutlast parts 1) "."))))
       )
   ))
 
