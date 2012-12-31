@@ -31,3 +31,31 @@
         (linum-mode 1)
         (goto-line (read-number "Goto line: ")))
     (linum-mode -1)))
+
+; enable all disabled commands
+(setq disabled-command-function nil)
+
+; cua-selection-mode - enables typing over a region to replace it
+(cua-selection-mode t)
+
+; display trailing whitespaces in prog-mode variants
+(add-hook 'prog-mode-hook (lambda () (setq show-trailing-whitespace t)))
+
+; yes/no turns to y/n
+(fset 'yes-or-no-p 'y-or-n-p)
+
+; don't ask about running processes
+(defadvice save-buffers-kill-emacs (around no-query-kill-emacs activate)
+  "Prevent annoying \"Active processes exist\" query when you quit Emacs."
+  (flet ((process-list ())) ad-do-it))
+
+; reasonable code offset
+(setq c-basic-offset 4)
+
+; Customizations beyond this configuration - separate to a different file
+(setq custom-file (in-emacs-d ".emacs-custom.el"))
+(if (file-exists-p custom-file)
+    (load-file custom-file))
+
+;; Don't require double escaping the re-builder
+(setq reb-re-syntax 'string)
