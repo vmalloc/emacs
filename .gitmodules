@@ -79,3 +79,6 @@
 [submodule "modes/dash"]
 	path = modes/dash
 	url = https://github.com/magnars/dash.el.git
+[submodule "modes/dired-details"]
+	path = modes/dired-details
+	url = https://github.com/emacsmirror/dired-details.git
