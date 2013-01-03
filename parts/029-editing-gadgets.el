@@ -38,6 +38,18 @@
 (require-from-modes-d "smartparens")
 (smartparens-global-mode 1)
 
+;    don't autopair apostrophes if they're preceeded by words (i.e. english)
+(defun my/test-if-apostrophe-is-preceded-by-word (open-pair in-string)
+  (when (string= open-pair "'")
+    (save-excursion
+      (backward-char 1)
+      (cond
+       ((and (not in-string)
+             (memq (preceding-char) '(?r ?u ?=)))
+        nil)
+       (t (looking-back "\\sw\\|\\s_"))))))
+(add-to-list 'sp-autoinsert-inhibit-functions 'my/test-if-apostrophe-is-preceded-by-word)
+
 ; drag stuff
 (require-from-modes-d "drag-stuff")
 (setq drag-stuff-modifier '(super control))
@@ -85,4 +97,3 @@
     (require 'pbcopy)
     (turn-on-pbcopy)
     ))
-
