@@ -12,3 +12,23 @@
     ))
   ))
 (setq c-default-style '((java-mode . "java") (other . "my/c-style")))
+
+(defun my/cancel-smartparens-if-active ()
+  (condition-case ex ; we might not have smartparens at all...
+      (let ((active-overlay (sp-get-active-overlay 'pair)))
+        (when active-overlay
+          (sp-remove-overlay active-overlay)))))
+
+(defun my/c-mode-new-block () (interactive)
+  (my/cancel-smartparens-if-active)
+  (end-of-line)
+  (newline)
+  (insert "{")
+  (c-indent-line-or-region)
+  (newline)
+  (insert "}")
+  (c-indent-line-or-region)
+  (next-line -1)
+  (newline-and-indent))
+
+(define-key c-mode-base-map [(meta return)] 'my/c-mode-new-block)
