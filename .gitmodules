@@ -88,3 +88,6 @@
 [submodule "modes/s"]
 	path = modes/s
 	url = https://github.com/magnars/s.el.git
+[submodule "modes/wrap-region"]
+	path = modes/wrap-region
+	url = https://github.com/rejeep/wrap-region.git

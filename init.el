@@ -40,4 +40,3 @@
 (if (file-exists-p site-specific-filename)
     (load site-specific-filename)
     )
-

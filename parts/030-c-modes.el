@@ -1,12 +1,5 @@
 
-(defun my/cancel-smartparens-if-active ()
-  (condition-case ex ; we might not have smartparens at all...
-      (let ((active-overlay (sp-get-active-overlay 'pair)))
-        (when active-overlay
-          (sp-remove-overlay active-overlay)))))
-
 (defun my/c-mode-new-block () (interactive)
-  (my/cancel-smartparens-if-active)
   (beginning-of-line)
   (back-to-indentation)
   (let ((current-statement (current-word)))

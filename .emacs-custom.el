@@ -4,10 +4,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(minimap-window-location (quote right))
- '(ns-pop-up-frames nil)
- '(sp-autoescape-string-quote-if-empty (quote (python-mode)))
- '(sp-autoinsert-quote-if-followed-by-closing-pair nil)
- '(sp-cancel-autoskip-on-backward-movement nil))
+ '(ns-pop-up-frames nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
