@@ -82,3 +82,6 @@
 [submodule "modes/dired-details"]
 	path = modes/dired-details
 	url = https://github.com/emacsmirror/dired-details.git
+[submodule "modes/ido-ubiquitous"]
+	path = modes/ido-ubiquitous
+	url = https://github.com/technomancy/ido-ubiquitous.git
