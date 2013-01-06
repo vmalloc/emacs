@@ -17,6 +17,7 @@
 (setq ring-bell-function 'ignore)
 
 ; show-paren
+(setq show-paren-delay 0)
 (show-paren-mode)
 
 ; zoom in/out, interactively
@@ -24,14 +25,14 @@
   "Increase font size by 10 points"
   (interactive)
   (set-face-attribute 'default nil
-      		      :height
-		      (+ (face-attribute 'default :height)
-		         10)))
+                      :height
+                      (+ (face-attribute 'default :height)
+                         10)))
 
 (defun my/zoom-out-font ()
   "Decrease font size by 10 points"
   (interactive)
   (set-face-attribute 'default nil
-      		      :height
-		      (- (face-attribute 'default :height)
-		         10)))
+                      :height
+                      (- (face-attribute 'default :height)
+                         10)))
