@@ -11,6 +11,8 @@
       (c-indent-line-or-region))
     (newline)
     (insert "}")
+    (if (-contains? '("class" "struct") current-statement)
+        (insert ";"))
     (c-indent-line-or-region)
     (previous-line)
     (end-of-line)
