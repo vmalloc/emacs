@@ -1,3 +1,8 @@
+; Customizations beyond this configuration - separate to a different file
+(setq custom-file (in-emacs-d ".emacs-custom.el"))
+(if (file-exists-p custom-file)
+    (load-file custom-file))
+
 ; assume new files are always modified (useful for creating empty files)
 (add-hook 'find-file-hooks 'assume-new-is-modified)
 (defun assume-new-is-modified ()
@@ -51,11 +56,6 @@
 
 ; reasonable code offset
 (setq c-basic-offset 4)
-
-; Customizations beyond this configuration - separate to a different file
-(setq custom-file (in-emacs-d ".emacs-custom.el"))
-(if (file-exists-p custom-file)
-    (load-file custom-file))
 
 ;; Don't require double escaping the re-builder
 (setq reb-re-syntax 'string)
