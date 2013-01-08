@@ -8,7 +8,7 @@ This is my revised and rewritten emacs setup. The goals I had for this is:
 
 Installation
 ============
-A daily snapshot of the repository, all dependencies included, can be `found here <http://rotemy.com/vmalloc_dot_emacs_dot_d.tgz>`.
+A daily snapshot of the repository, all dependencies included, can be `found here <http://rotemy.com/vmalloc_dot_emacs_dot_d.tgz>`_.
 
 If you want to install from a git checkout, just clone into ~/.emacs.d, and update the submodules::
 
