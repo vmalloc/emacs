@@ -15,4 +15,4 @@
 (set-face-attribute 'column-marker-3 nil
                     :background "dark red")
 
-(add-hook 'python-mode-hook 'mark-long-lines)
+(add-hook 'prog-mode-hook 'mark-long-lines)
