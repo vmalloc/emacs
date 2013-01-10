@@ -21,3 +21,10 @@
               (run-at-time 3 nil 'delete-windows-on buf)
               (message "NO COMPILATION ERRORS!")))))
 (add-hook 'compilation-mode-hook 'organize-compilation-window)
+
+(defun my/compilation-last-error () (interactive)
+  (previous-error)
+  (while (not (next-error)))
+)
+
+(global-set-key (kbd "C-c l") 'my/compilation-last-error)
