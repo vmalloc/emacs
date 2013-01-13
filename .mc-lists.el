@@ -4,11 +4,11 @@
 (setq mc/cmds-to-run-for-all
       '(
 	dabbrev-expand
-	my/mark-all-like-this-in-defun
 	python-indent-dedent-line-backspace
 	python-indent-electric-colon
 	))
 
 (setq mc/cmds-to-run-once
       '(
+	my/mark-all-like-this-in-defun
 	))
