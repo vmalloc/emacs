@@ -59,3 +59,18 @@
 
 ;; Don't require double escaping the re-builder
 (setq reb-re-syntax 'string)
+
+; Make C-o / C-S-o work like in VIM
+(defun insert-line-before ()
+  (interactive)
+  (move-beginning-of-line nil)
+  (open-line 1)
+  (indent-for-tab-command))
+
+(defun insert-line-after ()
+  (interactive)
+  (move-end-of-line nil)
+  (newline-and-indent))
+
+(global-set-key (kbd "C-o") 'insert-line-after)
+(global-set-key (kbd "C-S-o") 'insert-line-before)
