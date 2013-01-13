@@ -14,7 +14,10 @@ If you want to install from a git checkout, just clone into ~/.emacs.d, and upda
 
  git submodule update --init
 
-
 Suggestions/Improvements/Feedback?
 ==================================
 Feel free to issue a pull request at http://github.com/vmalloc/emacs, I promise I will take care of every single one.
+
+Credit and Thanks
+=================
+Many special thanks go to `r-darwish <https://github.com/r-darwish>`_ for many awesome pull requests and bug reporting.
