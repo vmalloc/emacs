@@ -1,3 +1,6 @@
+;; Mac-specific
+(setq ns-function-modifier 'hyper)
+
 ;; Home/end
 (global-set-key [(end)]                  'end-of-line)
 (global-set-key [(home)]                 'beginning-of-line)
