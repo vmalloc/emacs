@@ -3,6 +3,7 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+	cua-delete-region
 	dabbrev-expand
 	python-indent-dedent-line-backspace
 	python-indent-electric-colon
