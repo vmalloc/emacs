@@ -74,3 +74,7 @@
 
 (global-set-key (kbd "C-o") 'insert-line-after)
 (global-set-key (kbd "C-S-o") 'insert-line-before)
+
+; Error jumping
+(global-set-key (kbd "C-x <C-down>") 'next-error)
+(global-set-key (kbd "C-x <C-up>") 'previous-error)
