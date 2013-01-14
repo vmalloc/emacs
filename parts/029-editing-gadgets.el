@@ -74,8 +74,6 @@
 
 ; flymake
 (require-from-modes-d "flymake")
-(global-set-key (kbd "C-c f n") 'flymake-goto-next-error)
-(global-set-key (kbd "C-c f p") 'flymake-goto-prev-error)
 
 ; flycheck
 (require-from-modes-d "flycheck")
