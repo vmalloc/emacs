@@ -1,4 +1,6 @@
-(require-from-modes-d "python.el" 'python)
+(cond
+ ((>= emacs-major-version 24)
+  (require-from-modes-d "python.el" 'python)))
 (add-hook 'python-mode-hook
           '(lambda ()
              (local-set-key (kbd "C-c #") 'comment-or-uncomment-region)))
