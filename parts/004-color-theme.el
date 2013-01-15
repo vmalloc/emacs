@@ -8,4 +8,7 @@
   (load-library "color-theme")
   (require 'color-theme)
   (color-theme-initialize)
-  (color-theme-dark-laptop)))
+  (require 'color-theme-tomorrow)
+  (color-theme-tomorrow-night-bright)
+  (color-theme-install-faces '((region ((t (:background ,white))))))
+))
