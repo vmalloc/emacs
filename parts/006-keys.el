@@ -6,7 +6,10 @@
 (global-set-key [(home)]                 'beginning-of-line)
 
 ;; Return and indent on prog-mode variants
-(add-hook 'prog-mode-hook (lambda () (local-set-key [(return)] 'newline-and-indent)))
+(defun my/set-newline-and-indent ()
+  (message "newline and indent")
+  (local-set-key [(return)] 'newline-and-indent))
+(add-hook 'prog-mode-hook 'my/set-newline-and-indent)
 
 ;; F keys
 (eval-after-load "c-mode" '(define-key c-mode-map [(f6)] 'ff-find-other-file))

@@ -76,18 +76,18 @@
 (require-from-modes-d "flymake")
 
 ; flycheck
-(require-from-modes-d "flycheck")
-(global-set-key (kbd "C-c m f") 'flycheck-mode)
-(global-set-key (kbd "C-c f r")
-                '(lambda ()
-                   (interactive)
-                   (flycheck-mode t)))
-
-
-; Turn on by default in Python mode
-(add-hook 'python-mode-hook
-          '(lambda ()
+(cond
+ ((>= emacs-major-version 24)
+  (require-from-modes-d "flycheck")
+  ; turn on flycheck-mode in python-mode
+  (add-hook 'python-mode-hook
+        '(lambda ()
              (flycheck-mode)))
+  (global-set-key (kbd "C-c m f") 'flycheck-mode)
+  (global-set-key (kbd "C-c f r")
+                  '(lambda ()
+                     (interactive)
+                     (flycheck-mode t)))))
 
 ; pbcopy - use OS X's clipboard if we're in the terminal
 (cond ((and in-terminal (string-equal system-type "darwin"))

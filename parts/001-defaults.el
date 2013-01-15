@@ -78,3 +78,13 @@
 ; Error jumping
 (global-set-key (kbd "C-x <C-down>") 'next-error)
 (global-set-key (kbd "C-x <C-up>") 'previous-error)
+
+; trigger prog-mode-hook on non-24 versions
+(cond
+ ((< emacs-major-version 24)
+  (defun my/run-prog-mode-hooks ()
+    (run-hooks 'prog-mode-hook))
+  (add-hook 'c-mode-hook 'my/run-prog-mode-hooks)
+  (add-hook 'cc-mode-hook 'my/run-prog-mode-hooks)
+  (add-hook 'java-mode-hook 'my/run-prog-mode-hooks)
+  (add-hook 'python-mode-hook 'my/run-prog-mode-hooks)))
