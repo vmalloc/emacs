@@ -35,7 +35,12 @@
 
 ; wrap-region
 (require-from-modes-d "wrap-region")
-(add-to-list 'prog-mode-hook (lambda () (wrap-region-mode t)))
+(add-hook 'prog-mode-hook (lambda () (wrap-region-mode t)))
+(add-hook 'markdown-mode-hook (lambda () (wrap-region-mode t)))
+
+(wrap-region-add-wrapper "*" "*")
+(wrap-region-add-wrapper "`" "`")
+
 
 ; drag stuff
 (require-from-modes-d "drag-stuff")
