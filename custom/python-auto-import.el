@@ -5,7 +5,7 @@
   )
 
 (defun python-get-needed-import-string (only-first-component)
-  (let ((symbol (python-info-current-symbol)))
+  (let ((symbol (--python-info-current-symbol)))
     (let ((parts (split-string symbol "\\.")))
       (if (<= (list-length parts) 1)
           (format "from %s import %s" (read-string (format "import %s from? " symbol)) symbol)
@@ -14,6 +14,12 @@
                                    (python-autoimport--is-first-component-enough symbol))
                                   (car parts)
                                 (mapconcat 'identity (nbutlast parts 1) ".")))))))
+
+(defun --python-info-current-symbol ()
+  (if (< emacs-major-version 24)
+      (with-syntax-table python-dotty-syntax-table
+        (current-word))
+    (python-info-current-symbol)))
 
 (defun python-autoimport--is-first-component-enough (symbol)
   (or
