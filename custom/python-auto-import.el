@@ -29,7 +29,8 @@
 (defun python-insert-import-line-at-beginning-of-buffer (import-string)
   (save-excursion
     (beginning-of-buffer)
-    (skip-comments-and-strings)
+    (--skip-comments-and-strings)
+    (--ensure-import-block)
     (let ((beg (point)))
       (newline)
       (forward-line -1)
@@ -42,10 +43,17 @@
       )
   ))
 
-(defun skip-comments-and-strings ()
-  (while (looking-at-comment-or-string)
+(defun --ensure-import-block ()
+  (if (not (or (looking-at "import ") (looking-at "from ")))
+      (progn
+        (newline-and-indent)
+        (previous-line))))
+
+
+(defun --skip-comments-and-strings ()
+  (while (--looking-at-comment-or-string)
     (forward-line)))
-(defun looking-at-comment-or-string ()
+(defun --looking-at-comment-or-string ()
   (let ((face (get-text-property (point) 'face)))
     (message (format "face is %s" face))
     (or (eq face 'font-lock-comment-face)
