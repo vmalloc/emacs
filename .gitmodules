@@ -91,3 +91,6 @@
 [submodule "modes/wrap-region"]
 	path = modes/wrap-region
 	url = https://github.com/rejeep/wrap-region.git
+[submodule "modes/workgroups"]
+	path = modes/workgroups
+	url = https://github.com/tlh/workgroups.el
