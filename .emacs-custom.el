@@ -16,6 +16,7 @@
  '(flycheck-error-face ((t (:background "dark red"))))
  '(flycheck-warning-face ((t (:background "RoyalBlue4"))))
  '(highlight ((t (:background "Yellow" :foreground "black"))))
+ '(mc/cursor-face ((t (:background "deep sky blue" :foreground "black"))))
  '(hl-line ((t (:background "#333"))) t)
  '(linum ((t (:inherit (shadow default) :background "#000" :foreground "#444"))) t)
  '(minimap-active-region-background ((t (:background "#333"))) t)
