@@ -85,6 +85,7 @@
   (defun my/run-prog-mode-hooks ()
     (run-hooks 'prog-mode-hook))
   (add-hook 'c-mode-hook 'my/run-prog-mode-hooks)
-  (add-hook 'cc-mode-hook 'my/run-prog-mode-hooks)
+  (add-hook 'c++-mode-hook 'my/run-prog-mode-hooks)
+  (add-hook 'emacs-lisp-mode-hook 'my/run-prog-mode-hooks)
   (add-hook 'java-mode-hook 'my/run-prog-mode-hooks)
   (add-hook 'python-mode-hook 'my/run-prog-mode-hooks)))
