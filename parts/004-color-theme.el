@@ -10,5 +10,5 @@
   (color-theme-initialize)
   (require 'color-theme-tomorrow)
   (color-theme-tomorrow-night-bright)
-  (color-theme-install-faces '((region ((t (:background ,white))))))
+  (color-theme-install-faces '((region ((t (:background "white"))))))
 ))
