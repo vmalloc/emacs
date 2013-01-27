@@ -43,3 +43,28 @@
   (interactive)
   (comment-or-uncomment-region (line-beginning-position) (line-end-position)))
 (global-set-key (kbd "C-x ;") 'my/comment-or-uncomment-current-line)
+
+;; line manipulation
+; Make C-o / C-S-o work like in VIM
+(defun insert-line-before ()
+  (interactive)
+  (move-beginning-of-line nil)
+  (open-line 1)
+  (indent-for-tab-command))
+
+(defun insert-line-after ()
+  (interactive)
+  (move-end-of-line nil)
+  (newline-and-indent))
+
+(global-set-key (kbd "C-o") 'insert-line-after)
+(global-set-key (kbd "C-S-o") 'insert-line-before)
+
+(global-set-key (kbd "M-j")
+                (lambda ()
+                  (interactive)
+                  (join-line -1)))
+
+;; Error jumping
+(global-set-key (kbd "C-x <C-down>") 'next-error)
+(global-set-key (kbd "C-x <C-up>") 'previous-error)
