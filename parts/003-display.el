@@ -36,3 +36,6 @@
                       :height
                       (- (face-attribute 'default :height)
                          10)))
+
+; winner mode
+(winner-mode 1)

@@ -99,3 +99,13 @@
     (require 'pbcopy)
     (turn-on-pbcopy)
     ))
+
+
+; Workgroups
+(add-to-list 'load-path (in-modes-d "workgroups"))
+(require 'workgroups)
+(setq wg-prefix-key (kbd "C-c w"))
+(workgroups-mode 1)
+(setq wg-config-file (expand-file-name "~/.emacs-wg"))
+(if (file-exists-p wg-config-file)
+    (wg-load wg-config-file))
