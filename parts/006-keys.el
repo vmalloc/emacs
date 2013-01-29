@@ -68,3 +68,12 @@
 ;; Error jumping
 (global-set-key (kbd "C-x <C-down>") 'next-error)
 (global-set-key (kbd "C-x <C-up>") 'previous-error)
+
+;; Kill the active region or the last word
+(defun kill-word-or-region ()
+  (interactive)
+  (if (region-active-p)
+      (kill-region (region-beginning) (region-end))
+    (backward-kill-word 1)))
+
+(global-set-key (kbd "C-w") 'kill-word-or-region)
