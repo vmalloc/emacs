@@ -12,5 +12,6 @@
 
 (setq mc/cmds-to-run-once
       '(
+	ace-jump-move
 	my/mark-all-like-this-in-defun
 	))
