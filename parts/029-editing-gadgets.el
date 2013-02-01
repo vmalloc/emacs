@@ -94,14 +94,14 @@
                      (interactive)
                      (flycheck-mode t)))))
 
-; pbcopy - use OS X's clipboard if we're in the terminal
+;; pbcopy - use OS X's clipboard if we're in the terminal
 (cond ((and in-terminal (string-equal system-type "darwin"))
     (require 'pbcopy)
     (turn-on-pbcopy)
     ))
 
 
-; Workgroups
+;; Workgroups
 (add-to-list 'load-path (in-modes-d "workgroups"))
 (require 'workgroups)
 (setq wg-prefix-key (kbd "C-c w"))
@@ -109,3 +109,24 @@
 (setq wg-file (expand-file-name "~/.emacs-wg"))
 (if (file-exists-p wg-file)
     (wg-load wg-file))
+
+;; line manipulation
+; Make C-o / C-S-o work like in VIM
+(defun insert-line-before ()
+  (interactive)
+  (move-beginning-of-line nil)
+  (open-line 1)
+  (indent-for-tab-command))
+
+(defun insert-line-after ()
+  (interactive)
+  (move-end-of-line nil)
+  (newline-and-indent))
+
+(global-set-key (kbd "C-o") 'insert-line-after)
+(global-set-key (kbd "C-S-o") 'insert-line-before)
+
+(global-set-key (kbd "M-j")
+                (lambda ()
+                  (interactive)
+                  (join-line -1)))

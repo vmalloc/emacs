@@ -14,13 +14,14 @@
 ;; F keys
 (eval-after-load "c-mode" '(define-key c-mode-map [(f6)] 'ff-find-other-file))
 (eval-after-load "cc-mode" '(define-key c-mode-map [(f6)] 'ff-find-other-file))
-(global-set-key [(f7)] 'magit-status)
-(global-set-key [(control x) (f7)] 'magit-branch-manager)
 (global-set-key [(f9)] 'compile)
+;; deleting trailing whitespaces
 (global-set-key [(f12)] 'delete-trailing-whitespace)
+
 
 ;; Open shell with C-z
 (global-set-key (kbd "C-z") 'shell)
+
 
 ;; Scroll without moving the cursor
 (global-set-key "\C-n"  (lambda () (interactive) (scroll-up   4)) )
@@ -43,27 +44,6 @@
   (interactive)
   (comment-or-uncomment-region (line-beginning-position) (line-end-position)))
 (global-set-key (kbd "C-x ;") 'my/comment-or-uncomment-current-line)
-
-;; line manipulation
-; Make C-o / C-S-o work like in VIM
-(defun insert-line-before ()
-  (interactive)
-  (move-beginning-of-line nil)
-  (open-line 1)
-  (indent-for-tab-command))
-
-(defun insert-line-after ()
-  (interactive)
-  (move-end-of-line nil)
-  (newline-and-indent))
-
-(global-set-key (kbd "C-o") 'insert-line-after)
-(global-set-key (kbd "C-S-o") 'insert-line-before)
-
-(global-set-key (kbd "M-j")
-                (lambda ()
-                  (interactive)
-                  (join-line -1)))
 
 ;; Error jumping
 (global-set-key (kbd "C-x <C-down>") 'next-error)
