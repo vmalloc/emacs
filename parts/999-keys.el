@@ -49,11 +49,19 @@
 (global-set-key (kbd "C-x <C-down>") 'next-error)
 (global-set-key (kbd "C-x <C-up>") 'previous-error)
 
-;; Kill the active region or the last word
-(defun kill-word-or-region ()
+;; Kill/save the active region or the current line
+(defun kill-line-or-region ()
   (interactive)
   (if (region-active-p)
       (kill-region (region-beginning) (region-end))
-    (backward-kill-word 1)))
+    (kill-whole-line)))
 
-(global-set-key (kbd "C-w") 'kill-word-or-region)
+(global-set-key (kbd "C-w") 'kill-line-or-region)
+
+(defun save-line-or-region ()
+  (interactive)
+  (if (region-active-p)
+      (kill-ring-save (region-beginning) (region-end))
+    (kill-ring-save (line-beginning-position) (line-end-position))))
+
+(global-set-key (kbd "M-w") 'save-line-or-region)
