@@ -32,3 +32,6 @@
 
 (define-key magit-status-mode-map (kbd "W") 'my/magit-toggle-whitespace)
 
+(global-set-key [(f7)] 'magit-status)
+(global-set-key [(control x) (f7)] 'magit-branch-manager)
+

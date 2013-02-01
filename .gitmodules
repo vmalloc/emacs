@@ -94,3 +94,6 @@
 [submodule "modes/workgroups"]
 	path = modes/workgroups
 	url = https://github.com/tlh/workgroups.el
+[submodule "modes/find-file-in-project"]
+	path = modes/find-file-in-project
+	url = https://github.com/technomancy/find-file-in-project.git
