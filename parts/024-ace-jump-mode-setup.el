@@ -24,3 +24,6 @@
   (loop for c in (list ?! ?@ ?# ?$ ?% ?^ ?& ?*) do (my/set-super-char-to-ace-jump-mode c))
   (loop for c from ?\" to ?~ do (my/set-super-char-to-register-jump c))
   )
+
+; Key to jump back to where we were before ace-jumping
+(global-set-key (kbd "C-x SPC") 'ace-jump-mode-pop-mark)

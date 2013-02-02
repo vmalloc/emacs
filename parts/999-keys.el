@@ -48,3 +48,20 @@
 ;; Error jumping
 (global-set-key (kbd "C-x <C-down>") 'next-error)
 (global-set-key (kbd "C-x <C-up>") 'previous-error)
+
+;; Kill/save the active region or the current line
+(defun kill-line-or-region ()
+  (interactive)
+  (if (region-active-p)
+      (kill-region (region-beginning) (region-end))
+    (kill-whole-line)))
+
+(global-set-key (kbd "C-w") 'kill-line-or-region)
+
+(defun save-line-or-region ()
+  (interactive)
+  (if (region-active-p)
+      (kill-ring-save (region-beginning) (region-end))
+    (kill-ring-save (line-beginning-position) (line-end-position))))
+
+(global-set-key (kbd "M-w") 'save-line-or-region)
