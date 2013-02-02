@@ -9,13 +9,14 @@
   (beginning-of-buffer)
   (next-line 2))
 
-(define-key dired-mode-map
-  (vector 'remap 'beginning-of-buffer) 'dired-back-to-top)
-
 (defun dired-jump-to-bottom ()
   (interactive)
   (end-of-buffer)
   (next-line -1))
 
-(define-key dired-mode-map
-  (vector 'remap 'end-of-buffer) 'dired-jump-to-bottom)
+(add-hook 'dired-mode-hook
+	     (lambda ()
+	       (define-key dired-mode-map
+		 (vector 'remap 'end-of-buffer) 'dired-jump-to-bottom)
+	       (define-key dired-mode-map
+		 (vector 'remap 'beginning-of-buffer) 'dired-back-to-top)))
