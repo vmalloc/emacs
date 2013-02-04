@@ -1,5 +1,10 @@
 About
 =====
+
+.. image:: https://secure.travis-ci.org/vmalloc/emacs.png
+   :alt: Build Status
+
+
 This is my revised and rewritten emacs setup. The goals I had for this is:
 
 * As little configuration code as possible
