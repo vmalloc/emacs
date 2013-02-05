@@ -83,10 +83,10 @@
   )
 
 ; actually load all parts in order
-(mapcar 'load-part-if-not-hidden (sort (directory-files parts-dir) 'string<))
-
-; ------------------ Custom site-specific settings ------------------
-(setq site-specific-filename (expand-file-name "~/.emacs-site.el"))
-(if (file-exists-p site-specific-filename)
-    (load site-specific-filename)
-    )
+(add-hook 'after-init-hook (lambda ()
+			    (mapcar 'load-part-if-not-hidden (sort (directory-files parts-dir) 'string<))
+					; ------------------ Custom site-specific settings ------------------
+			    (setq site-specific-filename (expand-file-name "~/.emacs-site.el"))
+			    (if (file-exists-p site-specific-filename)
+				(load site-specific-filename)
+			      )))
