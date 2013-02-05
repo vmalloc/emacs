@@ -1,12 +1,14 @@
 ; --------  Preamble ---------
+(setq emacs-dir "~/.emacs.d/")
 (defun in-emacs-d (path)
-  (concat "~/.emacs.d/" path))
+  (concat emacs-dir path))
 (setq mode-dir (in-emacs-d "modes/"))
 (defun in-modes-d (path)
   (concat mode-dir path))
 (setq custom-dir (in-emacs-d "custom/"))
 (defun in-custom-d (path)
   (concat custom-dir path))
+(add-to-list 'load-path emacs-dir)
 (add-to-list 'load-path mode-dir)
 (add-to-list 'load-path custom-dir)
 
