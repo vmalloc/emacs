@@ -97,6 +97,3 @@
 [submodule "modes/find-file-in-project"]
 	path = modes/find-file-in-project
 	url = https://github.com/technomancy/find-file-in-project.git
-[submodule "modes/auto-indent-mode"]
-	path = modes/auto-indent-mode
-	url = https://github.com/mlf176f2/auto-indent-mode.el.git
