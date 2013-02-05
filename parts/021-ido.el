@@ -6,7 +6,6 @@
 (global-set-key (kbd "C-x C-r") 'ido-recentf-open)
 
 ;; Use ido everywhere
-(add-to-list 'load-path (in-modes-d "ido-ubiquitous"))
 (require 'ido-ubiquitous)
 (ido-ubiquitous-mode 1)
 

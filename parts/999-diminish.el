@@ -2,7 +2,7 @@
 (diminish 'auto-complete-mode)
 (diminish 'drag-stuff-mode)
 (diminish 'helm-mode)
-(diminish 'rainbow-mode)
+;(diminish 'rainbow-mode)
 (diminish 'undo-tree-mode)
 (diminish 'yas-minor-mode)
 (diminish 'wrap-region-mode)

@@ -1,4 +1,5 @@
-(require-from-modes-d "helm" 'helm-config)
+(require 'helm)
+(require 'helm-config)
 (helm-mode t)
 (helm-dired-mode t)
 (setq helm-input-idle-delay 0)

@@ -1,6 +1,5 @@
 ; YASnippet - should appear before custom-set-variables
-(require-from-modes-d "yasnippet")
-
+(require 'yasnippet)
 (yas/global-mode 1)
 (setq yas/indent-line 'fixed) ; for indented snippets
 ; rebind yasnippet-expand to C-c tab. This is because the new version of yasnippet

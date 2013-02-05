@@ -1,4 +1,3 @@
-(add-to-list 'load-path (in-modes-d "magit"))
 (require 'magit)
 
 ; make magit window full screen, restore previous frame arrangement (http://whattheemacsd.com//setup-magit.el-01.html)

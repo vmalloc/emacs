@@ -1,6 +1,4 @@
 ; org-mode
-(add-to-list 'load-path (in-modes-d "org-mode/lisp"))
-(add-to-list 'load-path (in-modes-d "org-mode/contrib/lisp"))
 (require 'org)
 (add-hook 'org-mode-hook
           (lambda ()

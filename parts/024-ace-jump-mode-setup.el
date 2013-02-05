@@ -1,5 +1,4 @@
-; ace-jump - quickly navigate to any character
-(autoload 'ace-jump-char-mode (in-modes-d "ace-jump-mode/ace-jump-mode.el") nil t)
+(require 'ace-jump-mode)
 (global-set-key (kbd "C-x j") 'ace-jump-char-mode)
 ;   only use lowercase letters for lookup
 (setq ace-jump-mode-move-keys

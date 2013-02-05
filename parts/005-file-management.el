@@ -34,4 +34,4 @@
 (global-set-key (kbd "C-x C-r") 'my/rename-current-buffer-file)
 
 ; find-files-in-project
-(require-from-modes-d "find-file-in-project")
+(require 'find-file-in-project)

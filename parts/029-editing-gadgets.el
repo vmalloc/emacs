@@ -1,6 +1,5 @@
 ; minimap
-(add-to-list 'load-path (in-modes-d "minimap"))
-(autoload 'minimap "minimap")
+(require 'minimap)
 (defun minimap-toggle ()
   "Toggle minimap for current buffer."
   (interactive)
@@ -24,17 +23,13 @@
   uniquify-separator ":")
 
 ; auto-complete
-(add-to-list 'load-path (in-modes-d "auto-complete"))
-(add-to-list 'load-path (in-modes-d "auto-complete/lib/ert"))
-(add-to-list 'load-path (in-modes-d "auto-complete/lib/fuzzy"))
-(add-to-list 'load-path (in-modes-d "auto-complete/lib/popup"))
 (require 'auto-complete)
 (require 'auto-complete-config)
 (global-auto-complete-mode t)
 (ac-config-default)
 
 ; wrap-region
-(require-from-modes-d "wrap-region")
+(require 'wrap-region)
 (add-hook 'prog-mode-hook (lambda () (wrap-region-mode t)))
 (add-hook 'markdown-mode-hook (lambda () (wrap-region-mode t)))
 
@@ -43,16 +38,16 @@
 
 
 ; drag stuff
-(require-from-modes-d "drag-stuff")
+(require 'drag-stuff)
 (setq drag-stuff-modifier '(super control))
 (drag-stuff-global-mode t)
 
 ; expand-region
-(require-from-modes-d "expand-region")
+(require 'expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)
 (global-set-key (kbd "C--") 'er/contract-region)
 
-(require-from-modes-d "multiple-cursors.el" 'multiple-cursors)
+(require 'multiple-cursors)
 (global-set-key (kbd "C->") 'mc/mark-next-symbol-like-this)
 (global-set-key (kbd "C-.") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-symbol-like-this)
@@ -77,13 +72,10 @@
 
 (global-set-key (kbd "C-c d") 'dash-lookup-current-word)
 
-; flymake
-(require-from-modes-d "flymake")
-
 ; flycheck
 (cond
  ((>= emacs-major-version 24)
-  (require-from-modes-d "flycheck")
+  (require 'flycheck)
   ; turn on flycheck-mode in python-mode
   (add-hook 'python-mode-hook
         '(lambda ()
@@ -102,7 +94,6 @@
 
 
 ;; Workgroups
-(add-to-list 'load-path (in-modes-d "workgroups"))
 (require 'workgroups)
 (setq wg-prefix-key (kbd "C-c w"))
 (workgroups-mode 1)
