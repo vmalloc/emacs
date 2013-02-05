@@ -13,7 +13,8 @@
 
 (unless (and (file-exists-p "~/.emacs.d/elpa/archives/marmalade")
              (file-exists-p "~/.emacs.d/elpa/archives/gnu")
-             (file-exists-p "~/.emacs.d/elpa/archives/melpa"))
+             (file-exists-p "~/.emacs.d/elpa/archives/melpa")
+	     (file-exists-p "~/.emacs.d/elpa/archives/org-elpa"))
   (package-refresh-contents))
 
 (defun packages-install (&rest packages)
