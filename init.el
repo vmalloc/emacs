@@ -36,7 +36,7 @@
    (cons 'ace-jump-mode melpa)
    (cons 'dired-details melpa)
    (cons 'wrap-region melpa)
-   (cons 'org melpa)
+   (cons 'org org-elpa)
    (cons 'nyan-mode melpa)
    (cons 's melpa)
    (cons 'smex melpa)
