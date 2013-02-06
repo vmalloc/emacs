@@ -5,9 +5,6 @@
 (global-set-key [(end)]                  'end-of-line)
 (global-set-key [(home)]                 'beginning-of-line)
 
-;; RET --> newline-and-indent in all programming modes
-(add-hook 'prog-mode-hook (lambda () (local-set-key (kbd "RET") 'newline-and-indent)))
-
 ;; F keys
 (eval-after-load "c-mode" '(define-key c-mode-map [(f6)] 'ff-find-other-file))
 (eval-after-load "cc-mode" '(define-key c-mode-map [(f6)] 'ff-find-other-file))
