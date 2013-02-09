@@ -1,3 +1,6 @@
+(add-to-list 'load-path (in-modes-d "python"))
+(require 'python)
+
 (add-hook 'python-mode-hook
           '(lambda ()
              (define-key python-mode-map [(control ?c) ?l] 'pylookup-lookup)
