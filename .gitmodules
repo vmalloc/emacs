@@ -97,3 +97,6 @@
 [submodule "modes/find-file-in-project"]
 	path = modes/find-file-in-project
 	url = https://github.com/technomancy/find-file-in-project.git
+[submodule "modes/rainbow-mode"]
+	path = modes/rainbow-mode
+	url = https://github.com/emacsmirror/rainbow-mode.git
