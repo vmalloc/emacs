@@ -13,18 +13,6 @@ If point was already at that position, move point to beginning of line."
 (global-set-key [home] 'smart-beginning-of-line)
 (global-set-key (kbd "C-a") 'smart-beginning-of-line)
 
-;; Indent after yanking
-(dolist (command '(yank yank-pop))
-  (eval `(defadvice ,command (after indent-region activate)
-	   (and (not current-prefix-arg)
-		(member major-mode '(emacs-lisp-mode
-				     haskell-mode
-				     python-mode
-				     c-mode          c++-mode))
-		(let ((mark-even-if-inactive transient-mark-mode))
-		  (indent-region (region-beginning) (region-end) nil))))))
-
-
 ;; Return and indent on prog-mode variants
 (defun my/set-newline-and-indent ()
   (message "newline and indent")
