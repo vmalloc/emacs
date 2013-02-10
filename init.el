@@ -61,7 +61,6 @@
    )
   (if (>= emacs-major-version 24)
       (packages-install
-       (cons 'python melpa)
        (cons 'nxml melpa))))
 (condition-case nil
     (init--install-packages)
