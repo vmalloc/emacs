@@ -49,6 +49,9 @@
 	  (-take my/compilation-history-save-size compile-history))
     (newline)
   ))
+
+(require 'compile)
+
 (add-to-list 'kill-emacs-hook 'my/save-compilation-history)
 
 (if (file-exists-p my/compilation-history-file)

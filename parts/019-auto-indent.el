@@ -15,6 +15,5 @@ If point was already at that position, move point to beginning of line."
 
 ;; Return and indent on prog-mode variants
 (defun my/set-newline-and-indent ()
-  (message "newline and indent")
   (local-set-key [(return)] 'newline-and-indent))
 (add-hook 'prog-mode-hook 'my/set-newline-and-indent)
