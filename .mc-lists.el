@@ -8,6 +8,7 @@
 	python-backspace
 	python-indent-dedent-line-backspace
 	python-indent-electric-colon
+	yaml-electric-backspace
 	))
 
 (setq mc/cmds-to-run-once
