@@ -25,6 +25,11 @@
 (require 'elisp-utils)
 (require 'setup-package)
 
+(if (getenv "http_proxy")
+    (eval-after-load "url"
+      '(progn
+	 (setq url-using-proxy(getenv "http_proxy")))))
+
 ; requirements
 (defun init--install-packages ()
   (packages-install
