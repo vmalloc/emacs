@@ -34,3 +34,4 @@
 (global-set-key [(f7)] 'magit-status)
 (global-set-key [(control x) (f7)] 'magit-branch-manager)
 
+(add-hook 'magit-mode-hook 'magit-load-config-extensions)
