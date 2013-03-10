@@ -16,6 +16,8 @@
 ;; Open shell with C-z
 (global-set-key (kbd "C-z") 'shell)
 
+;; Browse URLs with C-x /
+(global-set-key (kbd "C-x /") 'browse-url)
 
 ;; Scroll without moving the cursor
 (global-set-key "\C-n"  (lambda () (interactive) (scroll-up   4)) )
