@@ -4,10 +4,13 @@
 (setq mc/cmds-to-run-for-all
       '(
 	cua-delete-region
+	cua-paste
 	dabbrev-expand
+	indent-for-tab-command
 	python-backspace
 	python-indent-dedent-line-backspace
 	python-indent-electric-colon
+	save-line-or-region
 	yaml-electric-backspace
 	))
 
