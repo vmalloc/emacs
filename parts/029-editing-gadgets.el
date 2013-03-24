@@ -121,3 +121,13 @@
                 (lambda ()
                   (interactive)
                   (join-line -1)))
+
+;; TRAMP
+; Use external scp instead of the build in
+(set-default 'tramp-default-method "scp")
+
+; Allow Sudo + SSH
+(add-to-list 'tramp-default-proxies-alist
+	     '(nil "\\`root\\'" "/ssh:%h:"))
+(add-to-list 'tramp-default-proxies-alist
+	     '((regexp-quote (system-name)) nil nil))
