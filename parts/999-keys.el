@@ -32,8 +32,8 @@
 (global-set-key (kbd "<M-left>") 'windmove-left)
 
 ;; zooming
-(global-set-key (kbd "C-}") 'my/zoom-in-font)
-(global-set-key (kbd "C-{") 'my/zoom-out-font)
+(global-set-key (kbd "C-}") 'text-scale-increase)
+(global-set-key (kbd "C-{") 'text-scale-decrease)
 
 ;; commenting/uncommenting
 (defun my/comment-or-uncomment-current-line ()
