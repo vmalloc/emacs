@@ -104,7 +104,6 @@
     (turn-on-pbcopy)
     ))
 
-
 ;; line manipulation
 ; Make C-o / C-S-o work like in VIM
 (defun insert-line-before ()
