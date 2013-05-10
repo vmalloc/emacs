@@ -105,14 +105,6 @@
     ))
 
 
-;; Workgroups
-(require 'workgroups)
-(setq wg-prefix-key (kbd "C-c w"))
-(workgroups-mode 1)
-(setq wg-file (expand-file-name "~/.emacs-wg"))
-(if (file-exists-p wg-file)
-    (wg-load wg-file))
-
 ;; line manipulation
 ; Make C-o / C-S-o work like in VIM
 (defun insert-line-before ()
