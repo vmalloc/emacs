@@ -46,7 +46,6 @@
    (cons 'smex melpa)
    (cons 'web-mode melpa)
    (cons 'magit melpa)
-   (cons 'workgroups melpa)
    (cons 'yaml-mode melpa)
    (cons 'yasnippet melpa)
    (cons 'zencoding-mode melpa)
