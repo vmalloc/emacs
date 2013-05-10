@@ -60,6 +60,10 @@
 ;; Don't require double escaping the re-builder
 (setq reb-re-syntax 'string)
 
+;; Scroll one line at a time without recentering the screen
+(setq scroll-step 1
+      scroll-conservatively 10000)
+
 ; trigger prog-mode-hook on non-24 versions
 (cond
  ((< emacs-major-version 24)
