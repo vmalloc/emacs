@@ -19,8 +19,11 @@ With prefix arg, forces opening brace to be in a new line"
     (end-of-line)
     (newline-and-indent)))
 
+(setq gdb-show-main t)
 (add-hook 'c-mode-common-hook '(lambda ()
-                                (define-key c-mode-base-map [(meta return)] 'my/c-mode-new-block)))
+                                (define-key c-mode-base-map [(meta return)] 'my/c-mode-new-block)
+				(local-set-key (kbd "C-c g") 'gdb-many-windows)))
 
 (setq c-default-style "bsd"
       c-basic-offset 4)
+
