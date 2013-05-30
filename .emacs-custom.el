@@ -18,6 +18,8 @@
  '(flycheck-warning-face ((t (:background "RoyalBlue4"))))
  '(highlight ((t (:background "Yellow" :foreground "black"))))
  '(hl-line ((t (:background "#333"))) t)
+ '(helm-ff-directory ((t (:foreground "yellow"))))
+ '(helm-selection ((t (:background "dark red" :underline t))))
  '(linum ((t (:inherit (shadow default) :background "#000" :foreground "#444"))) t)
  '(mc/cursor-face ((t (:background "deep sky blue" :foreground "black"))))
  '(minimap-active-region-background ((t (:background "#333"))))
