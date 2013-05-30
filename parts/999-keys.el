@@ -19,6 +19,9 @@
 ;; Browse URLs with C-x /
 (global-set-key (kbd "C-x /") 'browse-url)
 
+;; Override news with man
+(global-set-key (kbd "C-h n") 'man)
+
 ;; Scroll without moving the cursor
 (global-set-key "\C-n"  (lambda () (interactive) (scroll-up   4)) )
 (global-set-key "\C-p"  (lambda () (interactive) (scroll-down 4)) )
