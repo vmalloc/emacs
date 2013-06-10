@@ -39,6 +39,7 @@
 (require 'auto-complete-config)
 (global-auto-complete-mode t)
 (ac-config-default)
+(setq ac-auto-show-menu 0.0)
 
 ; wrap-region
 (require 'wrap-region)
