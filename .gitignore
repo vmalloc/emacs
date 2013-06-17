@@ -8,3 +8,4 @@ elpa
 *.elc
 url
 bookmarks
+projectile-bookmarks.eld
