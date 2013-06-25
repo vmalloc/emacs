@@ -7,3 +7,8 @@
 (unless in-terminal
   (require 'nyan-mode)
   (nyan-mode t))
+
+; Turn on visual line mode in man pages
+(add-hook 'Man-mode-hook
+	  '(lambda ()
+	     (visual-line-mode t)))
