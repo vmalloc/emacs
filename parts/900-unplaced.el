@@ -12,3 +12,7 @@
 (add-hook 'Man-mode-hook
 	  '(lambda ()
 	     (visual-line-mode t)))
+
+; Mongo DB
+(add-to-list 'load-path (in-modes-d "inf-mongo"))
+(require 'inf-mongo)
