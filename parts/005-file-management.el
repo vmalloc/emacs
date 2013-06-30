@@ -35,3 +35,6 @@
 
 ; find-files-in-project
 (require 'find-file-in-project)
+
+; Recognize zsh files
+(add-to-list 'auto-mode-alist '("\\.zsh\\'" . shell-script-mode))
