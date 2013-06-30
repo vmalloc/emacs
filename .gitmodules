@@ -100,6 +100,3 @@
 [submodule "modes/rainbow-mode"]
 	path = modes/rainbow-mode
 	url = https://github.com/emacsmirror/rainbow-mode.git
-[submodule "modes/inf-mongo"]
-	path = modes/inf-mongo
-	url = https://github.com/tobiassvn/inf-mongo.git

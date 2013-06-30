@@ -61,6 +61,7 @@
    (cons 'find-file-in-project melpa)
    (cons 'expand-region melpa)
    (cons 'drag-stuff melpa)
+   (cons 'inf-mongo melpa)
    (cons 'diminish melpa)
    )
   (if (>= emacs-major-version 24)
