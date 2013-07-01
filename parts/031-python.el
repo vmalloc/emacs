@@ -24,3 +24,11 @@
 (add-hook 'python-mode-hook
           '(lambda ()
              (define-key python-mode-map [(control ?c) ?i] 'python-auto-import)))
+
+; Jedi
+(setq jedi:complete-on-dot t)
+(setq jedi:get-in-function-call-delay 200)
+(setq jedi:get-in-function-call-timeout 5000)
+(setq jedi:tooltip-method nil) ; Use the minibuffer to show signatures instead of the tooltip
+(autoload 'jedi:setup "jedi" nil t)
+(add-hook 'python-mode-hook 'jedi:setup)
