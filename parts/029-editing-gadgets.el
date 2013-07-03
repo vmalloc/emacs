@@ -41,12 +41,6 @@
 (ac-config-default)
 (setq ac-auto-show-menu 0.0)
 
-(defun ac-python-mode-setup ()
-  (setq ac-sources (append '(ac-source-yasnippet ac-source-semantic) ac-sources)))
-
-(add-hook 'python-mode-hook 'ac-python-mode-setup)
-
-
 ; wrap-region
 (require 'wrap-region)
 (add-hook 'prog-mode-hook (lambda () (wrap-region-mode t)))

@@ -7,6 +7,7 @@
 	cua-paste
 	dabbrev-expand
 	indent-for-tab-command
+	jedi:dot-complete
 	python-backspace
 	python-indent-dedent-line-backspace
 	python-indent-electric-colon
