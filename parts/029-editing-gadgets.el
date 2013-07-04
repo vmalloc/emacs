@@ -39,7 +39,6 @@
 (require 'auto-complete-config)
 (global-auto-complete-mode t)
 (ac-config-default)
-(setq ac-auto-show-menu 0.0)
 
 (defun ac-python-mode-setup ()
   (setq ac-sources (append '(ac-source-yasnippet ac-source-semantic) ac-sources)))
