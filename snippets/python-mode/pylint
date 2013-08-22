@@ -1,0 +1,5 @@
+# -*- coding: utf-8 -*-
+# name: pylint
+# key: pylint
+# --
+#pylint: disable=${1:unused-import}
