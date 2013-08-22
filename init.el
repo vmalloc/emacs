@@ -63,6 +63,7 @@
    (cons 'drag-stuff melpa)
    (cons 'inf-mongo melpa)
    (cons 'diminish melpa)
+   (cons 'guide-key melpa)
    )
   (if (>= emacs-major-version 24)
       (packages-install
