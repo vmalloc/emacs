@@ -48,7 +48,7 @@
    (cons 'magit melpa)
    (cons 'yaml-mode melpa)
    (cons 'yasnippet melpa)
-   (cons 'zencoding-mode melpa)
+   (cons 'emmet-mode melpa)
    (cons 'undo-tree melpa)
    (cons 'multiple-cursors melpa)
    (cons 'markdown-mode melpa)
