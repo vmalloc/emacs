@@ -3,20 +3,21 @@
 
 (setq mc/cmds-to-run-for-all
       '(
-	cua-delete-region
-	cua-paste
-	dabbrev-expand
-	indent-for-tab-command
-	markdown-exdent-or-delete
-	python-backspace
-	python-indent-dedent-line-backspace
-	python-indent-electric-colon
-	save-line-or-region
-	yaml-electric-backspace
-	))
+        cua-delete-region
+        cua-paste
+        dabbrev-expand
+        indent-for-tab-command
+        markdown-exdent-or-delete
+        python-backspace
+        python-indent-dedent-line-backspace
+        python-indent-electric-colon
+        save-line-or-region
+        yaml-electric-backspace
+        yaml-electric-dash-and-dot
+        ))
 
 (setq mc/cmds-to-run-once
       '(
-	ace-jump-move
-	my/mark-all-like-this-in-defun
-	))
+        ace-jump-move
+        my/mark-all-like-this-in-defun
+        ))
