@@ -28,4 +28,4 @@ With prefix arg, forces opening brace to be in a new line"
       c-basic-offset 4)
 
 (add-hook 'prog-mode-hook '(lambda ()
-                             (setq indent-tabs-mode nil)))
+                             (unless (derived-mode-p 'makefile-mode) (setq indent-tabs-mode nil))))
