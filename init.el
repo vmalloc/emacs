@@ -55,6 +55,7 @@
    (cons 'lua-mode melpa)
    (cons 'iedit melpa)
    (cons 'ido-ubiquitous melpa)
+   (cons 'ido-vertical-mode melpa)
    (cons 'helm melpa)
    (cons 'minimap melpa)
    (cons 'haskell-mode melpa)

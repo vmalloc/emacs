@@ -9,6 +9,9 @@
 (require 'ido-ubiquitous)
 (ido-ubiquitous-mode 1)
 
+(require 'ido-vertical-mode)
+(ido-vertical-mode)
+
 ;; Fix ido-ubiquitous for newer packages
 (defmacro ido-ubiquitous-use-new-completing-read (cmd package)
   `(eval-after-load ,package
