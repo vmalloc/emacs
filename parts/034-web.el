@@ -10,3 +10,10 @@
 (define-key emmet-mode-keymap (kbd "C-j") nil)
 (define-key emmet-mode-keymap (kbd "<C-return>") nil)
 (define-key emmet-mode-keymap (kbd "C-c i") 'emmet-expand-line)
+
+; js2-mode
+(require 'js2-mode)
+(require 'js2-refactor)
+(js2r-add-keybindings-with-prefix "C-c C-m")
+(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+
