@@ -17,3 +17,5 @@
 (js2r-add-keybindings-with-prefix "C-c C-m")
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
+(add-hook 'css-mode-hook '(lambda ()
+                            (define-key css-mode-map (kbd "M-i") 'helm-css-scss)))

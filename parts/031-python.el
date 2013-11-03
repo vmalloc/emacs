@@ -24,3 +24,4 @@
 (add-hook 'python-mode-hook
           '(lambda ()
              (define-key python-mode-map [(control ?c) ?i] 'python-auto-import)))
+

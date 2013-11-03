@@ -57,6 +57,7 @@
    (cons 'ido-ubiquitous melpa)
    (cons 'ido-vertical-mode melpa)
    (cons 'helm melpa)
+   (cons 'helm-css-scss melpa)
    (cons 'js2-refactor melpa)
    (cons 'minimap melpa)
    (cons 'haskell-mode melpa)
