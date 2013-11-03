@@ -1,8 +1,12 @@
+
+
 (defun python-auto-import (only-first-component)
   "automatically import the required symbol under the cursor. With prefix argument, only takes first module path component (so 'os.path.exists' will cause importing of 'os' alone)"
   (interactive "P")
-  (python-insert-import-line-at-beginning-of-buffer (python-get-needed-import-string only-first-component))
-  )
+  (let ((temp-point (point))
+        (prev-size (buffer-size)))
+    (python-insert-import-line-at-beginning-of-buffer (python-get-needed-import-string only-first-component))
+    (goto-char (+ temp-point (- (buffer-size) prev-size)))))
 
 (defun python-get-needed-import-string (only-first-component)
   (let ((symbol (--python-info-current-symbol)))
@@ -31,24 +35,18 @@
     (beginning-of-buffer)
     (--skip-comments-and-strings)
     (--ensure-import-block)
-    (let ((beg (point)))
-      (newline)
-      (forward-line -1)
-      (insert-string import-string)
-      (forward-paragraph)
-      (let ((end (point)))
-        (my/sort-lines-as-exprs nil beg (point))
-        (uniquify-all-lines-region beg (point))
-        )
-      )
-  ))
+    (newline)
+    (forward-line -1)
+    (insert-string import-string)
+    (forward-paragraph)
+    (my/isort-buffer)
+    ))
 
 (defun --ensure-import-block ()
   (if (not (or (looking-at "import ") (looking-at "from ")))
       (progn
         (newline-and-indent)
         (previous-line))))
-
 
 (defun --skip-comments-and-strings ()
   (while (--looking-at-comment-or-string)
@@ -92,6 +90,16 @@
       (sort-subr reverse
                  'forward-line
                  '--end-of-chunk))))
+
+(defun my/isort-buffer ()
+  (interactive)
+  (save-excursion
+    (beginning-of-buffer)
+    (push-mark)
+    (end-of-buffer)
+    (shell-command-on-region (point) (mark) "isort -" nil t)
+    (pop-mark)
+    ))
 
 (global-set-key (kbd "C-c i") 'python-auto-import)
 
