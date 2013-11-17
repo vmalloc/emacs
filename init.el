@@ -59,7 +59,6 @@
    (cons 'helm melpa)
    (cons 'helm-css-scss melpa)
    (cons 'js2-refactor melpa)
-   (cons 'minimap melpa)
    (cons 'haskell-mode melpa)
    (cons 'find-file-in-project melpa)
    (cons 'expand-region melpa)
