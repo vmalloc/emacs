@@ -12,14 +12,16 @@
 ;   automatically close the compilation frame if no errors occurred
 (setq compilation-finish-function
       (lambda (buf str)
-        (if (not (string-match "grep" (buffer-name buf)))
+        (if (not (or (string-match "grep" (buffer-name buf))
+                     (string-match "ag text:" (buffer-name buf))
+                     )
             (if (string-match "exited abnormally" str)
 
                 ;;there were errors
                 (message "compilation errors, press C-x ` to visit")
               ;;no errors, make the compilation window go away in 0.5 seconds
               (run-at-time 3 nil 'delete-windows-on buf)
-              (message "NO COMPILATION ERRORS!")))))
+              (message "NO COMPILATION ERRORS!"))))))
 (add-hook 'compilation-mode-hook 'organize-compilation-window)
 
 (defun my/compilation-last-error () (interactive)
