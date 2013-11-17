@@ -25,7 +25,7 @@
 
 ; guid-key
 (require 'guide-key)
-(setq guide-key/guide-key-sequence '("C-x r" "C-x 4" "%" "*"))
+(setq guide-key/guide-key-sequence '("C-x r" "C-x 4" "%" "*" "C-c p"))
 (guide-key-mode 1)
 
 ; diff-hl for highlighting differences in fringe
