@@ -7,6 +7,8 @@
  '(helm-ff-transformer-show-only-basename nil)
  '(minimap-window-location (quote right))
  '(ns-pop-up-frames nil)
+ '(projectile-ack-function (quote ag))
+ '(projectile-global-mode t)
  '(set-mark-command-repeat-pop t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
