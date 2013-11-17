@@ -1,3 +1,6 @@
+(require 'projectile)
+(projectile-global-mode)
+
 (require 'helm)
 (require 'helm-config)
 (helm-mode t)
@@ -6,7 +9,4 @@
 (global-set-key (kbd "M-i") 'helm-semantic-or-imenu)
 (global-set-key (kbd "C-x y") 'helm-show-kill-ring)
 (global-set-key (kbd "M-x") 'helm-M-x)
-(global-set-key (kbd "C-x p") 'helm-projectile)
 
-(require 'projectile)
-(projectile-global-mode)
