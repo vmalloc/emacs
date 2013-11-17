@@ -67,6 +67,7 @@
    (cons 'inf-mongo melpa)
    (cons 'diminish melpa)
    (cons 'guide-key melpa)
+   (cons 'diff-hl melpa)
    )
   (if (>= emacs-major-version 24)
       (packages-install
