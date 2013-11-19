@@ -58,6 +58,7 @@
    (cons 'ido-vertical-mode melpa)
    (cons 'helm melpa)
    (cons 'helm-css-scss melpa)
+   (cons 'helm-projectile melpa)
    (cons 'js2-refactor melpa)
    (cons 'haskell-mode melpa)
    (cons 'find-file-in-project melpa)

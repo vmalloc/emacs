@@ -10,3 +10,8 @@
 (global-set-key (kbd "C-x y") 'helm-show-kill-ring)
 (global-set-key (kbd "M-x") 'helm-M-x)
 
+(defun emacs-d-find-file ()
+  (interactive)
+  (let ((default-directory "~/.emacs.d/"))
+    (helm-projectile)))
+
