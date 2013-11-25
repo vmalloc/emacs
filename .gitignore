@@ -9,3 +9,5 @@ elpa
 url
 bookmarks
 projectile-bookmarks.eld
+/auto-save-list/
+/request/
