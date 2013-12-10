@@ -1,13 +1,3 @@
-; minimap
-(require 'minimap)
-(defun minimap-toggle ()
-  "Toggle minimap for current buffer."
-  (interactive)
-  (require 'minimap)
-  (if (null minimap-bufname)
-      (minimap-create)
-    (minimap-kill)))
-
 ; undo-tree
 (require 'undo-tree)
 (global-undo-tree-mode t)
