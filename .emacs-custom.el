@@ -10,6 +10,7 @@
  '(ns-pop-up-frames nil)
  '(projectile-ack-function (quote ag))
  '(projectile-global-mode t)
+ '(projectile-globally-ignored-directories (quote (".idea" ".eunit" ".git" ".hg" ".fslckout" ".bzr" "_darcs" "venv" "build" ".env")))
  '(set-mark-command-repeat-pop t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
