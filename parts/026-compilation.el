@@ -7,8 +7,7 @@
         (let* ((w (split-window-vertically))
                (h (window-height w)))
           (select-window w)
-          (switch-to-buffer "*compilation*")
-          (shrink-window (- h 10)))))))
+          (switch-to-buffer "*compilation*"))))))
 ;   automatically close the compilation frame if no errors occurred
 (setq compilation-finish-function
       (lambda (buf str)
@@ -25,11 +24,10 @@
 (add-hook 'compilation-mode-hook 'organize-compilation-window)
 
 (defun my/compilation-last-error () (interactive)
-  (previous-error)
   (while (not (next-error)))
 )
 
-(global-set-key (kbd "C-c l") 'my/compilation-last-error)
+(global-set-key (kbd "C-x ~") 'my/compilation-last-error)
 
 (defvar my/compilation-history-file "~/.emacs-compilation-history"
   "Where to save compilation history between sessions")
