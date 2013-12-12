@@ -69,6 +69,7 @@
    (cons 'guide-key melpa)
    (cons 'diff-hl melpa)
    (cons 'free-keys melpa)
+   (cons 'syslog-mode melpa)
    )
   (if (>= emacs-major-version 24)
       (packages-install
