@@ -2,5 +2,5 @@
 # name: pdb
 # key: pdb
 # --
-import pudb
-pudb.set_trace()
+import `python-snippet-debugger`
+`python-snippet-debugger`.set_trace()
