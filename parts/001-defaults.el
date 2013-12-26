@@ -44,7 +44,9 @@
 (cua-selection-mode t)
 
 ; display trailing whitespaces in prog-mode variants
-(add-hook 'prog-mode-hook (lambda () (setq show-trailing-whitespace t)))
+(add-hook 'prog-mode-hook (lambda ()
+                            (setq show-trailing-whitespace t)
+                            (subword-mode t)))
 
 ; yes/no turns to y/n
 (fset 'yes-or-no-p 'y-or-n-p)
