@@ -6,6 +6,7 @@
  '(blink-cursor-mode nil)
  '(cua-rectangle-mark-key (kbd "C-x <C-return>"))
  '(helm-ff-transformer-show-only-basename nil)
+ '(iflipb-ignore-buffers nil)
  '(minimap-window-location (quote right))
  '(ns-pop-up-frames nil)
  '(projectile-ack-function (quote ag))
