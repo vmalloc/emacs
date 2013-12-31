@@ -70,6 +70,7 @@
    (cons 'diff-hl melpa)
    (cons 'free-keys melpa)
    (cons 'syslog-mode melpa)
+   (cons 'iflipb melpa)
    )
   (if (>= emacs-major-version 24)
       (packages-install
