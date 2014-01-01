@@ -13,6 +13,7 @@
       (lambda (buf str)
         (if (not (or (string-match "grep" (buffer-name buf))
                      (string-match "ag text:" (buffer-name buf))
+                     (string-match "ag regexp:" (buffer-name buf))
                      ))
             (if (string-match "exited abnormally" str)
 
