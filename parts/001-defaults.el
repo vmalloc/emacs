@@ -46,7 +46,10 @@
 ; display trailing whitespaces in prog-mode variants
 (add-hook 'prog-mode-hook (lambda ()
                             (setq show-trailing-whitespace t)
-                            (subword-mode t)))
+                            (subword-mode t)
+                            (define-key prog-mode-map (kbd "<C-left>") 'backward-word)
+                            (define-key prog-mode-map (kbd "<C-right>") 'forward-word)
+))
 
 ; yes/no turns to y/n
 (fset 'yes-or-no-p 'y-or-n-p)
