@@ -30,3 +30,8 @@
 
 ; diff-hl for highlighting differences in fringe
 (add-hook 'prog-mode-hook '(lambda () (diff-hl-mode)))
+
+(defun presentation-mode ()
+  (interactive)
+  (load-theme 'whiteboard t)
+  (set-face-attribute 'default nil :height 120))
