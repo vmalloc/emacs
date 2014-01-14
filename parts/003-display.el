@@ -35,3 +35,5 @@
   (interactive)
   (load-theme 'whiteboard t)
   (set-face-attribute 'default nil :height 120))
+
+(add-to-list 'custom-theme-load-path (in-emacs-d "themes"))

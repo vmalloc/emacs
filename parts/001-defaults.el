@@ -68,14 +68,3 @@
 ;; Scroll one line at a time without recentering the screen
 (setq scroll-step 1
       scroll-conservatively 10000)
-
-; trigger prog-mode-hook on non-24 versions
-(cond
- ((< emacs-major-version 24)
-  (defun my/run-prog-mode-hooks ()
-    (run-hooks 'prog-mode-hook))
-  (add-hook 'c-mode-hook 'my/run-prog-mode-hooks)
-  (add-hook 'c++-mode-hook 'my/run-prog-mode-hooks)
-  (add-hook 'emacs-lisp-mode-hook 'my/run-prog-mode-hooks)
-  (add-hook 'java-mode-hook 'my/run-prog-mode-hooks)
-  (add-hook 'python-mode-hook 'my/run-prog-mode-hooks)))
