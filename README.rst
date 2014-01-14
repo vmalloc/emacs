@@ -9,7 +9,10 @@ This is my revised and rewritten emacs setup. The goals I had for this is:
 
 * As little configuration code as possible
 * First-class support for emacs in-the-terminal (-nw)
-* Support for Emacs 24
+
+Requirements
+============
+* Emacs 24
 
 Installation
 ============
@@ -18,6 +21,8 @@ A daily snapshot of the repository, all dependencies included, can be `found her
 If you want to install from a git checkout, just clone into ~/.emacs.d, and update the submodules::
 
  git submodule update --init
+
+You can write your own customizations in ~/.emacs-site.el. It is also recommended that you set your favorite font and theme in that file.
 
 Suggestions/Improvements/Feedback?
 ==================================

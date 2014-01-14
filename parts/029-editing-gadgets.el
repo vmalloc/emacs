@@ -83,18 +83,17 @@
 (global-set-key (kbd "C-c d") 'dash-lookup-current-word)
 
 ; flycheck
-(cond
- ((>= emacs-major-version 24)
-  (require 'flycheck)
-  ; turn on flycheck-mode in python-mode
-  (add-hook 'python-mode-hook
-        '(lambda ()
+(require 'flycheck)
+
+; turn on flycheck-mode in python-mode
+(add-hook 'python-mode-hook
+          '(lambda ()
              (flycheck-mode)))
-  (global-set-key (kbd "C-c m f") 'flycheck-mode)
-  (global-set-key (kbd "C-c f r")
-                  '(lambda ()
-                     (interactive)
-                     (flycheck-mode t)))))
+(global-set-key (kbd "C-c m f") 'flycheck-mode)
+(global-set-key (kbd "C-c f r")
+                '(lambda ()
+                   (interactive)
+                   (flycheck-mode t)))
 
 ;; pbcopy - use OS X's clipboard if we're in the terminal
 (cond ((and in-terminal (string-equal system-type "darwin"))

@@ -19,9 +19,6 @@
     (load-library path))
   )
 
-(if (< emacs-major-version 24)
-    (add-to-list 'load-path (in-emacs-d "compat23")))
-
 (require 'elisp-utils)
 (require 'setup-package)
 
@@ -71,10 +68,8 @@
    (cons 'free-keys melpa)
    (cons 'syslog-mode melpa)
    (cons 'iflipb melpa)
-   )
-  (if (>= emacs-major-version 24)
-      (packages-install
-       (cons 'nxml melpa))))
+   (cons 'nxml melpa)))
+
 (condition-case nil
     (init--install-packages)
   (error
