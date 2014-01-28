@@ -15,6 +15,7 @@
         save-line-or-region
         yaml-electric-backspace
         yaml-electric-dash-and-dot
+        haskell-indentation-delete-backward-char
         ))
 
 (setq mc/cmds-to-run-once
