@@ -6,6 +6,7 @@
         cua-delete-region
         cua-paste
         dabbrev-expand
+        haskell-indentation-delete-backward-char
         indent-for-tab-command
         markdown-cycle
         markdown-exdent-or-delete
@@ -13,9 +14,9 @@
         python-indent-dedent-line-backspace
         python-indent-electric-colon
         save-line-or-region
+        smart-beginning-of-line
         yaml-electric-backspace
         yaml-electric-dash-and-dot
-        haskell-indentation-delete-backward-char
         ))
 
 (setq mc/cmds-to-run-once
