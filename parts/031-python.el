@@ -25,3 +25,8 @@
           '(lambda ()
              (define-key python-mode-map [(control ?c) ?i] 'python-auto-import)))
 
+(require 'python-dict-styles)
+(add-hook 'python-mode-hook
+          '(lambda ()
+             (define-key python-mode-map [(control ?c) ?t] 'python-toggle-dict-styles)))
+

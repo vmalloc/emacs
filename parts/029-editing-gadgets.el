@@ -68,7 +68,7 @@
     (mc/mark-all-symbols-like-this-in-defun)))
 
 (global-set-key (kbd "C-:") 'my/mark-all-like-this-in-defun)
-(global-set-key (kbd "C-;") 'mc/mark-all-like-this)
+(global-set-key (kbd "C-;") 'mc/mark-all-like-this-dwim)
 (global-set-key (kbd "C-c m l") 'mc/edit-ends-of-lines)
 
 ; dash support

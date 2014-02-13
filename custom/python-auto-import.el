@@ -101,6 +101,4 @@
     (pop-mark)
     ))
 
-(global-set-key (kbd "C-c i") 'python-auto-import)
-
 (provide 'python-auto-import)
