@@ -8,25 +8,28 @@
              (local-set-key (kbd "C-c #") 'comment-or-uncomment-region)))
 
 ; run redgreen in current project
-(require 'redgreen-at-project-root)
+(autoload 'redgreen-at-project-root "redgreen-at-project-root.el" nil t)
 (add-hook 'python-mode-hook
           '(lambda ()
              (define-key python-mode-map [(control ?c) ?r] 'redgreen-at-project-root)))
 
 ; python-auto-super
-(require 'python-auto-super)
+(autoload 'python-auto-super "python-auto-super.el" nil t)
 (add-hook 'python-mode-hook
           '(lambda ()
              (define-key python-mode-map [(control ?c) ?s] 'python-auto-super)))
 
 ; python-auto-import
-(require 'python-auto-import)
+(autoload 'python-auto-import "python-auto-import.el" nil t)
 (add-hook 'python-mode-hook
           '(lambda ()
              (define-key python-mode-map [(control ?c) ?i] 'python-auto-import)))
 
-(require 'python-dict-styles)
+(autoload 'python-toggle-dict-style "python-refactor.el" nil t)
+(autoload 'python-toggle-assert-style "python-refactor.el" nil t)
 (add-hook 'python-mode-hook
           '(lambda ()
-             (define-key python-mode-map [(control ?c) ?t] 'python-toggle-dict-styles)))
+             (define-key python-mode-map [(control ?c) ?d] 'python-toggle-dict-style)
+             (define-key python-mode-map [(control ?c) ?a] 'python-toggle-assert-style)
+             ))
 

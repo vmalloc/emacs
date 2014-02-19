@@ -74,10 +74,15 @@
 ; dash support
 (defun dash-lookup-current-word ()
   (interactive)
-  (browse-url (format "dash://%s" (current-word)))
-  )
+  (browse-url (--get-dash-query-string)
+  ))
 
-(global-set-key (kbd "C-c d") 'dash-lookup-current-word)
+(defun --get-dash-query-string ()
+  (if (derived-mode-p 'python-mode)
+      (format "dash-plugin://keys=flask,python2,requests,sqlalchemy,werkzeug&query=%s" (current-word))
+    (if (derived-mode-p 'yaml-mode)
+        (format "dash-plugin://keys=ansible&query=%s" (current-word))
+      (concat "dash://" (current-word)))))
 
 ; flycheck
 (require 'flycheck)

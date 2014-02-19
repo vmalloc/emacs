@@ -6,6 +6,7 @@
         cua-delete-region
         cua-paste
         dabbrev-expand
+        forward-sexp
         haskell-indentation-delete-backward-char
         indent-for-tab-command
         markdown-cycle
