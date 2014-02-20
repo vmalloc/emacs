@@ -16,6 +16,7 @@
         python-indent-electric-colon
         save-line-or-region
         smart-beginning-of-line
+        upcase-region
         yaml-electric-backspace
         yaml-electric-dash-and-dot
         ))
