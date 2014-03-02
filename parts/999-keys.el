@@ -5,6 +5,10 @@
 (global-set-key [(end)]                  'end-of-line)
 (global-set-key [(home)]                 'beginning-of-line)
 
+;; Page Up/Down half screen scroll
+(global-set-key (kbd "<prior>") 'View-scroll-half-page-backward)
+(global-set-key (kbd "<next>") 'View-scroll-half-page-forward)
+
 ;; F keys
 (eval-after-load "c-mode" '(define-key c-mode-map [(f6)] 'ff-find-other-file))
 (eval-after-load "cc-mode" '(define-key c-mode-map [(f6)] 'ff-find-other-file))
