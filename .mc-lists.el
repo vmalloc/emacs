@@ -3,6 +3,7 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+        backward-sexp
         cua-delete-region
         cua-paste
         dabbrev-expand
