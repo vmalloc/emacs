@@ -33,7 +33,7 @@
              (define-key python-mode-map [(control ?c) ?a] 'python-toggle-assert-style)
              ))
 
-(autoload 'python-auto-pep8 "python-pep8.el" nil t)
+(autoload 'python-auto-pep8 "python-auto-pep8.el" nil t)
 (add-hook 'python-mode-hook
           '(lambda ()
              (define-key python-mode-map [(control ?c) ?8] 'python-auto-pep8)
