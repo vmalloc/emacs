@@ -1,0 +1,6 @@
+# -*- coding: utf-8 -*-
+# name: ifmain
+# key: ifmain
+# --
+if __name__ == "__main__":
+    $0
