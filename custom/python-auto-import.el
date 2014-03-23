@@ -12,15 +12,15 @@
     (let ((cached-result (gethash symbol --symbol-cache)))
       (let ((result (if cached-result
                         cached-result
-                      (--parse-import-string-from-symbol symbol))))
-        (if (not (s-starts-with? "from ." result))
-            (--save-result symbol result))
-        result))))
+                      (--save-result symbol (--parse-import-string-from-symbol symbol)))))))))
 
 
 (defun --save-result (symbol result)
-  (puthash symbol result --symbol-cache)
-  (--dump-symbol-cache))
+  (if (not (s-starts-with? "from ." result))
+      (progn
+        (puthash symbol result --symbol-cache)
+        (--dump-symbol-cache)))
+  result)
 
 (defvar python-auto-import-cache-filename "~/.emacs.d/.python-auto-import-cache")
 
