@@ -59,16 +59,15 @@
 (global-set-key (kbd "<f6>") (lambda () (interactive) (mc/create-fake-cursor-at-point)))
 (global-set-key (kbd "S-<f6>") 'multiple-cursors-mode)
 
-(defun my/mark-all-like-this-in-defun ()
+(defun my/mark-all-symbols-like-this-in-defun ()
   "wrapper for mark-all-symbols-like-this-in-defun, automatically selecting symbols if unselected"
   (interactive)
-  (if (region-active-p)
-      (mc/mark-all-like-this-in-defun)
-    (er/mark-symbol)
-    (mc/mark-all-symbols-like-this-in-defun)))
+  (if (not (region-active-p))
+      (er/mark-symbol))
+  (mc/mark-all-symbols-like-this-in-defun))
 
-(global-set-key (kbd "C-:") 'my/mark-all-like-this-in-defun)
-(global-set-key (kbd "C-;") 'mc/mark-all-like-this-dwim)
+(global-set-key (kbd "C-:") 'my/mark-all-symbols-like-this-in-defun)
+(global-set-key (kbd "C-;") 'mc/mark-all-symbols-like-this)
 (global-set-key (kbd "C-c m l") 'mc/edit-ends-of-lines)
 
 ; dash support
