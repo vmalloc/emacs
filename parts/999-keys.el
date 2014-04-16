@@ -54,6 +54,19 @@
 (global-set-key (kbd "C-x <C-down>") 'next-error)
 (global-set-key (kbd "C-x <C-up>") 'previous-error)
 
+;; Line joining
+(add-hook 'prog-mode-hook '(lambda () (global-set-key (kbd "M-j")
+                                           (lambda ()
+                                             (interactive)
+                                             (join-line -1)))))
+
+;; override weird keys on js2-mode
+(define-key js2-mode-map (kbd "M-j") nil)
+(define-key js2-mode-map (kbd "C-c C-e") nil)
+
+
+
+
 ;; Kill/save the active region or the current line
 (defun kill-line-or-region ()
   (interactive)
