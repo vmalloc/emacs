@@ -118,11 +118,6 @@
 (global-set-key (kbd "C-o") 'insert-line-after)
 (global-set-key (kbd "C-S-o") 'insert-line-before)
 
-(global-set-key (kbd "M-j")
-                (lambda ()
-                  (interactive)
-                  (join-line -1)))
-
 ;; TRAMP
 ; Use external scp instead of the build in
 (set-default 'tramp-default-method "scp")

@@ -10,9 +10,9 @@
 (defun --deduce-needed-import-string (only-first-component)
   (let ((symbol (--python-info-current-symbol)))
     (let ((cached-result (gethash symbol --symbol-cache)))
-      (let ((result (if cached-result
-                        cached-result
-                      (--save-result symbol (--parse-import-string-from-symbol symbol)))))))))
+      (if cached-result
+          cached-result
+        (--save-result symbol (--parse-import-string-from-symbol symbol))))))
 
 
 (defun --save-result (symbol result)
