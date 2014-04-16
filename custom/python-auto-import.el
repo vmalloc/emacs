@@ -74,7 +74,7 @@
     (forward-line -1)
     (insert-string import-string)
     (forward-paragraph)
-    (my/isort-buffer)
+    (python-isort-buffer)
     ))
 
 (defun --ensure-import-block ()
@@ -125,7 +125,7 @@
                  'forward-line
                  '--end-of-chunk))))
 
-(defun my/isort-buffer ()
+(defun python-isort-buffer ()
   (interactive)
   (save-excursion
     (beginning-of-buffer)

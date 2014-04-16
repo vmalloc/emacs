@@ -23,7 +23,9 @@
 (autoload 'python-auto-import "python-auto-import.el" nil t)
 (add-hook 'python-mode-hook
           '(lambda ()
-             (define-key python-mode-map [(control ?c) ?i] 'python-auto-import)))
+             (define-key python-mode-map [(control ?c) ?i] 'python-auto-import))
+             (define-key python-mode-map [(control ?c) ?I] 'python-isort-buffer))
+
 
 (autoload 'python-toggle-dict-style "python-refactor.el" nil t)
 (autoload 'python-toggle-assert-style "python-refactor.el" nil t)
@@ -39,3 +41,10 @@
              (define-key python-mode-map [(control ?c) ?8] 'python-auto-pep8)
              ))
 
+
+(add-hook 'python-mode-hook
+          '(lambda ()
+             (define-key python-mode-map [(control ?c) ?t]
+               '(lambda () (interactive)
+                  (python-isort-buffer)
+                  (python-auto-pep8)))))
