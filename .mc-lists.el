@@ -7,9 +7,12 @@
         cua-delete-region
         cua-paste
         dabbrev-expand
+        decrement-integer-at-point
         forward-sexp
         haskell-indentation-delete-backward-char
+        increment-integer-at-point
         indent-for-tab-command
+        kill-line-or-region
         markdown-cycle
         markdown-exdent-or-delete
         python-backspace
