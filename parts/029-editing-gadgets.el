@@ -116,8 +116,8 @@
   (move-end-of-line nil)
   (newline-and-indent))
 
-(global-set-key (kbd "C-o") 'insert-line-after)
-(global-set-key (kbd "C-S-o") 'insert-line-before)
+(global-set-key (kbd "C-j") 'insert-line-after)
+(global-set-key (kbd "C-S-j") 'insert-line-before)
 
 (global-set-key (kbd "M-j")
                 (lambda ()

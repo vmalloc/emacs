@@ -69,6 +69,7 @@
    (cons 'free-keys melpa)
    (cons 'syslog-mode melpa)
    (cons 'iflipb melpa)
+   (cons 'swoop melpa)
    (cons 'nxml melpa)))
 
 (condition-case nil
