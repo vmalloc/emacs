@@ -1,6 +1,6 @@
 
 (defun --python-refactor(op)
-  (shell-command-on-region (point) (mark) (format "pyrefactor %s" op) nil t)
+  (shell-command-on-region (point) (mark) (format "%s %s" (executable-find "pyrefactor") op) nil t)
   (setq deactivate-mark nil)
   )
 
