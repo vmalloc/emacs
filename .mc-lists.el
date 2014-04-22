@@ -18,6 +18,7 @@
         python-backspace
         python-indent-dedent-line-backspace
         python-indent-electric-colon
+        python-toggle-assert-style
         save-line-or-region
         smart-beginning-of-line
         upcase-region
