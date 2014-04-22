@@ -12,7 +12,7 @@
 ;; F keys
 (eval-after-load "c-mode" '(define-key c-mode-map [(f6)] 'ff-find-other-file))
 (eval-after-load "cc-mode" '(define-key c-mode-map [(f6)] 'ff-find-other-file))
-(global-set-key [(f9)] 'compile)
+(global-set-key [(f9)] 'projectile-compile-project)
 (global-set-key [(f10)] 'previous-error)
 (global-set-key [(f11)] 'next-error)
 ;; deleting trailing whitespaces
