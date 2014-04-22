@@ -69,7 +69,9 @@
    (cons 'free-keys melpa)
    (cons 'syslog-mode melpa)
    (cons 'iflipb melpa)
-   (cons 'nxml melpa)))
+   (cons 'nxml melpa)
+   (cons 'sublimity melpa)
+   ))
 
 (condition-case nil
     (init--install-packages)
