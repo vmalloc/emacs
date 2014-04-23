@@ -24,3 +24,6 @@
 (ido-ubiquitous-use-new-completing-read yas/visit-snippet-file 'yasnippet)
 
 (global-set-key (kbd "M-q") 'ido-switch-buffer)
+
+;; Disable auto search in find-file
+(setq ido-auto-merge-work-directories-length -1)
