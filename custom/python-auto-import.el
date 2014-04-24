@@ -131,7 +131,7 @@
     (beginning-of-buffer)
     (push-mark)
     (end-of-buffer)
-    (shell-command-on-region (point) (mark) "isort -" nil t)
+    (shell-command-on-region (point) (mark) (format "%s -" (executable-find "isort")) nil t)
     (pop-mark)
     ))
 
