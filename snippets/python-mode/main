@@ -3,42 +3,19 @@
 # key: main
 # --
 #!/usr/bin/env python
-import argparse
-import logging
 import sys
 
-parser = argparse.ArgumentParser(usage="%(prog)s [options] args...")
-parser.add_argument("-v", action="append_const", const=1, dest="verbosity", default=[],
-                    help="Be more verbose. Can be specified multiple times to increase verbosity further")
+import logbook
+import click
 
 
-def main(args):
-    $0
-    return 0
-
-
-################################## Boilerplate ################################
-def _configure_logging(args):
-    verbosity_level = len(args.verbosity)
-    if verbosity_level == 0:
-        level = "WARNING"
-    elif verbosity_level == 1:
-        level = "INFO"
-    else:
-        level = "DEBUG"
-    logging.basicConfig(
-        stream=sys.stderr,
-        level=level,
-        format="%(asctime)s -- %(message)s"
-        )
-
-
-#### For use with entry_points/console_scripts
-def main_entry_point():
-    args = parser.parse_args()
-    _configure_logging(args)
-    sys.exit(main(args))
+@click.command()
+@click.option("-v", "--verbose", count=True)
+@click.option("-q", "--quiet", count=True)
+def main(verbose, quiet):
+    with logbook.NullHandler(), logbook.StreamHandler(sys.stderr, level=logbook.WARNING-verbose+quiet, bubble=False):
+        pass
 
 
 if __name__ == "__main__":
-    main_entry_point()
+    main()
