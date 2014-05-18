@@ -71,6 +71,7 @@
    (cons 'iflipb melpa)
    (cons 'nxml melpa)
    (cons 'sublimity melpa)
+   (cons 'sphinx-doc melpa)
    ))
 
 (condition-case nil
