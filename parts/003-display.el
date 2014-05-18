@@ -44,3 +44,6 @@
 (sublimity-mode 1)
 (setq sublimity-scroll-weight 10
       sublimity-scroll-drift-length 5)
+
+(require 'popwin)
+(popwin-mode 1)
