@@ -83,3 +83,6 @@
     (kill-ring-save (line-beginning-position) (line-end-position))))
 
 (global-set-key (kbd "M-w") 'save-line-or-region)
+
+;; Goto function definitions
+(global-set-key (kbd "C-h C-f") 'find-function)
