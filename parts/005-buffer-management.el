@@ -68,7 +68,7 @@ Including indent-buffer, which should not be called automatically on save."
           (set-window-buffer (next-window) next-win-buffer)
           (select-window first-win)
           (if this-win-2nd (other-window 1))))))
-(global-set-key (kbd "C-x w t") 'my/rotate-windows)
+(global-set-key (kbd "C-x w t") 'my/toggle-window-split)
 
 (require 'iflipb)
 (global-set-key (kbd "M-h") 'iflipb-next-buffer)
