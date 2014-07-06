@@ -27,12 +27,16 @@
              (define-key python-mode-map [(control ?c) ?I] 'python-isort-buffer))
 
 
-(autoload 'python-toggle-dict-style "python-refactor.el" nil t)
-(autoload 'python-toggle-assert-style "python-refactor.el" nil t)
+(dolist (symbol (list 'python-toggle-dict-style
+                      'python-toggle-assert-style
+                      'python-extract-parameter))
+  (autoload symbol "python-refactor.el" nil t))
+
 (add-hook 'python-mode-hook
           '(lambda ()
-             (define-key python-mode-map [(control ?c) ?d] 'python-toggle-dict-style)
-             (define-key python-mode-map [(control ?c) ?a] 'python-toggle-assert-style)
+             (define-key python-mode-map (kbd "C-c d") 'python-toggle-dict-style)
+             (define-key python-mode-map (kbd "C-c a") 'python-toggle-assert-style)
+             (define-key python-mode-map (kbd "C-c e p") 'python-extract-parameter)
              ))
 
 (autoload 'python-auto-pep8 "python-auto-pep8.el" nil t)
@@ -40,7 +44,6 @@
           '(lambda ()
              (define-key python-mode-map [(control ?c) ?8] 'python-auto-pep8)
              ))
-
 
 (add-hook 'python-mode-hook
           '(lambda ()
