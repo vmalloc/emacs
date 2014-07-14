@@ -25,3 +25,5 @@
     (let ((hook (lambda  () (interactive) (helm-projectile-find-file-in-dir d))))
       (global-set-key modifier hook))))
 
+; See https://github.com/emacs-helm/helm/issues/550
+(setq helm-exit-idle-delay 0)
