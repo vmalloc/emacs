@@ -5,6 +5,8 @@
   :type 'string
   :group 'yasnippet)
 
+(setq yas-snippet-dirs (list (in-emacs-d "snippets") yas-installed-snippets-dir))
+
 (yas/global-mode 1)
 (setq yas/indent-line 'fixed) ; for indented snippets
 ; rebind yasnippet-expand to C-c tab. This is because the new version of yasnippet
