@@ -23,7 +23,7 @@
   (let ((symbol (current-word)))
     (message (format "extracting parameter: %s" symbol))
     (save-excursion
-      (python-nav-beginning-of-block)
+      (back-to-indentation)
       (python-nav-beginning-of-defun)
       (search-forward "):")
       (backward-char 3)

@@ -21,6 +21,7 @@
 
 ; python-auto-import
 (autoload 'python-auto-import "python-auto-import.el" nil t)
+(autoload 'python-isort-buffer "python-auto-import.el" nil t)
 (add-hook 'python-mode-hook
           '(lambda ()
              (define-key python-mode-map [(control ?c) ?i] 'python-auto-import))

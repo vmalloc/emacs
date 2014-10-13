@@ -45,14 +45,15 @@
 (--load-symbol-cache)
 
 (defun --parse-import-string-from-symbol (symbol)
-  (let ((parts (split-string symbol "\\.")))
-      (if (<= (list-length parts) 1)
-          (format "from %s import %s" (read-string (format "import %s from? " symbol)) symbol)
-          (format "import %s" (if (or
-                                   only-first-component
-                                   (python-autoimport--is-first-component-enough symbol))
-                                  (car parts)
-                                (mapconcat 'identity (nbutlast parts 1) "."))))))
+  (cond ((string= symbol "print") "from __future__ import print_function")
+        (t (let ((parts (split-string symbol "\\.")))
+             (if (<= (list-length parts) 1)
+                 (format "from %s import %s" (read-string (format "import %s from? " symbol)) symbol)
+               (format "import %s" (if (or
+                                        only-first-component
+                                        (python-autoimport--is-first-component-enough symbol))
+                                       (car parts)
+                                     (mapconcat 'identity (nbutlast parts 1) "."))))))))
 
 (defun --python-info-current-symbol ()
   (if (< emacs-major-version 24)
