@@ -8,7 +8,6 @@
 (setq custom-dir (in-emacs-d "custom/"))
 (defun in-custom-d (path)
   (concat custom-dir path))
-(add-to-list 'load-path emacs-dir)
 (add-to-list 'load-path mode-dir)
 (add-to-list 'load-path custom-dir)
 
@@ -20,7 +19,7 @@
   )
 
 (require 'elisp-utils)
-(require 'setup-package)
+(load (in-emacs-d "setup-package.el"))
 
 (if (getenv "http_proxy")
     (eval-after-load "url"
