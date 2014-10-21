@@ -217,3 +217,5 @@ With numeric prefix arg DEC, decrement the integer by DEC amount."
 
 (global-set-key (kbd "M-=") 'increment-integer-at-point)
 (global-set-key (kbd "M--") 'decrement-integer-at-point)
+
+(setq electric-indent-mode nil)
