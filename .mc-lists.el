@@ -30,4 +30,5 @@
       '(
         ace-jump-move
         my/mark-all-like-this-in-defun
+        my/mark-all-symbols-like-this-in-defun
         ))
