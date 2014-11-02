@@ -61,8 +61,9 @@
                                              (join-line -1)))))
 
 ;; override weird keys on js2-mode
-(define-key js2-mode-map (kbd "M-j") nil)
-(define-key js2-mode-map (kbd "C-c C-e") nil)
+(add-hook 'js2-mode-hook '(lambda () 
+                            (define-key js2-mode-map (kbd "M-j") nil)
+                            (define-key js2-mode-map (kbd "C-c C-e") nil)))
 
 
 

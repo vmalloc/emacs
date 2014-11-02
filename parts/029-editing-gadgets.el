@@ -84,10 +84,11 @@
 ; flycheck
 (require 'flycheck)
 
-; turn on flycheck-mode in python-mode
-(add-hook 'python-mode-hook
-          '(lambda ()
-             (flycheck-mode)))
+; turn on flycheck-mode in various modes
+(mapcar '(lambda (m) (add-hook m '(lambda () (flycheck-mode))))
+
+        (list 'python-mode-hook 'js-mode-hook))
+
 (global-set-key (kbd "C-c m f") 'flycheck-mode)
 (global-set-key (kbd "C-c f r")
                 '(lambda ()
