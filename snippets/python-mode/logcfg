@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: logcfg
+# key: logcfg
+# binding: direct-keybinding
+# --
+logging.basicConfig(stream=sys.stderr, level='DEBUG', format='%(asctime)s -- %(message)s')
