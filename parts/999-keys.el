@@ -61,7 +61,7 @@
                                              (join-line -1)))))
 
 ;; override weird keys on js2-mode
-(add-hook 'js2-mode-hook '(lambda () 
+(add-hook 'js2-mode-hook '(lambda ()
                             (define-key js2-mode-map (kbd "M-j") nil)
                             (define-key js2-mode-map (kbd "C-c C-e") nil)))
 
@@ -87,3 +87,7 @@
 
 ;; Goto function definitions
 (global-set-key (kbd "C-h C-f") 'find-function)
+
+;; Remove C-c [num] from .rst mode
+(mapcar (lambda (k) (define-key rst-mode-map (kbd (format "C-c %s" k)) nil))
+     (list 1 2 3 4))
