@@ -1,8 +1,8 @@
 # -*- mode: snippet; require-final-newline: nil -*-
 # name: code-block
-# key: code-block
+# key: cb
 # binding: direct-keybinding
 # --
-.. code-block:: ${1:python}
+.. code-block:: python
        
-       $0
+       >>> $0
