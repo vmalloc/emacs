@@ -89,5 +89,7 @@
 (global-set-key (kbd "C-h C-f") 'find-function)
 
 ;; Remove C-c [num] from .rst mode
-(mapcar (lambda (k) (define-key rst-mode-map (kbd (format "C-c %s" k)) nil))
-     (list 1 2 3 4))
+
+(add-hook 'rst-mode-hook '(lambda ()
+                                  (mapcar (lambda (k) (define-key rst-mode-map (kbd (format "C-c %s" k)) nil))
+                                          (list 1 2 3 4))))
