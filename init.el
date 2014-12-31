@@ -72,6 +72,7 @@
    (cons 'sublimity melpa)
    (cons 'sphinx-doc melpa)
    (cons 'restclient melpa)
+   (cons 'gist melpa)
    ))
 
 (condition-case nil
