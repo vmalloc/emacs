@@ -29,6 +29,7 @@
 ; requirements
 (defun init--install-packages ()
   (packages-install
+   (cons 'let-alist gnu)
    (cons 'dash melpa)
    (cons 'flycheck melpa)
    (cons 'auto-complete melpa)
