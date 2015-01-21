@@ -34,4 +34,24 @@
         (forward-char))
       (insert symbol))))
 
+
+(defun python-pytest-parametrize (&optional values-list)
+  (interactive)
+  (let ((symbol (current-word)))
+    (previous-line 1)
+    (insert-line-after)
+    (beginning-of-line)
+    (let ((beg (point)))
+      (forward-line 1)
+      (forward-char -1)
+      (delete-region beg (point)))
+    (insert (format "@pytest.mark.parametrize('%s', [%s])" symbol (if values-list values-list "")))
+    (backward-char 2)
+    ))
+
+(defun python-pytest-parametrize-boolean ()
+  (interactive)
+  (save-excursion
+    (python-pytest-parametrize "True, False")))
+
 (provide 'python-refactor)

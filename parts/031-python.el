@@ -38,6 +38,8 @@
              (define-key python-mode-map (kbd "C-c d") 'python-toggle-dict-style)
              (define-key python-mode-map (kbd "C-c a") 'python-toggle-assert-style)
              (define-key python-mode-map (kbd "C-c e p") 'python-extract-parameter)
+             (define-key python-mode-map (kbd "C-c e P") 'python-pytest-parametrize)
+             (define-key python-mode-map (kbd "C-c e b") 'python-pytest-parametrize-boolean)
              ))
 
 (autoload 'python-auto-pep8 "python-auto-pep8.el" nil t)
