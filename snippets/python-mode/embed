@@ -1,0 +1,6 @@
+# -*- coding: utf-8 -*-
+# name: embed
+# key: embed
+# --
+import IPython
+IPython.embed()

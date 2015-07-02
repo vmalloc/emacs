@@ -1,3 +1,5 @@
+(setq magit-last-seen-setup-instructions "1.4.0")
+
 (require 'magit)
 
 ; make magit window full screen, restore previous frame arrangement (http://whattheemacsd.com//setup-magit.el-01.html)
@@ -35,3 +37,5 @@
 (global-set-key [(control x) (f7)] 'magit-branch-manager)
 
 (add-hook 'magit-mode-hook 'magit-load-config-extensions)
+
+(setq magit-auto-revert-mode nil)

@@ -30,7 +30,10 @@
 
 (dolist (symbol (list 'python-toggle-dict-style
                       'python-toggle-assert-style
-                      'python-extract-parameter))
+                      'python-extract-parameter
+                      'python-pytest-parametrize
+                      'python-pytest-parametrize-boolean
+                      ))
   (autoload symbol "python-refactor.el" nil t))
 
 (add-hook 'python-mode-hook

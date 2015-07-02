@@ -6,13 +6,20 @@
  '(blink-cursor-mode nil)
  '(cua-rectangle-mark-key (kbd "C-x <C-return>"))
  '(helm-ff-transformer-show-only-basename nil)
+ '(ido-vertical-define-keys (quote C-n-C-p-up-down-left-right))
  '(iflipb-ignore-buffers nil)
  '(minimap-window-location (quote right))
  '(ns-pop-up-frames nil)
  '(projectile-ack-function (quote ag))
  '(projectile-global-mode t)
- '(projectile-globally-ignored-directories (quote (".idea" ".eunit" ".git" ".hg" ".fslckout" ".bzr" "_darcs" "venv" "build" ".env")))
- '(set-mark-command-repeat-pop t))
+ '(projectile-globally-ignored-directories
+   (quote
+    (".idea" ".eunit" ".git" ".hg" ".fslckout" ".bzr" "_darcs" "venv" "build" ".env")))
+ '(set-mark-command-repeat-pop t)
+ '(web-mode-attr-indent-offset 2)
+ '(web-mode-markup-indent-offset 2)
+ '(web-mode-script-padding 0)
+ '(web-mode-style-padding 0))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -24,8 +31,8 @@
  '(helm-ff-directory ((t (:foreground "yellow"))))
  '(helm-selection ((t (:background "dark red" :underline t))))
  '(highlight ((t (:background "Yellow" :foreground "black"))))
- '(hl-line ((t (:background "#333"))) t)
- '(linum ((t (:inherit (shadow default) :background "#000" :foreground "#444"))) t)
+ '(hl-line ((t (:background "#333"))))
+ '(linum ((t (:inherit (shadow default) :background "#000" :foreground "#444"))))
  '(magit-diff-add ((t (:inherit diff-added :foreground "chartreuse"))))
  '(magit-diff-del ((t (:inherit diff-removed :foreground "orange red"))))
  '(magit-item-highlight ((t (:background "RoyalBlue4"))))

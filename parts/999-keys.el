@@ -17,6 +17,7 @@
 (global-set-key [(f11)] 'next-error)
 ;; deleting trailing whitespaces
 (global-set-key [(f12)] 'delete-trailing-whitespace)
+(global-set-key (kbd "M-.") 'projectile-find-tag)
 
 
 ;; Open shell with C-z

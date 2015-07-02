@@ -38,6 +38,7 @@
 (defun python-pytest-parametrize (&optional values-list)
   (interactive)
   (let ((symbol (current-word)))
+    (back-to-indentation)
     (previous-line 1)
     (insert-line-after)
     (beginning-of-line)
@@ -47,6 +48,7 @@
       (delete-region beg (point)))
     (insert (format "@pytest.mark.parametrize('%s', [%s])" symbol (if values-list values-list "")))
     (backward-char 2)
+
     ))
 
 (defun python-pytest-parametrize-boolean ()

@@ -8,6 +8,8 @@
         cua-paste
         dabbrev-expand
         decrement-integer-at-point
+        drag-stuff-up
+        electric-newline-and-maybe-indent
         forward-sexp
         haskell-indentation-delete-backward-char
         increment-integer-at-point
