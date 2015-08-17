@@ -31,6 +31,7 @@
 (setq mc/cmds-to-run-once
       '(
         ace-jump-move
+        ido-switch-buffer
         my/mark-all-like-this-in-defun
         my/mark-all-symbols-like-this-in-defun
         ))
