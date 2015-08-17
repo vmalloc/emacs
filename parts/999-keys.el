@@ -6,8 +6,8 @@
 (global-set-key [(home)]                 'beginning-of-line)
 
 ;; Page Up/Down half screen scroll
-(global-set-key (kbd "<prior>") 'cua-scroll-up)
-(global-set-key (kbd "<next>") 'cua-scroll-down)
+(global-set-key (kbd "<prior>") 'cua-scroll-down)
+(global-set-key (kbd "<next>") 'cua-scroll-up)
 
 ;; F keys
 (eval-after-load "c-mode" '(define-key c-mode-map [(f6)] 'ff-find-other-file))
