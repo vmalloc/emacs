@@ -2,9 +2,11 @@
 
 (require 'python)
 
+
 (add-hook 'python-mode-hook
           '(lambda ()
              (define-key python-mode-map [(control ?c) ?l] 'pylookup-lookup)
+             (setq python-indent-offset 4)
              (local-set-key (kbd "C-c #") 'comment-or-uncomment-region)))
 
 ; run redgreen in current project
