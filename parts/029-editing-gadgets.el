@@ -89,6 +89,11 @@
 
         (list 'python-mode-hook 'js-mode-hook))
 
+(eval-after-load 'flycheck
+  '(custom-set-variables
+   '(flycheck-display-errors-function #'flycheck-pos-tip-error-messages)))
+
+
 (global-set-key (kbd "C-c m f") 'flycheck-mode)
 (global-set-key (kbd "C-c f r")
                 '(lambda ()
