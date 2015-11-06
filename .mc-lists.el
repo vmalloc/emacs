@@ -10,6 +10,7 @@
         decrement-integer-at-point
         drag-stuff-up
         electric-newline-and-maybe-indent
+        eval-print-last-sexp
         forward-sexp
         haskell-indentation-delete-backward-char
         increment-integer-at-point
