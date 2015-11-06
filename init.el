@@ -30,9 +30,10 @@
 (defun init--install-packages ()
   (packages-install
    (cons 'let-alist gnu)
+   (cons 'exec-path-from-shell melpa)
    (cons 'dash melpa)
    (cons 'flycheck melpa)
-   (cons 'auto-complete melpa)
+   (cons 'auto-complete gnu)
    (cons 'column-marker melpa)
    (cons 'ace-jump-mode melpa)
    (cons 'dired-details melpa)

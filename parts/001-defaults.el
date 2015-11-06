@@ -63,3 +63,8 @@
 ;; Scroll one line at a time without recentering the screen
 (setq scroll-step 1
       scroll-conservatively 10000)
+
+
+;; fix path for mac
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
