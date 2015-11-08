@@ -6,6 +6,9 @@
  '(ag-executable "/usr/local/bin/ag")
  '(blink-cursor-mode nil)
  '(cua-rectangle-mark-key (kbd "C-x <C-return>"))
+ '(custom-safe-themes
+   (quote
+    ("8122f00211dbaf973fbe5831f808af92387c8fc1a44f0c6bcc9b22c16997c9dd" default)))
  '(flycheck-display-errors-function (function flycheck-pos-tip-error-messages))
  '(helm-ff-transformer-show-only-basename nil)
  '(ido-vertical-define-keys (quote C-n-C-p-up-down-left-right))
@@ -40,12 +43,10 @@
  '(magit-item-highlight ((t (:background "RoyalBlue4"))))
  '(mc/cursor-face ((t (:background "deep sky blue" :foreground "black"))))
  '(minimap-active-region-background ((t (:background "#333"))))
- '(mode-line ((t (:background "#ccccff" :foreground "black" :box (:line-width -1 :style released-button)))))
  '(region ((t (:background "White" :foreground "black"))))
  '(rst-level-1-face ((t (:background "grey85" :foreground "black"))) t)
  '(rst-level-2-face ((t (:background "grey78" :foreground "black"))) t)
  '(rst-level-3-face ((t (:background "grey71" :foreground "black"))) t)
  '(rst-level-4-face ((t (:background "grey64" :foreground "black"))) t)
  '(rst-level-5-face ((t (:background "grey57" :foreground "black"))) t)
- '(rst-level-6-face ((t (:background "#ddf" :foreground "black"))) t)
- '(wg-mode-line-face ((t (:foreground "Orange"))) t))
+ '(rst-level-6-face ((t (:background "#ddf" :foreground "black"))) t))

@@ -3,6 +3,11 @@
 (setq frame-title-format '(buffer-file-name "%f" ("%b")))
 (display-time) ; useful for full-screen terminals
 
+
+; Color Theme
+(load-theme 'atom-one-dark)
+
+
 ; Try to display battery info (only if applicable)
 (condition-case ex
     (display-battery-mode t)
@@ -47,3 +52,7 @@
 
 (require 'popwin)
 (popwin-mode 1)
+
+(require 'powerline)
+(powerline-default-theme)
+

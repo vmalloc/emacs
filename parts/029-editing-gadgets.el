@@ -81,26 +81,6 @@
         (format "dash-plugin://keys=ansible&query=%s" (current-word))
       (concat "dash://" (current-word)))))
 
-; flycheck
-(require 'flycheck)
-
-; turn on flycheck-mode in various modes
-(mapcar '(lambda (m) (add-hook m '(lambda () (flycheck-mode))))
-
-        (list 'python-mode-hook 'js-mode-hook))
-
-(eval-after-load 'flycheck
-  '(custom-set-variables
-   '(flycheck-display-errors-function #'flycheck-pos-tip-error-messages)))
-
-
-(global-set-key (kbd "C-c m f") 'flycheck-mode)
-(global-set-key (kbd "C-c f r")
-                '(lambda ()
-                   (interactive)
-                   (flycheck-mode t)))
-(global-set-key [(f5)] 'flycheck-previous-error)
-(global-set-key [(f6)] 'flycheck-next-error)
 
 ;; pbcopy - use OS X's clipboard if we're in the terminal
 (cond ((and in-terminal (string-equal system-type "darwin"))

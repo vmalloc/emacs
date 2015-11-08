@@ -29,6 +29,8 @@
 ; requirements
 (defun init--install-packages ()
   (packages-install
+   (cons 'powerline melpa)
+   (cons 'flycheck-color-mode-line melpa)
    (cons 'let-alist gnu)
    (cons 'exec-path-from-shell melpa)
    (cons 'dash melpa)
@@ -39,7 +41,6 @@
    (cons 'dired-details melpa)
    (cons 'wrap-region melpa)
    (cons 'org gnu)
-   (cons 'nyan-mode melpa)
    (cons 's melpa)
    (cons 'smex melpa)
    (cons 'web-mode melpa)

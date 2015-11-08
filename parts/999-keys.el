@@ -67,6 +67,10 @@
                             (define-key js2-mode-map (kbd "C-c C-e") nil)))
 
 
+;; helm-projectile
+(global-set-key (kbd "s-t") 'helm-projectile)
+
+
 
 
 ;; Kill/save the active region or the current line
