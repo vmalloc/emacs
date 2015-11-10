@@ -10,6 +10,7 @@
    (quote
     ("8122f00211dbaf973fbe5831f808af92387c8fc1a44f0c6bcc9b22c16997c9dd" default)))
  '(flycheck-display-errors-function (function flycheck-pos-tip-error-messages))
+ '(flycheck-pylintrc "~/.pylintrc")
  '(helm-ff-transformer-show-only-basename nil)
  '(ido-vertical-define-keys (quote C-n-C-p-up-down-left-right))
  '(iflipb-ignore-buffers nil)
