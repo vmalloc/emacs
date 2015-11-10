@@ -56,7 +56,7 @@
 (global-set-key (kbd "C-x <C-up>") 'previous-error)
 
 ;; Line joining
-(add-hook 'prog-mode-hook '(lambda () (global-set-key (kbd "M-j")
+(add-hook 'prog-mode-hook '(lambda () (global-set-key (kbd "s-j")
                                            (lambda ()
                                              (interactive)
                                              (join-line -1)))))
