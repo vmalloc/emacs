@@ -1,6 +1,12 @@
 ; autosave settings
 (setq auto-save-list-file-prefix nil)
 (setq make-backup-files nil)
+(setq backup-inhibited t)
+(setq auto-save-default nil)
+
+; lock files (pesky .# files) disabling
+(setq create-lockfiles nil)
+
 
 ; recentf - save history of recently visited files
 (require 'recentf)
