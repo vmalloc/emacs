@@ -205,3 +205,8 @@ With numeric prefix arg DEC, decrement the integer by DEC amount."
 (global-set-key (kbd "M--") 'decrement-integer-at-point)
 
 (setq electric-indent-mode nil)
+
+; goto-chg
+(require 'goto-chg)
+(global-set-key (kbd "C-c b ,") 'goto-last-change)
+(global-set-key (kbd "C-c b .") 'goto-last-change-reverse)

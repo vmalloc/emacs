@@ -76,6 +76,7 @@
    (cons 'sphinx-doc melpa)
    (cons 'restclient melpa)
    (cons 'gist melpa)
+   (cons 'goto-chg melpa)
    ))
 
 (condition-case nil
