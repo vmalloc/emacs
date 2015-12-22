@@ -26,58 +26,62 @@
       '(progn
 	 (setq url-using-proxy(getenv "http_proxy")))))
 
+(setq package-names '(
+   ace-jump-mode
+   ag
+   atom-one-dark-theme
+   auto-complete
+   column-marker
+   dash
+   diff-hl
+   diminish
+   dired-details
+   drag-stuff
+   emmet-mode
+   exec-path-from-shell
+   expand-region
+   find-file-in-project
+   flycheck
+   flycheck-color-mode-line
+   free-keys
+   gist
+   goto-chg
+   guide-key
+   haskell-mode
+   helm
+   helm-css-scss
+   helm-projectile
+   ido-ubiquitous
+   ido-vertical-mode
+   iflipb
+   inf-mongo
+   js2-refactor
+   let-alist
+   lua-mode
+   magit
+   markdown-mode
+   multiple-cursors
+   nxml
+   org
+   powerline
+   projectile
+   restclient
+   s
+   smex
+   sphinx-doc
+   sublimity
+   syslog-mode
+   undo-tree
+   web-mode
+   wrap-region
+   yaml-mode
+   yasnippet
+   ))
+
 ; requirements
 (defun init--install-packages ()
-  (packages-install
-   (cons 'powerline melpa)
-   (cons 'flycheck-color-mode-line melpa)
-   (cons 'let-alist gnu)
-   (cons 'exec-path-from-shell melpa)
-   (cons 'dash melpa)
-   (cons 'flycheck melpa)
-   (cons 'auto-complete gnu)
-   (cons 'column-marker melpa)
-   (cons 'ace-jump-mode melpa)
-   (cons 'dired-details melpa)
-   (cons 'wrap-region melpa)
-   (cons 'org gnu)
-   (cons 's melpa)
-   (cons 'smex melpa)
-   (cons 'web-mode melpa)
-   (cons 'magit melpa)
-   (cons 'yaml-mode melpa)
-   (cons 'yasnippet melpa)
-   (cons 'emmet-mode melpa)
-   (cons 'undo-tree melpa)
-   (cons 'multiple-cursors melpa)
-   (cons 'markdown-mode melpa)
-   (cons 'lua-mode melpa)
-   (cons 'ido-ubiquitous melpa)
-   (cons 'ido-vertical-mode melpa)
-   (cons 'helm melpa)
-   (cons 'helm-css-scss melpa)
-   (cons 'projectile melpa)
-   (cons 'ag melpa)
-   (cons 'helm-projectile melpa)
-   (cons 'js2-refactor melpa)
-   (cons 'haskell-mode melpa)
-   (cons 'find-file-in-project melpa)
-   (cons 'expand-region melpa)
-   (cons 'drag-stuff melpa)
-   (cons 'inf-mongo melpa)
-   (cons 'diminish melpa)
-   (cons 'guide-key melpa)
-   (cons 'diff-hl melpa)
-   (cons 'free-keys melpa)
-   (cons 'syslog-mode melpa)
-   (cons 'iflipb melpa)
-   (cons 'nxml melpa)
-   (cons 'sublimity melpa)
-   (cons 'sphinx-doc melpa)
-   (cons 'restclient melpa)
-   (cons 'gist melpa)
-   (cons 'goto-chg melpa)
-   ))
+  (dolist (pkg-name  package-names)
+    (package-install pkg-name)))
 
 (condition-case nil
     (init--install-packages)

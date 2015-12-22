@@ -8,7 +8,7 @@
  '(cua-rectangle-mark-key (kbd "C-x <C-return>"))
  '(custom-safe-themes
    (quote
-    ("8122f00211dbaf973fbe5831f808af92387c8fc1a44f0c6bcc9b22c16997c9dd" default)))
+    ("4904daa168519536b08ca4655d798ca0fb50d3545e6244cefcf7d0c7b338af7e" "8122f00211dbaf973fbe5831f808af92387c8fc1a44f0c6bcc9b22c16997c9dd" default)))
  '(flycheck-display-errors-function (function flycheck-pos-tip-error-messages))
  '(flycheck-pylintrc "~/.pylintrc")
  '(helm-ff-transformer-show-only-basename nil)
