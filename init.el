@@ -42,7 +42,6 @@
    expand-region
    find-file-in-project
    flycheck
-   flycheck-color-mode-line
    free-keys
    gist
    goto-chg
@@ -67,6 +66,7 @@
    projectile
    restclient
    s
+   scss-mode
    smex
    sphinx-doc
    sublimity
