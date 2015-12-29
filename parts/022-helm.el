@@ -1,29 +1,22 @@
-(require 'projectile)
-(projectile-global-mode)
 
-(require 'helm)
-(require 'helm-config)
-(helm-mode t)
-(setq helm-input-idle-delay 0)
-(global-set-key (kbd "C-c h") 'helm-mini)
-(global-set-key (kbd "M-i") 'helm-semantic-or-imenu)
-(global-set-key (kbd "C-x y") 'helm-show-kill-ring)
-(global-set-key (kbd "M-x") 'helm-M-x)
+(use-package projectile
+  :ensure t
+  :config
+  (projectile-global-mode))
 
-(defun emacs-d-find-file ()
-  (interactive)
-  (helm-projectile-find-file-in-dir "~/.emacs.d"))
+(use-package helm
+  :ensure t
+  :init
+  (progn
+    (helm-mode t)
+    (setq helm-input-idle-delay 0)
+    (setq helm-exit-idle-delay 0)
+    )
+  (require 'helm-config)
+  :bind
+   (("C-c h" . helm-mini)
+     ("M-i" . helm-semantic-or-imenu)
+     ("C-x y" . helm-show-kill-ring)
+     ("M-x" . helm-M-x)))
 
-(global-set-key (kbd "C-c C-e") 'emacs-d-find-file)
 
-(defun helm-projectile-find-file-in-dir (dir-name)
-  (let ((default-directory dir-name))
-    (helm-projectile)))
-
-(defun make-quickdir (modifier dir-name)
-  (lexical-let ((d dir-name))
-    (let ((hook (lambda  () (interactive) (helm-projectile-find-file-in-dir d))))
-      (global-set-key modifier hook))))
-
-; See https://github.com/emacs-helm/helm/issues/550
-(setq helm-exit-idle-delay 0)

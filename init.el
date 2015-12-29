@@ -46,9 +46,7 @@
    gist
    goto-chg
    guide-key
-   helm
    helm-css-scss
-   helm-projectile
    ido-ubiquitous
    ido-vertical-mode
    iflipb
