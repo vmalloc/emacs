@@ -54,12 +54,10 @@
    js2-refactor
    let-alist
    lua-mode
-   magit
    markdown-mode
    multiple-cursors
    nxml
    powerline
-   projectile
    restclient
    s
    scss-mode
@@ -69,7 +67,6 @@
    syslog-mode
    undo-tree
    use-package
-   web-mode
    wrap-region
    yaml-mode
    yasnippet

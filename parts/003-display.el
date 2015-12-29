@@ -4,7 +4,8 @@
 
 (use-package
  golden-ratio
- :ensure t)
+ :ensure t
+ :init (golden-ratio-mode t))
 
 ; Try to display battery info (only if applicable)
 (condition-case ex

@@ -1,19 +1,11 @@
 (setq magit-last-seen-setup-instructions "1.4.0")
 
-(require 'magit)
-
-; make magit window full screen, restore previous frame arrangement (http://whattheemacsd.com//setup-magit.el-01.html)
-(defadvice magit-status (around magit-fullscreen activate)
-  (window-configuration-to-register :magit-fullscreen)
-  ad-do-it
-  (delete-other-windows))
 
 (defun my/magit-quit-session ()
   "Restores the previous window configuration and kills the magit buffer"
   (interactive)
   (kill-buffer)
   (jump-to-register :magit-fullscreen))
-(define-key magit-status-mode-map (kbd "q") 'my/magit-quit-session)
 
 (defun my/magit-toggle-whitespace ()
   (interactive)
@@ -31,11 +23,20 @@
   (setq magit-diff-options (remove "-w" magit-diff-options))
   (magit-refresh))
 
-(define-key magit-status-mode-map (kbd "W") 'my/magit-toggle-whitespace)
 
-(global-set-key [(f7)] 'magit-status)
-(global-set-key [(control x) (f7)] 'magit-branch-manager)
+(use-package magit
+  :ensure t
+  :config
+  (progn
+    (defadvice magit-status (around magit-fullscreen activate)
+      (window-configuration-to-register :magit-fullscreen)
+      ad-do-it
+      (delete-other-windows))
 
-(add-hook 'magit-mode-hook 'magit-load-config-extensions)
+    (setq magit-auto-revert-mode nil)
+    (define-key magit-status-mode-map (kbd "q") 'my/magit-quit-session)
+    (define-key magit-status-mode-map (kbd "W") 'my/magit-toggle-whitespace)
+    (add-hook 'magit-mode-hook 'magit-load-config-extensions))
 
-(setq magit-auto-revert-mode nil)
+  :bind (([(f7)] . magit-status)
+         ([(control x) (f7)] . magit-branch-manager)))
