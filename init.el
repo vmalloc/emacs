@@ -46,7 +46,6 @@
    gist
    goto-chg
    guide-key
-   haskell-mode
    helm
    helm-css-scss
    helm-projectile
@@ -61,7 +60,6 @@
    markdown-mode
    multiple-cursors
    nxml
-   org
    powerline
    projectile
    restclient
@@ -72,6 +70,7 @@
    sublimity
    syslog-mode
    undo-tree
+   use-package
    web-mode
    wrap-region
    yaml-mode
@@ -101,6 +100,8 @@
   (autoload symbol file nil interactive)
   (eval-after-load (symbol-name symbol) callback)
   )
+
+(require 'use-package)
 
 ; actually load all parts in order
 (add-hook 'after-init-hook (lambda ()

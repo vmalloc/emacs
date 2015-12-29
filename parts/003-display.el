@@ -1,8 +1,10 @@
-; Display settings
+;Display settings
 (setq inhibit-splash-screen t)
 (setq frame-title-format '(buffer-file-name "%f" ("%b")))
 
-
+(use-package
+ golden-ratio
+ :ensure t)
 
 ; Try to display battery info (only if applicable)
 (condition-case ex
