@@ -43,6 +43,7 @@
  '(magit-item-highlight ((t (:background "RoyalBlue4"))))
  '(mc/cursor-face ((t (:background "deep sky blue" :foreground "black"))))
  '(minimap-active-region-background ((t (:background "#333"))))
+ '(mode-line ((t (:background "DarkGoldenrod2" :foreground "black"))))
  '(region ((t (:background "White" :foreground "black"))))
  '(rst-level-1-face ((t (:background "grey85" :foreground "black"))) t)
  '(rst-level-2-face ((t (:background "grey78" :foreground "black"))) t)
