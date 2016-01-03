@@ -32,7 +32,6 @@
    atom-one-dark-theme
    auto-complete
    column-marker
-   dash
    diff-hl
    diminish
    dired-details
@@ -59,7 +58,6 @@
    nxml
    powerline
    restclient
-   s
    scss-mode
    smex
    sphinx-doc
@@ -97,6 +95,10 @@
   )
 
 (require 'use-package)
+
+(setq custom-file (in-emacs-d ".emacs-custom.el"))
+(if (file-exists-p custom-file)
+    (load-file custom-file))
 
 ; actually load all parts in order
 (add-hook 'after-init-hook (lambda ()
