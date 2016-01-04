@@ -66,7 +66,13 @@
   (exec-path-from-shell-initialize))
 
 
-;; Web mode ---------------------------------------
+;; Editing ---------------------------------------------------------------------
+
+(use-package avy
+  :ensure t
+  :bind (("s-;" . avy-goto-char)))
+
+;; Web mode --------------------------------------------------------------------
 
 (use-package web-mode
   :ensure t

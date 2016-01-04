@@ -27,7 +27,6 @@
 	 (setq url-using-proxy(getenv "http_proxy")))))
 
 (setq package-names '(
-   ace-jump-mode
    ag
    atom-one-dark-theme
    auto-complete
