@@ -72,6 +72,14 @@
   :ensure t
   :bind (("s-;" . avy-goto-char)))
 
+
+;; Programming modes -----------------------------------------------------------
+
+(use-package rust-mode
+  :ensure t
+  :mode (("\.rs$" . rust-mode)))
+
+
 ;; Web mode --------------------------------------------------------------------
 
 (use-package web-mode
