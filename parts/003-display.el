@@ -2,11 +2,6 @@
 (setq inhibit-splash-screen t)
 (setq frame-title-format '(buffer-file-name "%f" ("%b")))
 
-(use-package
- golden-ratio
- :ensure t
- :init (golden-ratio-mode t))
-
 ; Try to display battery info (only if applicable)
 (condition-case ex
     (display-battery-mode t)
