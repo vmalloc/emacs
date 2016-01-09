@@ -45,8 +45,6 @@
    goto-chg
    guide-key
    helm-css-scss
-   ido-ubiquitous
-   ido-vertical-mode
    iflipb
    inf-mongo
    js2-refactor

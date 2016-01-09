@@ -65,6 +65,28 @@
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
 
+;; ido -------------------------------------------------------------------------
+
+(use-package ido-mode
+  :config
+  (progn
+    (ido-mode)
+    (setq ido-max-prospects 200)
+
+    (setq ido-auto-merge-work-directories-length -1)))
+
+
+(use-package ido-ubiquitous
+  :ensure t
+  :config (ido-ubiquitous-mode 1))
+
+(use-package ido-vertical-mode
+  :ensure t
+  :config (ido-vertical-mode))
+
+(use-package ido-recentf-open
+  :bind (("C-x C-r" . ido-recentf-open)))
+
 
 ;; Editing ---------------------------------------------------------------------
 
