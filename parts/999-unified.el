@@ -139,3 +139,9 @@
   :if window-system
   :init
   (add-hook 'after-init-hook 'server-start t))
+
+
+;; Utilities -------------------------------------------------------------------
+
+(use-package restclient
+  :ensure t)

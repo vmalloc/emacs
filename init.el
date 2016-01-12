@@ -54,7 +54,6 @@
    multiple-cursors
    nxml
    powerline
-   restclient
    scss-mode
    smex
    sphinx-doc
