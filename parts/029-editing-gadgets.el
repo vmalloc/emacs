@@ -104,16 +104,6 @@
 (global-set-key (kbd "C-o") 'insert-line-after)
 (global-set-key (kbd "C-S-o") 'insert-line-before)
 
-;; TRAMP
-; Use external scp instead of the build in
-(set-default 'tramp-default-method "scp")
-
-; Allow Sudo + SSH
-(add-to-list 'tramp-default-proxies-alist
-	     '(nil "\\`root\\'" "/ssh:%h:"))
-(add-to-list 'tramp-default-proxies-alist
-	     '((regexp-quote (system-name)) nil nil))
-
 ;; Semantic
 (semantic-mode t)
 

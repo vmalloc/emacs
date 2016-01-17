@@ -4,6 +4,46 @@
   :ensure t
   :defer t)
 
+;; File Management -------------------------------------------------------------
+
+(use-package recentf
+  :config (recentf-mode 1))
+
+(use-package projectile
+  :ensure t
+  :config
+  (projectile-global-mode))
+
+(use-package helm
+  :ensure t
+  :init
+  (progn
+    (helm-mode t)
+    (setq helm-input-idle-delay 0)
+    (setq helm-exit-idle-delay 0)
+    (require 'helm-config)
+    )
+  :bind
+   (("C-c h" . helm-recentf)
+     ("M-i" . helm-semantic-or-imenu)
+     ("C-x y" . helm-show-kill-ring)
+     ("M-x" . helm-M-x)
+     ("C-x C-f" . helm-find-files)
+   ))
+
+(use-package projectile
+  :ensure t
+  :init
+  (projectile-global-mode 1)
+  )
+
+(use-package helm-projectile
+  :ensure t
+  :init (helm-projectile-on))
+
+(use-package helm-ag
+  :ensure t)
+
 ;; Defaults --------------------------------------------------------------------
 
 ;; Make the super key work in Windows
@@ -145,3 +185,4 @@
 
 (use-package restclient
   :ensure t)
+
