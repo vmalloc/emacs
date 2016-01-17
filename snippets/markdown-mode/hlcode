@@ -1,0 +1,7 @@
+# -*- coding: utf-8 -*-
+# name: hlcode
+# key: hlcode
+# --
+{% highlight ${1:python} %}
+$0
+{% endhighlight %}
