@@ -49,7 +49,7 @@
   (progn
     (mapcar '(lambda (m) (add-hook m '(lambda () (flycheck-mode))))
             (list 'python-mode-hook 'js-mode-hook))
-    (add-hook prog-mode-hook '(lambda () (flycheck-mode)))
+    (add-to-list 'prog-mode-hook '(lambda () (flycheck-mode)))
     (setq flycheck-mode-line
       '(:eval
         (pcase flycheck-last-status-change
@@ -179,6 +179,7 @@
 
   :config
   (add-hook 'web-mode-hook  '(lambda ()
+                                 (emmet-mode)
                                  (setq web-mode-markup-indent-offset 2)
                                  (setq web-mode-css-indent-offset 2)
                                  (setq web-mode-code-indent-offset 2))))
