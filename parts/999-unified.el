@@ -163,6 +163,9 @@
   :bind (("s-;" . avy-goto-char)))
 
 
+(use-package vmalloc-editing-utils
+  )
+
 ;; Programming modes -----------------------------------------------------------
 
 (use-package rust-mode
