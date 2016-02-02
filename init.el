@@ -59,7 +59,6 @@
    sphinx-doc
    sublimity
    syslog-mode
-   undo-tree
    use-package
    wrap-region
    yaml-mode

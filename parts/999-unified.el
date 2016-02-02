@@ -9,6 +9,11 @@
 (use-package recentf
   :config (recentf-mode 1))
 
+
+(use-package crux
+  :defer t
+  :ensure t)
+
 (use-package projectile
   :ensure t
   :config
@@ -166,6 +171,24 @@
 (use-package vmalloc-editing-utils
   )
 
+(use-package undo-tree
+  :ensure t
+  :config (progn
+            (global-undo-tree-mode t)
+            ;; Keep region when undoing in region
+            (defadvice undo-tree-undo (around keep-region activate)
+              (if (use-region-p)
+                  (let ((m (set-marker (make-marker) (mark)))
+                        (p (set-marker (make-marker) (point))))
+                    ad-do-it
+                    (goto-char p)
+                    (set-mark m)
+                    (set-marker p nil)
+                    (set-marker m nil))
+                ad-do-it)))
+  :diminish undo-tree-mode)
+
+
 ;; Programming modes -----------------------------------------------------------
 
 (use-package rust-mode
@@ -173,7 +196,11 @@
   :mode (("\.rs$" . rust-mode)))
 
 
-;; Web mode --------------------------------------------------------------------
+;; Web  -----------------------------------------------------------------------
+
+(use-package nginx-mode
+  :ensure t)
+
 
 (use-package web-mode
   :ensure t

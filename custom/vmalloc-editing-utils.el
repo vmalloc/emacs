@@ -4,3 +4,5 @@
     (end-of-line)
     (while (< (current-column) 80)
       (insert-char char))))
+
+(provide 'vmalloc-editing-utils)
