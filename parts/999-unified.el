@@ -113,12 +113,19 @@
 (cua-selection-mode t)
 
 ; display trailing whitespaces in prog-mode variants
-(add-hook 'prog-mode-hook (lambda ()
-                            (setq show-trailing-whitespace t)
+(add-to-list 'prog-mode-hook '(lambda ()
                             (subword-mode t)
                             (define-key prog-mode-map (kbd "<C-left>") 'backward-word)
-                            (define-key prog-mode-map (kbd "<C-right>") 'forward-word)
-))
+                            (define-key prog-mode-map (kbd "<C-right>") 'forward-word)))
+
+
+
+(-map (lambda (hook)
+        (add-to-list hook '(lambda () (setq show-trailing-whitespace t))))
+      (list 'prog-mode-hook 'css-mode-hook))
+
+
+(add-to-list 'css-mode-hook '(lambda () (setq show-trailing-whitespace t)))
 
 ;; yes/no turns to y/n
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -167,9 +174,31 @@
   :ensure t
   :bind (("s-;" . avy-goto-char)))
 
+(use-package expand-region
+  :ensure t
+  :bind (("C-=" . er/expand-region)
+         ("C--" . er/contract-region)))
+
+(use-package multiple-cursors
+  :ensure t
+  :bind (("C->" . mc/mark-next-symbol-like-this)
+         ("C-." . mc/mark-next-like-this)
+         ("C-<" . mc/mark-previous-symbol-like-this)
+         ("C-," . mc/mark-previous-like-this)
+         ("C-;" . mc/mark-all-symbols-like-this)
+         ("C-c m l" . mc/edit-ends-of-lines)))
+
+
+(use-package vmalloc-multiple-cursors-utils
+  :bind (("C-:" . vmalloc/mark-all-symbols-like-this-in-defun)))
+
 
 (use-package vmalloc-editing-utils
   )
+
+(use-package diff-hl
+  :ensure t
+  :config (add-hook 'prog-mode-hook '(lambda () (diff-hl-mode))))
 
 (use-package undo-tree
   :ensure t

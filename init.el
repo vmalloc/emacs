@@ -31,8 +31,6 @@
    atom-one-dark-theme
    auto-complete
    column-marker
-   diff-hl
-   diminish
    dired-details
    drag-stuff
    emmet-mode

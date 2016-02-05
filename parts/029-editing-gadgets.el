@@ -32,27 +32,6 @@
 (setq drag-stuff-modifier '(super control))
 (drag-stuff-global-mode t)
 
-; expand-region
-(require 'expand-region)
-(global-set-key (kbd "C-=") 'er/expand-region)
-(global-set-key (kbd "C--") 'er/contract-region)
-
-(require 'multiple-cursors)
-(global-set-key (kbd "C->") 'mc/mark-next-symbol-like-this)
-(global-set-key (kbd "C-.") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-<") 'mc/mark-previous-symbol-like-this)
-(global-set-key (kbd "C-,") 'mc/mark-previous-like-this)
-
-(defun my/mark-all-symbols-like-this-in-defun ()
-  "wrapper for mark-all-symbols-like-this-in-defun, automatically selecting symbols if unselected"
-  (interactive)
-  (if (not (region-active-p))
-      (er/mark-symbol))
-  (mc/mark-all-symbols-like-this-in-defun))
-
-(global-set-key (kbd "C-:") 'my/mark-all-symbols-like-this-in-defun)
-(global-set-key (kbd "C-;") 'mc/mark-all-symbols-like-this)
-(global-set-key (kbd "C-c m l") 'mc/edit-ends-of-lines)
 
 ; dash support
 (defun dash-lookup-current-word ()
