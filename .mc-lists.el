@@ -35,4 +35,5 @@
         ido-switch-buffer
         my/mark-all-like-this-in-defun
         my/mark-all-symbols-like-this-in-defun
+        vmalloc/mark-all-symbols-like-this-in-defun
         ))

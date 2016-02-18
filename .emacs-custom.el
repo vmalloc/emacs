@@ -13,6 +13,7 @@
  '(helm-ff-transformer-show-only-basename nil)
  '(ido-vertical-define-keys (quote C-n-C-p-up-down-left-right))
  '(iflipb-ignore-buffers nil)
+ '(jira-commit-jira-hostname "jira.infinidat.com")
  '(minimap-window-location (quote right))
  '(ns-pop-up-frames nil)
  '(projectile-ack-function (quote ag))

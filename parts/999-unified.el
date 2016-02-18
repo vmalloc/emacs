@@ -243,6 +243,12 @@
                          (define-key yas-minor-mode-map [(control ?c) (tab)] 'yas/expand-from-trigger-key)))))
 
 
+;; Development -----------------------------------------------------------------
+
+(use-package jira-commit
+  :bind (("C-c J" . commit-jira-issue-interactive)))
+
+
 ;; Programming modes -----------------------------------------------------------
 
 (use-package rust-mode
@@ -286,7 +292,7 @@
 
 
 
-;;-------------- Server mode ---------------
+;; Server -----------------------------------------------------------------------
 
 (use-package server
   :if window-system
