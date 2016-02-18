@@ -5,6 +5,7 @@
 ;;; Code:
 
 (require 'magit)
+(require 's)
 (require 'json)
 (require 'dash)
 
@@ -40,6 +41,10 @@
 (defun --get-choice (candidates)
   (helm :sources (helm-build-sync-source "Jira Issues"
                  :candidates options
+                 :action (helm-make-actions "commit"  'identity
+                                            "commit-and-fix" '--transform-to-fix
+                                            )
+
                  :fuzzy-match t)
               :buffer "*Jira Commit*"))
 
@@ -63,6 +68,12 @@
 (defun --get-jira-password ()
   (cadr (--get-jira-auth))
   )
+
+(defun --transform-to-fix (msg)
+  (let ((parts (s-split-up-to ":" msg 1)))
+    (let ((issue-key (car parts))
+          (issue-summary (s-trim (cadr parts))))
+      (format "%s (fix %s)" issue-summary issue-key))))
 
 (defun --get-jira-auth ()
   (let ((jira-commit-jira-username nil)
