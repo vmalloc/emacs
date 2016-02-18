@@ -61,7 +61,7 @@
   )
 
 (defun --get-jira-password ()
-  (car (cdr (--get-jira-auth)))
+  (cadr (--get-jira-auth))
   )
 
 (defun --get-jira-auth ()
