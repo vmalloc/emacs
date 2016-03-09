@@ -11,19 +11,19 @@
 
 
 (defcustom jira-commit-jira-hostname ""
-  "The hostname of the Jira server"
+  "The hostname of the Jira server."
   :group 'jira-commit
   :type 'string
   :safe 'stringp)
 
 (defcustom jira-commit-credentials-file "~/.config/emacs-jira-commit/credentials.el"
-  "Location of the jira-commit credentials"
+  "Location of the jira-commit credentials."
   :group 'jira-commit
   :type 'string
   :safe 'stringp)
 
 (defcustom jira-commit-num-recent-issues 50
-  "Number of recent issues to query"
+  "Number of recent issues to query."
   :group 'jira-commit
   :type 'int
   :safe 'intp)
@@ -43,6 +43,7 @@
                  :candidates options
                  :action (helm-make-actions "commit"  'identity
                                             "commit-and-fix" '--transform-to-fix
+                                            "commit-no-message" '--transform-no-message
                                             )
 
                  :fuzzy-match t)
@@ -74,6 +75,10 @@
     (let ((issue-key (car parts))
           (issue-summary (s-trim (cadr parts))))
       (format "%s (fix %s)" issue-summary issue-key))))
+
+(defun --transform-no-message (msg)
+  (let ((parts (s-split-up-to ":" msg 1)))
+    (format "%s: " (car parts))))
 
 (defun --get-jira-auth ()
   (let ((jira-commit-jira-username nil)
