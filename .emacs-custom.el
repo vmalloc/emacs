@@ -10,6 +10,7 @@
    (quote
     ("705f3f6154b4e8fac069849507fd8b660ece013b64a0a31846624ca18d6cf5e1" "4904daa168519536b08ca4655d798ca0fb50d3545e6244cefcf7d0c7b338af7e" "8122f00211dbaf973fbe5831f808af92387c8fc1a44f0c6bcc9b22c16997c9dd" default)))
  '(flycheck-pylintrc "~/.pylintrc")
+ '(git-commit-summary-max-length 180)
  '(helm-ff-transformer-show-only-basename nil)
  '(ido-vertical-define-keys (quote C-n-C-p-up-down-left-right))
  '(iflipb-ignore-buffers nil)
