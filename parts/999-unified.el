@@ -299,7 +299,13 @@
                               (define-key css-mode-map (kbd "M-i") 'helm-css-scss))))
 
 
-
+(use-package ember-mode
+  :ensure t
+  :bind
+  (("C-c e m" . ember-open-model)
+   ("C-c e t" . ember-open-template)
+   ("C-c e r" . ember-open-route)
+   ("C-c e c" . ember-open-controller)))
 
 ;; Server -----------------------------------------------------------------------
 
