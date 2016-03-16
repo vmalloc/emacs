@@ -201,6 +201,9 @@
 (use-package vmalloc-multiple-cursors-utils
   :bind (("C-:" . vmalloc/mark-all-symbols-like-this-in-defun)))
 
+(use-package vmalloc-powerline-settings
+  :config (vmalloc-powerline-setup)
+  )
 
 (use-package vmalloc-editing-utils
   )
