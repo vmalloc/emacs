@@ -6,17 +6,6 @@
   uniquify-buffer-name-style 'post-forward
   uniquify-separator ":")
 
-; auto-complete
-(require 'auto-complete)
-(require 'auto-complete-config)
-(global-auto-complete-mode t)
-(ac-config-default)
-
-(defun ac-python-mode-setup ()
-  (setq ac-sources (append '(ac-source-yasnippet ac-source-semantic) ac-sources)))
-
-(add-hook 'python-mode-hook 'ac-python-mode-setup)
-
 
 ; wrap-region
 (require 'wrap-region)
