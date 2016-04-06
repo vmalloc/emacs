@@ -253,6 +253,25 @@
                          (define-key yas-minor-mode-map [(control ?c) (tab)] 'yas/expand-from-trigger-key)))))
 
 
+;; Autocomplete
+; auto-complete
+
+(use-package auto-complete
+  :ensure t
+  :config (progn
+            (require 'auto-complete-config)
+            (global-auto-complete-mode t)
+            (ac-config-default)
+
+            (defun ac-python-mode-setup ()
+              (setq ac-sources (append '(ac-source-yasnippet ac-source-semantic) ac-sources)))
+
+            (add-hook 'python-mode-hook 'ac-python-mode-setup)
+
+            ))
+
+
+
 ;; Development -----------------------------------------------------------------
 
 (use-package jira-commit
@@ -294,9 +313,11 @@
     (define-key emmet-mode-keymap (kbd "C-c i") 'emmet-expand-line)))
 
 
-(use-package css-mode
+(use-package scss-mode
+  :ensure t
   :init
-  (add-hook 'css-mode-hook '(lambda ()
+  (add-hook 'scss-mode-hook '(lambda ()
+                              (setq show-trailing-whitespace t)
                               (define-key css-mode-map (kbd "M-i") 'helm-css-scss))))
 
 
@@ -307,6 +328,30 @@
    ("C-c e t" . ember-open-template)
    ("C-c e r" . ember-open-route)
    ("C-c e c" . ember-open-controller)))
+
+
+;; Org mode ---------------------------------------------------------------------
+
+(use-package org
+  :ensure t
+  :mode ("\\.org\\'" . org-mode)
+  :config
+  (progn
+    (add-hook 'org-mode-hook
+              (lambda ()
+                (define-key org-mode-map [(meta left)]    nil)
+                (define-key org-mode-map [(meta right)]   nil)
+                (define-key org-mode-map [(meta down)]    nil)
+              (define-key org-mode-map [(meta up)]   nil)
+              (define-key org-mode-map (kbd "M-h")    nil))
+              'append)
+    (setq org-src-fontify-natively t)
+    (defadvice org-kill-line (after fix-cookies activate)
+      (myorg-update-parent-cookie))
+
+    (defadvice kill-whole-line (after fix-cookies activate)
+      (myorg-update-parent-cookie))))
+
 
 ;; Server -----------------------------------------------------------------------
 
