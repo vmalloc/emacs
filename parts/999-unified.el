@@ -131,10 +131,8 @@
 
 (-map (lambda (hook)
         (add-to-list hook '(lambda () (setq show-trailing-whitespace t))))
-      (list 'prog-mode-hook 'css-mode-hook))
+      (list 'prog-mode-hook))
 
-
-(add-to-list 'css-mode-hook '(lambda () (setq show-trailing-whitespace t)))
 
 ;; yes/no turns to y/n
 (fset 'yes-or-no-p 'y-or-n-p)
