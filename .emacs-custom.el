@@ -4,11 +4,15 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(ag-executable "/usr/local/bin/ag")
+ '(ansi-color-names-vector
+   ["#000000" "#d54e53" "#b9ca4a" "#e7c547" "#7aa6da" "#c397d8" "#7aa6da" "#eaeaea"])
+ '(ansi-term-color-vector
+   [unspecified "#000000" "#d54e53" "#b9ca4a" "#e7c547" "#7aa6da" "#c397d8" "#7aa6da" "#eaeaea"])
  '(blink-cursor-mode nil)
  '(cua-rectangle-mark-key (kbd "C-x <C-return>"))
  '(custom-safe-themes
    (quote
-    ("705f3f6154b4e8fac069849507fd8b660ece013b64a0a31846624ca18d6cf5e1" "4904daa168519536b08ca4655d798ca0fb50d3545e6244cefcf7d0c7b338af7e" "8122f00211dbaf973fbe5831f808af92387c8fc1a44f0c6bcc9b22c16997c9dd" default)))
+    ("4d66773cc6d32566eaf2c9c7ce11269d9eb26e428a1a4fa10e97bae46ff615da" "705f3f6154b4e8fac069849507fd8b660ece013b64a0a31846624ca18d6cf5e1" "4904daa168519536b08ca4655d798ca0fb50d3545e6244cefcf7d0c7b338af7e" "8122f00211dbaf973fbe5831f808af92387c8fc1a44f0c6bcc9b22c16997c9dd" default)))
  '(flycheck-pylintrc "~/.pylintrc")
  '(git-commit-summary-max-length 180)
  '(helm-ff-transformer-show-only-basename nil)
