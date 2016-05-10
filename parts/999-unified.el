@@ -1,5 +1,10 @@
 ;; Base settings ---------------------------------------------------------------
 
+(menu-bar-mode -1) ; get rid of the annoying menubars/toolbars etc.
+(if (boundp 'tool-bar-mode)
+    (tool-bar-mode 0))
+
+
 (use-package dash
   :ensure t
   :defer t)
@@ -53,7 +58,10 @@
 
 (use-package helm-projectile
   :ensure t
-  :init (helm-projectile-on))
+  :init (helm-projectile-on)
+  :bind
+  (("s-p" . helm-projectile))
+  )
 
 (use-package helm-ag
   :ensure t)
@@ -126,6 +134,11 @@
                             (subword-mode t)
                             (define-key prog-mode-map (kbd "<C-left>") 'backward-word)
                             (define-key prog-mode-map (kbd "<C-right>") 'forward-word)))
+
+
+(use-package whitespace-cleanup-mode
+  :ensure t
+  :config (global-whitespace-cleanup-mode 1))
 
 
 
