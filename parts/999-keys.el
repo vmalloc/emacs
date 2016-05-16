@@ -29,12 +29,6 @@
 ;; Override news with man
 (global-set-key (kbd "C-h n") 'man)
 
-;; Window moving
-(global-set-key (kbd "<M-up>") 'windmove-up)
-(global-set-key (kbd "<M-down>") 'windmove-down)
-(global-set-key (kbd "<M-right>") 'windmove-right)
-(global-set-key (kbd "<M-left>") 'windmove-left)
-
 ;; zooming
 (global-set-key (kbd "C-}") 'text-scale-increase)
 (global-set-key (kbd "C-{") 'text-scale-decrease)

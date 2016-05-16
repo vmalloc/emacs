@@ -18,6 +18,18 @@
         (bury-buffer)
       ad-do-it)))
 
+
+;; Window Movement -------------------------------------------------------------
+
+;; Window moving
+(use-package windmove
+  :bind (
+         ("<M-up>" . windmove-up)
+         ("<M-down>" . windmove-down)
+         ("<M-right>" . windmove-right)
+         ("<M-left>" . windmove-left)))
+
+
 ;; File Management -------------------------------------------------------------
 
 (use-package recentf
