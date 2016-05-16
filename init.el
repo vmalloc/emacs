@@ -35,7 +35,6 @@
    drag-stuff
    emmet-mode
    exec-path-from-shell
-   expand-region
    find-file-in-project
    flycheck
    free-keys
@@ -49,7 +48,6 @@
    let-alist
    lua-mode
    markdown-mode
-   multiple-cursors
    nxml
    powerline
    scss-mode
@@ -60,7 +58,6 @@
    use-package
    wrap-region
    yaml-mode
-   yasnippet
    ))
 
 ; requirements
