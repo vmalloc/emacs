@@ -38,5 +38,4 @@
     (define-key magit-status-mode-map (kbd "W") 'my/magit-toggle-whitespace)
     (add-hook 'magit-mode-hook 'magit-load-config-extensions))
 
-  :bind (([(f7)] . magit-status)
-         ([(control x) (f7)] . magit-branch-manager)))
+  :bind (("C-c g" . magit-status)))
