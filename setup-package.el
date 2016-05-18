@@ -1,8 +1,8 @@
 (require 'package)
 
-(defvar marmalade '("marmalade" . "http://marmalade-repo.org/packages/"))
-(defvar gnu '("gnu" . "http://elpa.gnu.org/packages/"))
-(defvar melpa '("melpa" . "http://melpa.milkbox.net/packages/"))
+(defvar marmalade '("marmalade" . "https://marmalade-repo.org/packages/"))
+(defvar gnu '("gnu" . "https://elpa.gnu.org/packages/"))
+(defvar melpa '("melpa" . "https://melpa.milkbox.net/packages/"))
 
 ;; Add marmalade to package repos
 (add-to-list 'package-archives marmalade)
