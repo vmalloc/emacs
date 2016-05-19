@@ -62,6 +62,11 @@
      ("C-x C-f" . helm-find-files)
    ))
 
+(use-package swiper
+  :ensure t
+  :bind (("C-x b" . ivy-switch-buffer)))
+
+
 (use-package projectile
   :ensure t
   :init
