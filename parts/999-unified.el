@@ -299,6 +299,10 @@
   :bind (("C-c J" . commit-jira-issue-interactive)))
 
 
+(use-package iterm
+  :bind (("S-<f9>" . shell-command-on-iterm)))
+
+
 ;; Programming modes -----------------------------------------------------------
 
 (use-package rust-mode
