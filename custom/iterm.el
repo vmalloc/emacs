@@ -27,6 +27,10 @@
 
 (defvar iterm-send-history nil)
 
+(defun repeat-last-shell-command-on-iterm()
+  "Execute last command run on iTerm"
+  (interactive)
+  (shell-command-on-iterm (car iterm-send-history)))
 
 (defun shell-command-on-iterm (command)
   "Execute COMMAND in the currently open iTerm session."
@@ -39,7 +43,8 @@
                 end tell
         end tell
 end run")
-    (shell-command-on-region (point-min) (point-max) (format "osascript - \"%s\" &" command))))
+    (shell-command-on-region (point-min) (point-max) (format "osascript - \"%s\" &" command)))
+  (message "Command executed on iTerm"))
 
 (provide 'iterm)
 ;;; iterm.el ends here

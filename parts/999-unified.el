@@ -305,7 +305,10 @@
 
 
 (use-package iterm
-  :bind (("S-<f9>" . shell-command-on-iterm)))
+  :bind (
+         ("S-<f9>" . shell-command-on-iterm)
+         ("C-S-<f9>" . repeat-last-shell-command-on-iterm)
+         ))
 
 
 ;; Programming modes -----------------------------------------------------------
