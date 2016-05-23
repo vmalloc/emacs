@@ -33,18 +33,26 @@
   (shell-command-on-iterm (car iterm-send-history)))
 
 (defun shell-command-on-iterm (command)
-  "Execute COMMAND in the currently open iTerm session."
+  "Execute COMMAND in the currently open iTerm session.
+With prefix arg, switches to the terminal when running."
+
   (interactive (list (read-from-minibuffer "Command: " (car iterm-send-history) nil nil 'iterm-send-history)))
-  (with-temp-buffer
-    (insert "on run argv
+  (let ((switch current-prefix-arg))
+    (message "Current %s" switch)
+    (with-temp-buffer
+      (insert "on run argv
         tell application \"iTerm\"
+")
+      (if switch
+        (insert "activate"))
+      (insert "
                 tell current session of first window
                         write text (item 1 of argv)
                 end tell
         end tell
 end run")
-    (shell-command-on-region (point-min) (point-max) (format "osascript - \"%s\" &" command)))
-  (message "Command executed on iTerm"))
+      (shell-command-on-region (point-min) (point-max) (format "osascript - \"%s\" &" command)))
+    (message "Command executed on iTerm")))
 
 (provide 'iterm)
 ;;; iterm.el ends here
