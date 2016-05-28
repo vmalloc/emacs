@@ -320,6 +320,11 @@
   :ensure t
   :mode (("\.rs$" . rust-mode)))
 
+(use-package python-extra
+  :bind (
+         :map python-mode-map
+              ("C-c p I" . pylint-ignore-errors-at-point)))
+
 
 ;; Web  -----------------------------------------------------------------------
 
