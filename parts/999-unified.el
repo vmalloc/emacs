@@ -55,33 +55,33 @@
     (require 'helm-config)
     )
   :bind
-   (("C-c h" . helm-recentf)
+   (
      ("M-i" . helm-semantic-or-imenu)
      ("C-x y" . helm-show-kill-ring)
-     ("M-x" . helm-M-x)
-     ("C-x C-f" . helm-find-files)
    ))
 
 (use-package swiper
   :ensure t
-  :bind (("C-x b" . ivy-switch-buffer)))
+  :config (setq projectile-completion-system 'ivy)
+  :bind (
+         ("C-x b" . ivy-switch-buffer)
+         ("C-c h" . ivy-recentf)
+         ("M-x" . counsel-M-x)
+         ("C-x C-f" . counsel-find-file)
+         :map projectile-command-map
+         ("s s" . counsel-ag)
+         )
+  )
 
 
 (use-package projectile
   :ensure t
   :init
   (projectile-global-mode 1)
-  )
+  :bind (
+         ("s-p" . projectile-find-file)
+  ))
 
-(use-package helm-projectile
-  :ensure t
-  :init (helm-projectile-on)
-  :bind
-  (("s-p" . helm-projectile))
-  )
-
-(use-package helm-ag
-  :ensure t)
 
 (use-package flycheck
   :config
@@ -201,10 +201,6 @@
   :ensure t
   :config (ido-vertical-mode))
 
-(use-package ido-recentf-open
-  :bind (("C-x C-r" . ido-recentf-open)))
-
-
 ;; Editing ---------------------------------------------------------------------
 
 (use-package avy
@@ -315,6 +311,17 @@
 
 
 ;; Programming modes -----------------------------------------------------------
+
+(use-package company
+  :ensure t)
+
+(use-package racer
+  :ensure t
+  :config (progn
+            (setq racer-cmd "~/.cargo/bin/racer")
+            (setq racer-rust-src-path "~/src/opensource/rust/rust/src")
+            (add-hook 'racer-mode-hook #'company-mode)
+  ))
 
 (use-package rust-mode
   :ensure t

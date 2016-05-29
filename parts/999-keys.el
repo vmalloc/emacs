@@ -15,8 +15,7 @@
 (global-set-key [(f9)] 'projectile-compile-project)
 (global-set-key [(f10)] 'previous-error)
 (global-set-key [(f11)] 'next-error)
-;; deleting trailing whitespaces
-(global-set-key (kbd "M-.") 'projectile-find-tag)
+
 
 
 ;; Open shell with C-z
