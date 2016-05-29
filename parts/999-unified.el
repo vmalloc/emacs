@@ -51,6 +51,10 @@
         (bury-buffer)
       ad-do-it)))
 
+;; Key assist
+(use-package which-key
+  :ensure t)
+
 
 ;; Window Movement -------------------------------------------------------------
 
@@ -215,25 +219,6 @@
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
 
-;; ido -------------------------------------------------------------------------
-
-(use-package ido-mode
-  :config
-  (progn
-    (ido-mode)
-    (setq ido-max-prospects 200)
-
-    (setq ido-auto-merge-work-directories-length -1)))
-
-
-(use-package ido-ubiquitous
-  :ensure t
-  :config (ido-ubiquitous-mode 1))
-
-(use-package ido-vertical-mode
-  :ensure t
-  :config (ido-vertical-mode))
-
 ;; Editing ---------------------------------------------------------------------
 
 (use-package avy
@@ -326,12 +311,12 @@
             ))
 
 
-
-;; Development -----------------------------------------------------------------
+;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+;; Misc Development features
+;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 (use-package jira-commit
   :bind (("C-c J" . commit-jira-issue-interactive)))
-
 
 (use-package iterm
   :config (progn
@@ -342,12 +327,16 @@
                            (setq current-prefix-arg t)
                            (call-interactively 'shell-command-on-iterm)))))
 
+;;
+;; Programming modes
+;; #############################################################################
 
-;; Programming modes -----------------------------------------------------------
 
+;; misc ------------------------------------------------------------------------
 (use-package company
   :ensure t)
 
+;; Rust ------------------------------------------------------------------------
 (use-package racer
   :ensure t
   :config (progn
@@ -360,13 +349,16 @@
   :ensure t
   :mode (("\.rs$" . rust-mode)))
 
+;; Python ----------------------------------------------------------------------
 (use-package python-extra
   :bind (
          :map python-mode-map
               ("C-c p I" . pylint-ignore-errors-at-point)))
 
 
-;; Web  -----------------------------------------------------------------------
+;; Web
+;; #############################################################################
+
 
 (use-package nginx-mode
   :ensure t)
