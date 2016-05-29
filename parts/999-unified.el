@@ -33,9 +33,16 @@
 ;; Generic settings
 ;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-(menu-bar-mode -1) ; get rid of the annoying menubars/toolbars etc.
-(if (boundp 'tool-bar-mode)
-    (tool-bar-mode 0))
+(require 'vmalloc-reset-emacs)
+(vmalloc-reset-emacs)
+
+
+; Try to display battery info (only if applicable)
+(condition-case ex
+    (display-battery-mode t)
+  ('error (message "Cannot display battery"))
+  )
+
 
 
 (use-package dash

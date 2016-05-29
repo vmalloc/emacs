@@ -1,16 +1,3 @@
-;Display settings
-(setq inhibit-splash-screen t)
-(setq frame-title-format '(buffer-file-name "%f" ("%b")))
-
-; Try to display battery info (only if applicable)
-(condition-case ex
-    (display-battery-mode t)
-  ('error (message "Cannot display battery"))
-  )
-
-(if (fboundp 'scroll-bar-mode)
-    (scroll-bar-mode 0))
-(setq ring-bell-function 'ignore)
 
 ; show-paren
 (setq show-paren-delay 0)
@@ -18,12 +5,6 @@
 
 ; winner mode
 (winner-mode 1)
-
-; guid-key
-(require 'guide-key)
-(setq guide-key/guide-key-sequence '("C-x r" "C-x 4" "%" "*" "C-c p"))
-(guide-key-mode 1)
-
 
 (defun presentation-mode ()
   (interactive)
