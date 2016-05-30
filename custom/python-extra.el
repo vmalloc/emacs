@@ -24,34 +24,6 @@
 ;;; Code:
 
 
-;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-;; py.test - related
-;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-(defun pytest-extract-fixture()
-  "Extracts the current variable (along with its creation) to a py.test fixture"
-  (interactive)
-  (let* ((name (symbol-at-point)))
-    (call-interactively 'python-extract-parameter)
-    (save-excursion
-      (beginning-of-line)
-      (let* ((line (thing-at-point 'line t)))
-        (message "Line is %s" line)
-        (kill-line)
-        (goto-char (point-max))
-        (insert "\n\n@pytest.fixture")
-        (insert (format "\ndef %s():\n" name))
-        (insert line)
-        (beginning-of-line)
-        (unless  (looking-at "[[:space:]]*$")
-          (end-of-line)
-          (insert "\n"))
-        (indent-for-tab-command)
-        (insert (format "return %s" name))))
-
-    (indent-for-tab-command)
-    ))
-
 
 ;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ;; pylint
