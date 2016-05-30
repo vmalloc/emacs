@@ -114,6 +114,7 @@
          ("C-x C-f" . counsel-find-file)
          :map projectile-command-map
          ("s s" . counsel-ag)
+         ("h" . projectile-find-file)
          )
   )
 
