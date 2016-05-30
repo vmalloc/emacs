@@ -24,17 +24,53 @@
 ;;; Code:
 
 
+;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+;; py.test - related
+;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+(defun pytest-extract-fixture()
+  "Extracts the current variable (along with its creation) to a py.test fixture"
+  (interactive)
+  (let* ((name (symbol-at-point)))
+    (call-interactively 'python-extract-parameter)
+    (save-excursion
+      (beginning-of-line)
+      (let* ((line (thing-at-point 'line t)))
+        (message "Line is %s" line)
+        (kill-line)
+        (goto-char (point-max))
+        (insert "\n\n@pytest.fixture")
+        (insert (format "\ndef %s():\n" name))
+        (insert line)
+        (beginning-of-line)
+        (unless  (looking-at "[[:space:]]*$")
+          (end-of-line)
+          (insert "\n"))
+        (indent-for-tab-command)
+        (insert (format "return %s" name))))
+
+    (indent-for-tab-command)
+    ))
+
+
+;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+;; pylint
+;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 (defun pylint-ignore-errors-at-point()
   (interactive)
-  (let ((errs (flycheck-overlay-errors-at (point))))
-    (let* ((ids (-map (lambda (s) (flycheck-error-id s)) errs)))
-      (if (> (length ids) 0)
-          (save-excursion
-            (end-of-line)
-            (insert " # pylint: disable=")
-            (insert (s-join ", " ids))
-            )))))
-
+  (let* ((errs (flycheck-overlay-errors-in (line-beginning-position) (line-end-position)))
+         (ids (-map 'flycheck-error-id errs)))
+    (if (> (length ids) 0)
+        (save-excursion
+          (end-of-line)
+          (insert " # pylint: disable="
+                  (s-join ", " ids))
+          ))))
 
 (provide 'python-extra)
 ;;; python-extra.el ends here
+
+@pytest.fixture
+
+@pytest.fixture
