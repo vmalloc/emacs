@@ -108,8 +108,10 @@
 
 
 (defun python-pytest-parametrize-boolean ()
+  "When standing over a function argument, parametrize it as [True, False]."
   (interactive)
   (save-excursion
     (python-pytest-parametrize "True, False")))
 
 (provide 'python-refactor)
+;;; python-refactor.el ends here
