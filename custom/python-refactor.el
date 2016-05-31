@@ -51,7 +51,6 @@
 (defun python-extract-parameter ()
   (interactive)
   (let ((symbol (current-word)))
-    (message (format "extracting parameter: %s" symbol))
     (save-excursion
       (back-to-indentation)
       (python-nav-beginning-of-defun)
@@ -89,7 +88,6 @@
     (save-excursion
       (beginning-of-line)
       (let* ((line (thing-at-point 'line t)))
-        (message "Line is %s" line)
         (kill-line)
         (goto-char (point-max))
         (insert "\n\n@pytest.fixture")
