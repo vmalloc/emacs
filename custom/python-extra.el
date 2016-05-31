@@ -42,7 +42,3 @@
 
 (provide 'python-extra)
 ;;; python-extra.el ends here
-
-@pytest.fixture
-
-@pytest.fixture
