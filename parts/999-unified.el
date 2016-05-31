@@ -110,14 +110,19 @@
   :bind (
          ("C-x b" . ivy-switch-buffer)
          ("C-c h" . ivy-recentf)
-         ("M-x" . counsel-M-x)
-         ("C-x C-f" . counsel-find-file)
          :map projectile-command-map
-         ("s s" . counsel-ag)
          ("h" . projectile-find-file)
          )
   )
 
+(use-package counsel
+  :ensure t
+  :bind (
+         ("C-x C-f" . counsel-find-file)
+         ("M-x" . counsel-M-x)
+         :map projectile-command-map
+         ("s s" . counsel-ag)
+         ))
 
 (use-package projectile
   :ensure t
@@ -318,6 +323,10 @@
 
             ))
 
+;; company-mode
+(use-package company
+  :ensure t)
+
 
 ;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ;; Misc Development features
@@ -335,14 +344,9 @@
                            (setq current-prefix-arg t)
                            (call-interactively 'shell-command-on-iterm)))))
 
-;;
-;; Programming modes
-;; #############################################################################
-
-
-;; misc ------------------------------------------------------------------------
-(use-package company
-  :ensure t)
+;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+;; Programming
+;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ;; Rust ------------------------------------------------------------------------
 (use-package racer
@@ -364,10 +368,6 @@
               ("C-c p I" . pylint-ignore-errors-at-point)))
 
 
-;; Web
-;; #############################################################################
-
-
 (use-package nginx-mode
   :ensure t)
 
@@ -383,6 +383,9 @@
                                  (setq web-mode-markup-indent-offset 2)
                                  (setq web-mode-css-indent-offset 2)
                                  (setq web-mode-code-indent-offset 2))))
+
+(eval-after-load 'flycheck
+   '(flycheck-add-mode 'html-tidy 'web-mode))
 
 (use-package emmet-mode
   :ensure t
