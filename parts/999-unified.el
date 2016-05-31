@@ -425,6 +425,23 @@
          ("C-c e r" . ember-open-route)
          ("C-c e c" . ember-open-controller)))
 
+;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+;; Writing
+;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+;; ReStructured Text (rst)
+(use-package rst-mode
+  :config (progn
+            (setq rst-preferred-adornments
+                  '((?= simple 0)
+                    (?- simple 0)
+                    (?~ simple 0)
+                    (?+ simple 0)
+                    (?` simple 0)
+                    (?# simple 0)
+                    (?@ simple 0)))))
+
+
 
 ;; Org mode ---------------------------------------------------------------------
 
