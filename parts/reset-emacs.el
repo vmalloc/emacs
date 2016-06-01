@@ -1,4 +1,4 @@
-;;; vmalloc-reset-emacs.el --- Reset emacs visual style and appearance
+;;; reset-emacs.el --- Reset emacs visual style and appearance
 
 ;; Copyright (C) 2016 Rotem Yaari
 ;; Author: Rotem Yaari <vmalloc@gmail.com>
@@ -28,20 +28,17 @@
 
 ;;; Code:
 
-(defun vmalloc-reset-emacs()
-  (menu-bar-mode -1) ; get rid of the annoying menubars/toolbars etc.
+(menu-bar-mode -1)    ; get rid of the annoying menubars/toolbars etc.
 
-  (if (boundp 'tool-bar-mode)
+(if (boundp 'tool-bar-mode)
     (tool-bar-mode 0))
 
-  (setq inhibit-splash-screen t) ; get rid of splash screen
-  (setq frame-title-format '(buffer-file-name "%f" ("%b")))
+(setq inhibit-splash-screen t)          ; get rid of splash screen
+(setq frame-title-format '(buffer-file-name "%f" ("%b")))
 
-  (if (fboundp 'scroll-bar-mode)
+(if (fboundp 'scroll-bar-mode)
     (scroll-bar-mode 0))
-  (setq ring-bell-function 'ignore)
-
-  )
+(setq ring-bell-function 'ignore)
 
 (provide 'vmalloc-reset-emacs)
-;;; vmalloc-reset-emacs.el ends here
+;;; reset-emacs.el ends here
