@@ -1,3 +1,5 @@
+(add-to-list 'load-path (in-modes-d "python.el"))
+
 (use-package python
   :config (progn
 	    (add-to-list 'load-path (in-modes-d "python.el"))
