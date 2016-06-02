@@ -22,7 +22,6 @@
 	      ))
 
 
-
 (defun my/python-tidy-up()
   (interactive)
   (py-isort-buffer)
@@ -45,11 +44,9 @@
 (defun my/pylint-ignore-errors-at-point()
   (interactive)
   (let* ((errs (flycheck-overlay-errors-in (line-beginning-position) (line-end-position)))
-         (ids (-map 'flycheck-error-id errs)))
-    (if (> (length ids) 0)
-        (save-excursion
-          (end-of-line)
-          (insert " # pylint: disable="
-                  (s-join ", " ids))
-          ))))
-
+         (ids (delete-dups (-map 'flycheck-error-id errs))))
+    (when (> (length ids) 0)
+      (save-excursion
+        (comment-indent)
+        (insert "pylint: disable="
+                (s-join ", " ids))))))
