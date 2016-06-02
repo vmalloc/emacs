@@ -28,6 +28,10 @@
 
 ;;; Code:
 
+;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+;; Misc
+;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 (menu-bar-mode -1)    ; get rid of the annoying menubars/toolbars etc.
 
 (if (boundp 'tool-bar-mode)
@@ -39,6 +43,80 @@
 (if (fboundp 'scroll-bar-mode)
     (scroll-bar-mode 0))
 (setq ring-bell-function 'ignore)
+
+;; assume new files are already modified
+(add-hook 'find-file-hooks 'assume-new-is-modified)
+(defun assume-new-is-modified ()
+  (when (not (file-exists-p (buffer-file-name)))
+    (set-buffer-modified-p t)))
+
+
+;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+;; Autosave
+;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+;; autosave settings
+(setq auto-save-list-file-prefix nil)
+(setq make-backup-files nil)
+(setq backup-inhibited t)
+(setq auto-save-default nil)
+
+;; lock files (pesky .# files) disabling
+(setq create-lockfiles nil)
+
+;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+;; Sane keybindings
+;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+;; Mac-specific
+(setq ns-function-modifier 'hyper)
+
+;; Home/end
+(global-set-key [(end)]                  'end-of-line)
+(global-set-key [(home)]                 'beginning-of-line)
+
+;; pgup/pgdn
+(global-set-key (kbd "<prior>") 'cua-scroll-down)
+(global-set-key (kbd "<next>") 'cua-scroll-up)
+
+;; line joining
+(add-hook 'prog-mode-hook '(lambda () (global-set-key (kbd "s-j")
+					   (lambda ()
+					     (interactive)
+					     (join-line -1)))))
+
+;; Kill/save the active region or the current line
+(defun my/kill-line-or-region ()
+  (interactive)
+  (if (region-active-p)
+      (kill-region (region-beginning) (region-end))
+    (kill-whole-line)))
+
+(global-set-key (kbd "C-w") 'my/kill-line-or-region)
+
+(defun my/save-line-or-region ()
+  (interactive)
+  (if (region-active-p)
+      (kill-ring-save (region-beginning) (region-end))
+    (kill-ring-save (line-beginning-position) (line-end-position))))
+
+(global-set-key (kbd "M-w") 'my/save-line-or-region)
+
+;; line manipulation
+; Make C-o / C-S-o work like in VIM
+(defun my/insert-line-before ()
+  (interactive)
+  (move-beginning-of-line nil)
+  (open-line 1)
+  (indent-for-tab-command))
+
+(defun my/insert-line-after ()
+  (interactive)
+  (move-end-of-line nil)
+  (newline-and-indent))
+
+(global-set-key (kbd "C-o") 'my/insert-line-after)
+(global-set-key (kbd "C-S-o") 'my/insert-line-before)
+
 
 (provide 'vmalloc-reset-emacs)
 ;;; reset-emacs.el ends here

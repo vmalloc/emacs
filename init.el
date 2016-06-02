@@ -44,7 +44,7 @@
 
 
 (load-file (in-emacs-d "parts/reset-emacs.el"))
-(load-file (in-emacs-d "parts/config.el"))
+(load-file (in-emacs-d "parts/set-defaults.el"))
 
 ; actually load all parts in order
 (add-hook 'after-init-hook (lambda ()
@@ -57,21 +57,27 @@
 ;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ;; Generic settings
 ;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-;; Try to display battery info (only if applicable)
-(condition-case ex
-    (display-battery-mode t)
-  ('error (message "Cannot display battery")))
-
-
 
 (use-package
   dash
   :ensure t
   :defer t)
 
-;; Buffer management
+(use-package
+  cl
+  :ensure t)
 
-                                        ; prevent killing scratch
+;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+;; Buffer management
+;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+(use-package uniquify
+  :config (progn ; uniquify
+	    (setq
+	     uniquify-buffer-name-style 'post-forward
+	     uniquify-separator ":")))
+
+;; prevent killing scratch
 (defadvice kill-buffer (around kill-buffer-around-advice activate)
   "Bury *scratch* instead of killing it."
   (let* ((buffer-to-kill (ad-get-arg 0)))
@@ -79,10 +85,63 @@
         (bury-buffer)
       ad-do-it)))
 
-;; Key assist
-(use-package
-  which-key
-  :ensure t)
+(use-package ibuffer
+  :ensure t
+  :config (progn
+	    (setq ibuffer-saved-filter-groups
+		  (quote (("default"
+			   ("Web"
+			    (or
+			     (mode . nxhtml-mode)
+			     (mode . web-mode)
+			     (mode . javascript-mode)
+			     (mode . js-mode)
+			     (mode . css-mode)
+			     )
+			    )
+			   ("Programming"
+			    (or
+			     (mode . c++-mode)
+			     (mode . c-mode)
+			     (mode . emacs-lisp-mode)
+			     (mode . makefile-gmake-mode)
+			     (mode . perl-mode)
+			     (mode . python-mode)
+			     (mode . sh-mode)
+			     (mode . haskell-mode)
+			     ;; etc
+			     ))
+			   ("Elisp"
+			    (mode . emacs-lisp-mode))
+			   ("Magit"
+			    (name . "\*magit.*\*"))
+			   ("Terminal"
+			    (mode . term-mode))
+			   ("Emacs"
+			    (name . "\*.*\*"))))))
+
+	    (add-hook 'ibuffer-mode-hook
+		      (lambda ()
+			(ibuffer-switch-to-saved-filter-groups "default"))))
+  :bind ("C-x C-b" . ibuffer))
+
+
+;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+;; File management
+;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+(use-package saveplace
+  :ensure t
+  :config (progn
+	    (setq-default save-place t)
+	    (setq save-place-file (in-emacs-d ".places"))))
+
+(use-package recentf
+  :config (progn
+	    (run-with-idle-timer (* 5 60) t 'recentf-save-list)
+	    (setq recentf-auto-cleanup 'never)
+	    (setq recentf-max-saved-items 1000)))
+
 
 
 ;; Window Movement -------------------------------------------------------------
@@ -115,6 +174,7 @@
 
 (use-package
   helm
+  :diminish helm-mode
   :ensure t
   :init (progn
           (helm-mode t)
@@ -236,6 +296,14 @@
   :ensure t
   :config (global-whitespace-cleanup-mode 1))
 
+(use-package wrap-region
+  :ensure t
+  :diminish wrap-region-mode
+  :config (progn
+	    (add-hook 'prog-mode-hook (lambda () (wrap-region-mode t)))
+	    (add-hook 'markdown-mode-hook (lambda () (wrap-region-mode t)))
+	    (wrap-region-add-wrapper "*" "*")
+	    (wrap-region-add-wrapper "`" "`")))
 
 
 (-map
@@ -259,9 +327,8 @@
 (setq scroll-step 1 scroll-conservatively 10000)
 
 
-(use-package exec-path-from-shell-initialize
+(use-package exec-path-from-shell
   :ensure t)
-
 
 ;; fix path for mac
 (when (memq window-system '(mac ns))
@@ -338,6 +405,7 @@
 (use-package
   yasnippet
   :ensure t
+  :diminish yas-minor-mode
   :init (yas-global-mode 1)
   :config (progn
             (setq yas-snippet-dirs (list (in-emacs-d "snippets") yas-installed-snippets-dir))
@@ -354,6 +422,7 @@
 (use-package
   auto-complete
   :ensure t
+  :diminish auto-complete-mode
   :config (progn
             (require 'auto-complete-config)
             (global-auto-complete-mode t)
@@ -368,9 +437,23 @@
   :ensure t)
 
 
+(use-package
+  drag-stuff
+  :ensure t
+  :diminish drag-stuff-mode
+  :config (progn
+	    (setq drag-stuff-modifier '(control super)))
+	    (drag-stuff-global-mode t))
+
+
 ;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ;; Misc Development features
 ;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+(load-file (in-emacs-d "parts/git-setup.el"))
+
+(use-package flycheck
+  :ensure t)
 
 (use-package
   jira-commit
@@ -391,6 +474,33 @@
 ;; Programming
 ;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+;; Misc ------------------------------------------------------------------------
+;; Move to the beginning of the text
+(defun my/smart-beginning-of-line ()
+  "Move point to first non-whitespace character or beginning-of-line.
+
+Move point to the first non-whitespace character on this line.
+If point was already at that position, move point to beginning of line."
+  (interactive) ; Use (interactive "^") in Emacs 23 to make shift-select work
+  (let ((oldpos (point)))
+    (back-to-indentation)
+    (and (= oldpos (point))
+         (beginning-of-line))))
+
+(global-set-key [home] 'my/smart-beginning-of-line)
+(global-set-key (kbd "C-a") 'my/smart-beginning-of-line)
+
+;; Return and indent on prog-mode variants
+(defun my/set-newline-and-indent ()
+  (local-set-key [(return)] 'newline-and-indent))
+(add-hook 'prog-mode-hook 'my/set-newline-and-indent)
+
+
+;; Semantic mode ---------------------------------------------------------------
+(use-package semantic
+  :init (semantic-mode t))
+
+
 ;; Rust ------------------------------------------------------------------------
 (use-package
   racer
@@ -406,11 +516,7 @@
   :mode (("\.rs$" . rust-mode)))
 
 ;; Python ----------------------------------------------------------------------
-(use-package
-  python-extra
-  :bind (:map python-mode-map
-              ("C-c p I" . pylint-ignore-errors-at-point)))
-
+(load-file (in-emacs-d "parts/python-setup.el"))
 
 (use-package
   nginx-mode
@@ -465,6 +571,11 @@
 ;; ReStructured Text (rst)
 (use-package rst-mode
   :config (progn
+	    ;; remove C-c <num> from map
+	    (add-hook 'rst-mode-hook '(lambda ()
+                                  (mapcar (lambda (k) (define-key rst-mode-map (kbd (format "C-c %s" k)) nil))
+                                          (list 1 2 3 4))))
+
             (setq rst-preferred-adornments
                   '((?= simple 0)
                     (?- simple 0)
