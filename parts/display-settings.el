@@ -11,7 +11,7 @@
 
 (use-package popwin
   :ensure t
-  :init (popwin-mode 1))
+  :config (popwin-mode 1))
 
 (use-package powerline
   :ensure t
