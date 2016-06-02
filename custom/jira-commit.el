@@ -40,9 +40,8 @@
 
 (defun --get-choice (candidates)
   (helm :sources (helm-build-sync-source "Jira Issues"
-                 :candidates options
+		   :candidates options
                  :action (helm-make-actions "commit"  'identity
-                                            "commit-and-fix" '--transform-to-fix
                                             "commit-no-message" '--transform-no-message
                                             )
 
@@ -69,12 +68,6 @@
 (defun --get-jira-password ()
   (cadr (--get-jira-auth))
   )
-
-(defun --transform-to-fix (msg)
-  (let ((parts (s-split-up-to ":" msg 1)))
-    (let ((issue-key (car parts))
-          (issue-summary (s-trim (cadr parts))))
-      (format "%s (fix %s)" issue-summary issue-key))))
 
 (defun --transform-no-message (msg)
   (let ((parts (s-split-up-to ":" msg 1)))
