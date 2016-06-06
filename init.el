@@ -294,6 +294,7 @@
 
 (use-package
   whitespace-cleanup-mode
+  :diminish whitespace-cleanup-mode
   :ensure t
   :config (global-whitespace-cleanup-mode 1))
 
