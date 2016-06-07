@@ -29,11 +29,17 @@
   (py-isort-buffer)
   (py-autopep8))
 
-(use-package py-autopep8
-  :ensure t
-  :bind (
-	 :map python-mode-map
-	      ("C-c t" . my/python-tidy-up)))
+
+(defun my/python-auto-pep8 ()
+  (interactive)
+  (save-excursion
+    (beginning-of-buffer)
+    (push-mark)
+    (end-of-buffer)
+    (shell-command-on-region (point) (mark) (format "%s -" (executable-find "autopep8")) nil t)
+    (pop-mark)))
+
+(define-key python-mode-map (kbd "C-c t") 'my/python-auto-pep8)
 
 (use-package py-isort
   :ensure t)
