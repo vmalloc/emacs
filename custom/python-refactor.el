@@ -181,21 +181,33 @@
   (--python-pyrefactor "toggle_assert_style")
   )
 
+(defun --append-parameter (symbol)
+  (search-forward "):")
+  (backward-char 3)
+  (if (not (looking-at "("))
+    (progn
+      (forward-char)
+      (insert ", "))
+    (forward-char))
+  (insert symbol))
+
+(defun --prepend-parameter (symbol)
+  (search-forward "(")
+  (insert symbol)
+  (unless (looking-at ")")
+    (insert ", ")))
 
 (defun python-extract-parameter ()
+  "Extracts the current symbol as a function paramater.  If prefix arg is specified, append at the beginning of the parameter list."
   (interactive)
-  (let ((symbol (current-word)))
+  (let ((prefix-arg current-prefix-arg)
+	(symbol (current-word)))
     (save-excursion
       (back-to-indentation)
       (python-nav-beginning-of-defun)
-      (search-forward "):")
-      (backward-char 3)
-      (if (not (looking-at "("))
-          (progn
-            (forward-char)
-            (insert ", "))
-        (forward-char))
-      (insert symbol))))
+      (if prefix-arg
+	  (--prepend-parameter symbol)
+	(--append-parameter symbol)))))
 
 
 (defun python-pytest-parametrize (&optional values-list)
