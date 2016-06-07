@@ -545,6 +545,10 @@ If point was already at that position, move point to beginning of line."
   nginx-mode
   :ensure t)
 
+(use-package yaml-mode
+  :ensure t
+  :mode (("\.yml$" . yaml-mode)))
+
 
 (use-package
   web-mode
