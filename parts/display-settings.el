@@ -25,4 +25,6 @@
 ;; Key assist
 (use-package
   which-key
-  :ensure t)
+  :ensure t
+  :config (which-key-mode 1)
+  )
