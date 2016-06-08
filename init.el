@@ -518,6 +518,9 @@ If point was already at that position, move point to beginning of line."
   (local-set-key [(return)] 'newline-and-indent))
 (add-hook 'prog-mode-hook 'my/set-newline-and-indent)
 
+;; Disable electric-indent-mode
+(electric-indent-mode -1)
+
 
 ;; Semantic mode ---------------------------------------------------------------
 (use-package semantic
