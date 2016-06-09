@@ -197,7 +197,8 @@
   :config (setq projectile-completion-system 'ivy)
   :bind (("C-x b" . ivy-switch-buffer)
          ("C-c h" . ivy-recentf)
-         :map projectile-command-map ("h" . projectile-find-file)))
+         :map projectile-command-map ("h" . projectile-find-file)
+	 :map ivy-minibuffer-map ("C-p" . my/ivy-projectile-find-file-on-selection)))
 
 ;; projectile find file from within ivy
 (defun my/ivy-projectile-find-file-on-selection()
@@ -210,7 +211,6 @@
 			      (projectile-find-file))) directory)
     (minibuffer-keyboard-quit)))
 
-(define-key ivy-minibuffer-map (kbd "C-p") 'my/ivy-projectile-find-file-on-selection)
 
 (defun --projectile-counsel-ag()
   (interactive)
