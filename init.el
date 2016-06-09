@@ -514,6 +514,8 @@
 
 (add-hook 'compilation-finish-functions 'my/auto-close-compile-window)
 
+(setq compilation-scroll-output t)
+
 
 ;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ;; Programming
