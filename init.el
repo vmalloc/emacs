@@ -204,7 +204,7 @@
 (defun my/ivy-projectile-find-file-on-selection()
   (interactive)
   (let* ((directory (if (s-starts-with? "/" ivy--current)
-			(ivy--current)
+			ivy--current
 		      (concat ivy--directory ivy--current))))
     (run-with-timer 0 nil (lambda (d)
 			    (let* ((default-directory  d))
@@ -576,6 +576,9 @@ If point was already at that position, move point to beginning of line."
   :ensure t
   :mode (("\.yml$" . yaml-mode)))
 
+(use-package markdown-mode
+  :ensure t
+  :mode (("\.md$" . markdown-mode)))
 
 (use-package
   web-mode
