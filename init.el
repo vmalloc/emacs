@@ -68,6 +68,12 @@
   cl
   :ensure t)
 
+(use-package savehist
+  :config (progn
+	    (setq savehist-additional-variables '(iterm-send-history))
+	    (setq savehist-file "~/.emacs.d/savehist")
+	    (savehist-mode 1)))
+
 ;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ;; Buffer management
 ;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
