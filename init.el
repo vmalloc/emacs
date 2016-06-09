@@ -473,6 +473,9 @@
 
 (load-file (in-emacs-d "parts/git-setup.el"))
 
+(use-package gist
+  :ensure t)
+
 (use-package flycheck
   :ensure t)
 
