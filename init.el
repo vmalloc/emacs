@@ -286,6 +286,12 @@
          ([(f6)] . flycheck-next-error)))
 
 
+(use-package
+  flyspell
+  :ensure t
+  :config (add-hook 'text-mode-hook (lambda () (flyspell-mode t))))
+
+
 ;; Defaults --------------------------------------------------------------------
 
 ;; Make the super key work in Windows
