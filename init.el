@@ -179,6 +179,12 @@
   :ensure t
   :config (projectile-global-mode))
 
+(defun my/projectile-disable-remove-current-project (orig-fun &rest args)
+  "ORIG-FUN ARGS."
+  (cl-letf (((symbol-function 'projectile--remove-current-project) #'identity))
+    (apply orig-fun args)))
+(advice-add 'projectile-switch-project :around #'my/projectile-disable-remove-current-project)
+
 (use-package
   helm
   :diminish helm-mode
