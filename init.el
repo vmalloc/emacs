@@ -200,7 +200,9 @@
 (use-package
   swiper
   :ensure t
-  :config (setq projectile-completion-system 'ivy)
+  :init (progn
+	  (ivy-mode t)
+	  (setq projectile-completion-system 'ivy))
   :bind (("C-x b" . ivy-switch-buffer)
          ("C-c h" . ivy-recentf)
          :map projectile-command-map ("h" . projectile-find-file)
