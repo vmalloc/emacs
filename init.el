@@ -225,7 +225,7 @@
     (projectile-switch-project)))
 
 
-(defun --projectile-counsel-ag()
+(defun my/projectile-counsel-ag()
   (interactive)
   (counsel-ag nil (projectile-project-root)))
 
@@ -235,7 +235,9 @@
   :bind (("C-x C-f" . counsel-find-file)
          ("M-x" . counsel-M-x)
          :map projectile-command-map
-         ("s s" . --projectile-counsel-ag)))
+         ("s s" . my/projectile-counsel-ag)
+	 ("g" . my/projectile-git-status)
+	 ))
 
 (use-package
   projectile
