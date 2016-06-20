@@ -219,6 +219,11 @@
 			      (projectile-find-file))) directory)
     (minibuffer-keyboard-quit)))
 
+(defun my/projectile-git-status ()
+  (interactive)
+  (let ((projectile-switch-project-action 'projectile-vc))
+    (projectile-switch-project)))
+
 
 (defun --projectile-counsel-ag()
   (interactive)
