@@ -537,6 +537,9 @@
 
 (setq compilation-scroll-output t)
 
+(use-package compilation
+  :bind (("<f9>" . compile)))
+
 
 ;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ;; Programming
