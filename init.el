@@ -384,6 +384,11 @@
   :bind (("s-;" . avy-goto-char)))
 
 (use-package
+  dumb-jump
+  :ensure t
+  :config (dumb-jump-mode))
+
+(use-package
   expand-region
   :ensure t
   :bind (("C-=" . er/expand-region)
