@@ -202,7 +202,10 @@
   :ensure t
   :init (progn
 	  (ivy-mode t)
-	  (setq projectile-completion-system 'ivy))
+	  (setq projectile-completion-system 'ivy)
+	  (setq ivy-re-builders-alist
+		'((t . ivy--regex-ignore-order)))
+	  )
   :bind (("C-x b" . ivy-switch-buffer)
          ("C-c h" . ivy-recentf)
          :map projectile-command-map ("h" . projectile-find-file)
