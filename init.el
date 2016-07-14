@@ -288,6 +288,14 @@
   :bind (([(f5)] . flycheck-previous-error)
          ([(f6)] . flycheck-next-error)))
 
+;; use project-specific pylintrc when exists
+(add-hook 'python-mode-hook
+          (lambda () (let ((root-dir (projectile-project-root)))
+		       (when root-dir
+			 (let ((pylintrc (concat (file-name-as-directory root-dir) ".pylintrc")))
+			   (when (file-exists-p pylintrc)
+			     (make-local-variable 'flycheck-pylintrc)
+			     (setq flycheck-pylintrc pylintrc)))))))
 
 (use-package
   flyspell
