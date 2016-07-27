@@ -22,6 +22,7 @@
 	mark-sexp
 	markdown-cycle
 	markdown-exdent-or-delete
+	org-self-insert-command
 	org-shiftright
 	python-backspace
 	python-indent-dedent-line-backspace
