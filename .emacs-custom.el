@@ -21,6 +21,9 @@
  '(jira-commit-jira-hostname "jira.infinidat.com")
  '(minimap-window-location (quote right))
  '(ns-pop-up-frames nil)
+ '(package-selected-packages
+   (quote
+    (yasnippet yaml-mode wrap-region whitespace-cleanup-mode which-key web-mode virtualenvwrapper use-package undo-tree sublimity scss-mode restclient racer python-mode py-isort projectile powerline popwin nginx-mode multiple-cursors markdown-preview-mode magit helm git-link gist flymd flycheck expand-region exec-path-from-shell emmet-mode ember-mode dumb-jump drag-stuff dracula-theme diff-hl crux counsel company avy auto-complete atom-one-dark-theme ag)))
  '(projectile-ack-function (quote ag))
  '(projectile-global-mode t)
  '(projectile-globally-ignored-directories
