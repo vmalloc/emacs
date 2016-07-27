@@ -163,10 +163,10 @@
 ;; Window moving
 (use-package
   windmove
-  :bind (("<M-up>" . windmove-up)
-         ("<M-down>" . windmove-down)
-         ("<M-right>" . windmove-right)
-         ("<M-left>" . windmove-left)))
+  :bind (("<s-up>" . windmove-up)
+         ("<s-down>" . windmove-down)
+         ("<s-right>" . windmove-right)
+         ("<s-left>" . windmove-left)))
 
 
 ;; File Management -------------------------------------------------------------
@@ -700,10 +700,6 @@ If point was already at that position, move point to beginning of line."
   :config (progn
             (add-hook 'org-mode-hook
                       (lambda ()
-                        (define-key org-mode-map [(meta left)]    nil)
-                        (define-key org-mode-map [(meta right)]   nil)
-                        (define-key org-mode-map [(meta down)]    nil)
-                        (define-key org-mode-map [(meta up)]   nil)
                         (define-key org-mode-map (kbd "M-h")    nil))
                       'append)
             (setq org-src-fontify-natively t)
