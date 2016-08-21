@@ -612,6 +612,11 @@ If point was already at that position, move point to beginning of line."
   :ensure t
   :mode (("\.rs$" . rust-mode)))
 
+(use-package
+  d-mode
+  :ensure t
+  :mode (("\.d$" . d-mode)))
+
 ;; Python ----------------------------------------------------------------------
 (load-file (in-emacs-d "parts/python-setup.el"))
 
