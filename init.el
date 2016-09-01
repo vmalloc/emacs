@@ -403,7 +403,10 @@
 (use-package
   dumb-jump
   :ensure t
-  :config (dumb-jump-mode))
+  :config (progn
+	    (dumb-jump-mode)
+	    (setq dumb-jump-selector 'ivy)
+	    ))
 
 (use-package
   expand-region
