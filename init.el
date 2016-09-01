@@ -140,6 +140,19 @@
   :bind ("C-x C-b" . ibuffer))
 
 
+
+
+;; Window Movement -------------------------------------------------------------
+
+;; Window moving
+(use-package
+  windmove
+  :bind (("<s-up>" . windmove-up)
+         ("<s-down>" . windmove-down)
+         ("<s-right>" . windmove-right)
+         ("<s-left>" . windmove-left)))
+
+
 ;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ;; File management
 ;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -156,20 +169,6 @@
 	    (setq recentf-auto-cleanup 'never)
 	    (setq recentf-max-saved-items 1000)))
 
-
-
-;; Window Movement -------------------------------------------------------------
-
-;; Window moving
-(use-package
-  windmove
-  :bind (("<s-up>" . windmove-up)
-         ("<s-down>" . windmove-down)
-         ("<s-right>" . windmove-right)
-         ("<s-left>" . windmove-left)))
-
-
-;; File Management -------------------------------------------------------------
 
 (use-package
   recentf
