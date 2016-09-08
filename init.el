@@ -215,7 +215,11 @@
   :bind (("C-x b" . ivy-switch-buffer)
          ("C-c h" . ivy-recentf)
          :map projectile-command-map ("h" . projectile-find-file)
-	 :map ivy-minibuffer-map ("C-p" . my/ivy-projectile-find-file-on-selection)))
+	 :map ivy-minibuffer-map
+	    ("C-p" . my/ivy-projectile-find-file-on-selection)
+	    ("<next>" . ivy-scroll-up-command)
+	    ("<prior>" . ivy-scroll-down-command)
+	    ))
 
 ;; projectile find file from within ivy
 (defun my/ivy-projectile-find-file-on-selection()
