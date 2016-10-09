@@ -200,7 +200,7 @@
           (setq helm-input-idle-delay 0)
           (setq helm-exit-idle-delay 0)
           (require 'helm-config))
-  :bind (("M-i" . helm-semantic-or-imenu)
+  :bind (("M-i" . helm-semantic)
          ("C-x y" . helm-show-kill-ring)))
 
 (use-package
@@ -214,12 +214,17 @@
 	  )
   :bind (("C-x b" . ivy-switch-buffer)
          ("C-c h" . ivy-recentf)
+	 ("C-c v" . ivy-push-view)
+	 ("C-c V" . ivy-pop-view)
          :map projectile-command-map ("h" . projectile-find-file)
 	 :map ivy-minibuffer-map
 	    ("C-p" . my/ivy-projectile-find-file-on-selection)
 	    ("<next>" . ivy-scroll-up-command)
 	    ("<prior>" . ivy-scroll-down-command)
 	    ))
+
+(use-package wgrep
+  :ensure t)
 
 ;; projectile find file from within ivy
 (defun my/ivy-projectile-find-file-on-selection()
