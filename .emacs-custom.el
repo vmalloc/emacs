@@ -12,7 +12,7 @@
  '(cua-rectangle-mark-key (kbd "C-x <C-return>"))
  '(custom-safe-themes
    (quote
-    ("1bacdd5d24f187f273f488a23c977f26452dffbc82d4ac57250aa041f14159da" "4f0f2f5ec60a4c6881ba36ffbfef31b2eea1c63aad9fe3a4a0e89452346de278" "4d66773cc6d32566eaf2c9c7ce11269d9eb26e428a1a4fa10e97bae46ff615da" "705f3f6154b4e8fac069849507fd8b660ece013b64a0a31846624ca18d6cf5e1" "4904daa168519536b08ca4655d798ca0fb50d3545e6244cefcf7d0c7b338af7e" "8122f00211dbaf973fbe5831f808af92387c8fc1a44f0c6bcc9b22c16997c9dd" default)))
+    ("1160f5fc215738551fce39a67b2bcf312ed07ef3568d15d53c87baa4fd1f4d4e" "54ece5659cc7acdcd529dddd78675c2972a5ac69260af4a6aec517dcea16208b" "1bacdd5d24f187f273f488a23c977f26452dffbc82d4ac57250aa041f14159da" "4f0f2f5ec60a4c6881ba36ffbfef31b2eea1c63aad9fe3a4a0e89452346de278" "4d66773cc6d32566eaf2c9c7ce11269d9eb26e428a1a4fa10e97bae46ff615da" "705f3f6154b4e8fac069849507fd8b660ece013b64a0a31846624ca18d6cf5e1" "4904daa168519536b08ca4655d798ca0fb50d3545e6244cefcf7d0c7b338af7e" "8122f00211dbaf973fbe5831f808af92387c8fc1a44f0c6bcc9b22c16997c9dd" default)))
  '(flycheck-pylintrc "~/.pylintrc")
  '(git-commit-summary-max-length 180)
  '(helm-ff-transformer-show-only-basename nil)
@@ -23,7 +23,7 @@
  '(ns-pop-up-frames nil)
  '(package-selected-packages
    (quote
-    (yasnippet yaml-mode wrap-region whitespace-cleanup-mode which-key web-mode virtualenvwrapper use-package undo-tree sublimity scss-mode restclient racer python-mode py-isort projectile powerline popwin nginx-mode multiple-cursors markdown-preview-mode magit helm git-link gist flymd flycheck expand-region exec-path-from-shell emmet-mode ember-mode dumb-jump drag-stuff dracula-theme diff-hl crux counsel company avy auto-complete atom-one-dark-theme ag)))
+    (wgrep yasnippet yaml-mode wrap-region whitespace-cleanup-mode which-key web-mode virtualenvwrapper use-package undo-tree sublimity scss-mode restclient racer python-mode py-isort projectile powerline popwin nginx-mode multiple-cursors markdown-preview-mode magit helm git-link gist flymd flycheck expand-region exec-path-from-shell emmet-mode ember-mode dumb-jump drag-stuff dracula-theme diff-hl crux counsel company avy auto-complete atom-one-dark-theme ag)))
  '(projectile-ack-function (quote ag))
  '(projectile-global-mode t)
  '(projectile-globally-ignored-directories
