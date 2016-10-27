@@ -49,12 +49,21 @@
 ;; pylint
 ;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-(defun my/pylint-ignore-errors-at-point()
-  (interactive)
+(defun my/pylint-ignore-errors(global)
+  "Ignores pylint warning at point locally. With a prefix argument, ignores them globally"
+  (interactive "P")
   (let* ((errs (flycheck-overlay-errors-in (line-beginning-position) (line-end-position)))
          (ids (delete-dups (-map 'flycheck-error-id errs))))
     (when (> (length ids) 0)
       (save-excursion
-        (comment-indent)
-        (insert "pylint: disable="
-                (s-join ", " ids))))))
+	(if global
+	    (progn
+	      (beginning-of-buffer)
+	      (insert "# ")
+	      )
+	  (comment-indent)
+	  )
+	(insert "pylint: disable="
+		(s-join ", " ids))
+	(if global
+	    (insert "\n"))))))
