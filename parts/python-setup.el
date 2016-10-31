@@ -3,6 +3,8 @@
 	    (add-hook 'python-mode-hook
 		      '(lambda ()
 			 (setq python-indent-offset 4)
+			 (setq python-shell-completion-native-enable nil)
+
 			 (local-set-key (kbd "C-c #") 'comment-or-uncomment-region)))))
 
 
