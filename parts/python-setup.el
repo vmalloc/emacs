@@ -1,10 +1,5 @@
-(add-to-list 'load-path (in-modes-d "python.el"))
-
 (use-package python
   :config (progn
-	    (add-to-list 'load-path (in-modes-d "python.el"))
-
-
 	    (add-hook 'python-mode-hook
 		      '(lambda ()
 			 (setq python-indent-offset 4)
