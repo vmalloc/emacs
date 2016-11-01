@@ -22,6 +22,7 @@
 	mark-sexp
 	markdown-cycle
 	markdown-exdent-or-delete
+	my/insert-line-after
 	org-self-insert-command
 	org-shiftright
 	python-backspace
