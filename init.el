@@ -599,26 +599,24 @@
 ;; Compilation
 ;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-(defun my/auto-close-compile-window (buffer string)
-  "Auto-close a compilation buffer if succeeded without warnings/errors "
-  (if (and
-       (string-match "compilation" (buffer-name buffer))
-       (string-match "finished" string)
-       (not
-        (with-current-buffer buffer
-          (search-forward "warning" nil t))))
-      (run-with-timer 5 nil
-                      (lambda (buf)
-                        (delete-window (get-buffer-window buf))
-                        (bury-buffer buf))
-                      buffer)))
-
-(add-hook 'compilation-finish-functions 'my/auto-close-compile-window)
+;; Close the compilation window if there was no error at all.
+(setq compilation-exit-message-function
+      (lambda (status code msg)
+	;; If M-x compile exists with a 0
+	(when (and (eq status 'exit) (zerop code))
+	  ;; then bury the *compilation* buffer, so that C-x b doesn't go there
+  	  (bury-buffer "*compilation*")
+  	  ;; and return to whatever were looking at before
+  	  (replace-buffer-in-windows "*compilation*"))
+	;; Always return the anticipated result of compilation-exit-message-function
+  	(cons msg code)))
 
 (setq compilation-scroll-output t)
 
 (use-package compilation
-  :bind (("<f9>" . compile)))
+  :bind (("<f9>" . compile)
+	 ("<M-f9>" . projectile-compile-project)
+	 ))
 
 
 ;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
