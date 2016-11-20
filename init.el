@@ -784,6 +784,11 @@ If point was already at that position, move point to beginning of line."
   :ensure t)
 
 
+(use-package mode-icons
+  :ensure t
+  :config (mode-icons-mode 1))
+
+
 
 ;;; init.el ends here
 
