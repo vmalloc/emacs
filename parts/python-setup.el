@@ -64,3 +64,5 @@
 		(s-join ", " ids))
 	(if global
 	    (insert "\n"))))))
+
+(define-key python-mode-map (kbd "C-c r !") 'my/pylint-ignore-errors)
