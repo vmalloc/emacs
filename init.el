@@ -343,6 +343,8 @@
                                         ; indentation/tabs
 (setq default-tab-width 8)
 (setq default-tab-indent 4)
+                                        ; use spaces instead of tabs when auto-indneting
+(setq-default indent-tabs-mode nil)
 
                                         ; enable all disabled commands
 (setq disabled-command-function nil)
