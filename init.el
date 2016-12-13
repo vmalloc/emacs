@@ -519,9 +519,10 @@
   drag-stuff
   :ensure t
   :diminish drag-stuff-mode
+  :bind (("<C-s-up>" . drag-stuff-up)
+         ("<C-s-down>" . drag-stuff-down))
   :config (progn
-	    (setq drag-stuff-modifier '(control super)))
-	    (drag-stuff-global-mode t))
+	    (drag-stuff-global-mode t)))
 
 ;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ;; Source control
