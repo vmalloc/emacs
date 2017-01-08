@@ -565,7 +565,6 @@
     (setq magit-auto-revert-mode nil)
     (define-key magit-status-mode-map (kbd "q") 'my/magit-quit-session)
     (define-key magit-status-mode-map (kbd "W") 'my/magit-toggle-whitespace)
-    (add-hook 'git-commit-setup-hook 'git-commit-turn-on-flyspell)
     (add-hook 'magit-mode-hook 'magit-load-config-extensions))
 
   :bind (("C-c g" . magit-status)))
