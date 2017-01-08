@@ -756,20 +756,33 @@ If point was already at that position, move point to beginning of line."
 
 ;; Org mode ---------------------------------------------------------------------
 
+(defun my/open-todo()
+  (interactive)
+  (find-file org-default-notes-file))
+
 (use-package
   org
   :ensure t
   :mode ("\\.org\\'" . org-mode)
-  :config (progn
-            (add-hook 'org-mode-hook
-                      (lambda ()
-                        (define-key org-mode-map (kbd "M-h")    nil))
-                      'append)
-            (setq org-src-fontify-natively t)
-            (defadvice org-kill-line (after fix-cookies activate)
-              (myorg-update-parent-cookie))
-            (defadvice kill-whole-line (after fix-cookies activate)
-              (myorg-update-parent-cookie))))
+  :bind (("C-<f12>" . my/open-todo)
+         ("C-M-<f12>" . org-capture)
+         ("C-c a" . org-agenda)
+         )
+  :config
+  (add-hook 'org-mode-hook
+            (lambda ()
+              (define-key org-mode-map (kbd "M-h")    nil))
+            'append)
+
+  (setq org-src-fontify-natively t)
+
+  (load-file (in-custom-d "vmalloc-org-setup.el"))
+
+  (defadvice org-kill-line (after fix-cookies activate)
+    (myorg-update-parent-cookie))
+
+  (defadvice kill-whole-line (after fix-cookies activate)
+    (myorg-update-parent-cookie)))
 
 
 ;; Server -----------------------------------------------------------------------
