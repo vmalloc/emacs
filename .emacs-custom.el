@@ -12,7 +12,7 @@
  '(cua-rectangle-mark-key (kbd "C-x <C-return>"))
  '(custom-safe-themes
    (quote
-    ("1160f5fc215738551fce39a67b2bcf312ed07ef3568d15d53c87baa4fd1f4d4e" "54ece5659cc7acdcd529dddd78675c2972a5ac69260af4a6aec517dcea16208b" "1bacdd5d24f187f273f488a23c977f26452dffbc82d4ac57250aa041f14159da" "4f0f2f5ec60a4c6881ba36ffbfef31b2eea1c63aad9fe3a4a0e89452346de278" "4d66773cc6d32566eaf2c9c7ce11269d9eb26e428a1a4fa10e97bae46ff615da" "705f3f6154b4e8fac069849507fd8b660ece013b64a0a31846624ca18d6cf5e1" "4904daa168519536b08ca4655d798ca0fb50d3545e6244cefcf7d0c7b338af7e" "8122f00211dbaf973fbe5831f808af92387c8fc1a44f0c6bcc9b22c16997c9dd" default)))
+    ("6254372d3ffe543979f21c4a4179cd819b808e5dd0f1787e2a2a647f5759c1d1" "1160f5fc215738551fce39a67b2bcf312ed07ef3568d15d53c87baa4fd1f4d4e" "54ece5659cc7acdcd529dddd78675c2972a5ac69260af4a6aec517dcea16208b" "1bacdd5d24f187f273f488a23c977f26452dffbc82d4ac57250aa041f14159da" "4f0f2f5ec60a4c6881ba36ffbfef31b2eea1c63aad9fe3a4a0e89452346de278" "4d66773cc6d32566eaf2c9c7ce11269d9eb26e428a1a4fa10e97bae46ff615da" "705f3f6154b4e8fac069849507fd8b660ece013b64a0a31846624ca18d6cf5e1" "4904daa168519536b08ca4655d798ca0fb50d3545e6244cefcf7d0c7b338af7e" "8122f00211dbaf973fbe5831f808af92387c8fc1a44f0c6bcc9b22c16997c9dd" default)))
  '(flycheck-pylintrc "~/.pylintrc")
  '(git-commit-summary-max-length 180)
  '(helm-ff-transformer-show-only-basename nil)
@@ -40,6 +40,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(ace-jump-face-foreground ((t (:background "black" :foreground "yellow" :weight bold))))
+ '(diff-file-header ((t (:background "grey60" :foreground "black" :weight bold))))
  '(flycheck-error-face ((t (:background "dark red"))) t)
  '(flycheck-warning-face ((t (:background "RoyalBlue4"))) t)
  '(helm-ff-directory ((t (:foreground "yellow"))))
@@ -53,6 +54,7 @@
  '(mc/cursor-face ((t (:background "deep sky blue" :foreground "black"))))
  '(minimap-active-region-background ((t (:background "#333"))))
  '(mode-line ((t (:background "DarkGoldenrod2" :foreground "black"))))
+ '(org-level-2 ((t (:inherit nil :foreground "LightGoldenrod2"))))
  '(region ((t (:background "White" :foreground "black"))))
  '(rst-level-1-face ((t (:background "grey85" :foreground "black"))) t)
  '(rst-level-2-face ((t (:background "grey78" :foreground "black"))) t)

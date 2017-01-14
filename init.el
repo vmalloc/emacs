@@ -128,7 +128,10 @@
 			   ("Elisp"
 			    (mode . emacs-lisp-mode))
 			   ("Magit"
-			    (name . "\*magit.*\*"))
+                            (or
+                             (name . "\*magit.*\*")
+                             (name . "COMMIT_EDITMSG")
+                             ))
 			   ("Terminal"
 			    (mode . term-mode))
 			   ("Emacs"
@@ -764,7 +767,7 @@ If point was already at that position, move point to beginning of line."
   :ensure t
   :mode ("\\.org\\'" . org-mode)
   :bind (("C-<f12>" . my/open-todo)
-         ("C-M-<f12>" . org-capture)
+         ("C-c c" . org-capture)
          ("C-c a" . org-agenda)
          )
   :config
@@ -782,6 +785,11 @@ If point was already at that position, move point to beginning of line."
 
   (defadvice kill-whole-line (after fix-cookies activate)
     (myorg-update-parent-cookie)))
+
+(use-package org-bullets
+  :ensure t
+  :config
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 
 
 ;; Server -----------------------------------------------------------------------
