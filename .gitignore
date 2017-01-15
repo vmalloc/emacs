@@ -19,3 +19,4 @@ irony/
 /savehist
 /network-security.data
 flycheck_*
+.emacs-custom.el
