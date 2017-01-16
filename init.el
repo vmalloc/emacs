@@ -3,6 +3,8 @@
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
+
+
 (package-initialize)
 
 (setq emacs-dir "~/.emacs.d/")
@@ -762,8 +764,10 @@ If point was already at that position, move point to beginning of line."
   (interactive)
   (find-file org-default-notes-file))
 
+(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
+
 (use-package
-  org
+  org-plus-contrib
   :ensure t
   :mode ("\\.org\\'" . org-mode)
   :bind (("C-<f12>" . my/open-todo)

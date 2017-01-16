@@ -1,9 +1,9 @@
 (setq org-todo-keywords
-       '((sequence "TODO" "DOING" "PENDING" "|" "VERIFY" "DONE" "DELEGATED")))
+      '((sequence "TODO" "DOING" "PENDING" "|" "VERIFY" "DONE" "DELEGATED")))
 
 (setq org-todo-keyword-faces
-       '(("DOING" . "yellow")
-         ("PENDING" . "gray")))
+      '(("DOING" . "yellow")
+        ("PENDING" . "gray")))
 
 (setq org-priority-faces '((?A . (:foreground "red" :weight 'bold))
                            (?B . (:foreground "yellow"))
@@ -15,5 +15,17 @@
          "* TODO %?\n  %i\n  %a")
         ("j" "Journal" entry (file+datetree "journal.org")
          "* %?\nEntered on %U\n  %i\n  %a")))
+
+;; for reveal.js exporting
+(use-package htmlize
+  :ensure t)
+
+(use-package ox-reveal
+  :ensure t
+  :config (progn
+            (setq org-reveal-root "http://cdn.jsdelivr.net/reveal.js/3.0.0/"
+                  )
+            ))
+
 
 (provide 'vmalloc-org-setup)
