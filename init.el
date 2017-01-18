@@ -1,4 +1,3 @@
-
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
@@ -32,7 +31,7 @@
 (if (getenv "http_proxy")
     (eval-after-load "url"
       '(progn
-	 (setq url-using-proxy(getenv "http_proxy")))))
+         (setq url-using-proxy(getenv "http_proxy")))))
 
 
 ; requirements
@@ -79,9 +78,9 @@
 
 (use-package savehist
   :config (progn
-	    (setq savehist-additional-variables '(iterm-send-history))
-	    (setq savehist-file "~/.emacs.d/savehist")
-	    (savehist-mode 1)))
+            (setq savehist-additional-variables '(iterm-send-history))
+            (setq savehist-file "~/.emacs.d/savehist")
+            (savehist-mode 1)))
 
 ;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ;; Buffer management
@@ -89,9 +88,9 @@
 
 (use-package uniquify
   :config (progn ; uniquify
-	    (setq
-	     uniquify-buffer-name-style 'post-forward
-	     uniquify-separator ":")))
+            (setq
+             uniquify-buffer-name-style 'post-forward
+             uniquify-separator ":")))
 
 ;; prevent killing scratch
 (defadvice kill-buffer (around kill-buffer-around-advice activate)
@@ -104,44 +103,44 @@
 (use-package ibuffer
   :ensure t
   :config (progn
-	    (setq ibuffer-saved-filter-groups
-		  (quote (("default"
-			   ("Web"
-			    (or
-			     (mode . nxhtml-mode)
-			     (mode . web-mode)
-			     (mode . javascript-mode)
-			     (mode . js-mode)
-			     (mode . css-mode)
-			     )
-			    )
-			   ("Programming"
-			    (or
-			     (mode . c++-mode)
-			     (mode . c-mode)
-			     (mode . emacs-lisp-mode)
-			     (mode . makefile-gmake-mode)
-			     (mode . perl-mode)
-			     (mode . python-mode)
-			     (mode . sh-mode)
-			     (mode . haskell-mode)
-			     ;; etc
-			     ))
-			   ("Elisp"
-			    (mode . emacs-lisp-mode))
-			   ("Magit"
+            (setq ibuffer-saved-filter-groups
+                  (quote (("default"
+                           ("Web"
+                            (or
+                             (mode . nxhtml-mode)
+                             (mode . web-mode)
+                             (mode . javascript-mode)
+                             (mode . js-mode)
+                             (mode . css-mode)
+                             )
+                            )
+                           ("Programming"
+                            (or
+                             (mode . c++-mode)
+                             (mode . c-mode)
+                             (mode . emacs-lisp-mode)
+                             (mode . makefile-gmake-mode)
+                             (mode . perl-mode)
+                             (mode . python-mode)
+                             (mode . sh-mode)
+                             (mode . haskell-mode)
+                             ;; etc
+                             ))
+                           ("Elisp"
+                            (mode . emacs-lisp-mode))
+                           ("Magit"
                             (or
                              (name . "\*magit.*\*")
                              (name . "COMMIT_EDITMSG")
                              ))
-			   ("Terminal"
-			    (mode . term-mode))
-			   ("Emacs"
-			    (name . "\*.*\*"))))))
+                           ("Terminal"
+                            (mode . term-mode))
+                           ("Emacs"
+                            (name . "\*.*\*"))))))
 
-	    (add-hook 'ibuffer-mode-hook
-		      (lambda ()
-			(ibuffer-switch-to-saved-filter-groups "default"))))
+            (add-hook 'ibuffer-mode-hook
+                      (lambda ()
+                        (ibuffer-switch-to-saved-filter-groups "default"))))
   :bind ("C-x C-b" . ibuffer))
 
 
@@ -165,14 +164,14 @@
 (use-package saveplace
   :ensure t
   :config (progn
-	    (setq-default save-place t)
-	    (setq save-place-file (in-emacs-d ".places"))))
+            (setq-default save-place t)
+            (setq save-place-file (in-emacs-d ".places"))))
 
 (use-package recentf
   :config (progn
-	    (run-with-idle-timer (* 5 60) t 'recentf-save-list)
-	    (setq recentf-auto-cleanup 'never)
-	    (setq recentf-max-saved-items 1000)))
+            (run-with-idle-timer (* 5 60) t 'recentf-save-list)
+            (setq recentf-auto-cleanup 'never)
+            (setq recentf-max-saved-items 1000)))
 
 
 (use-package
@@ -212,21 +211,21 @@
   swiper
   :ensure t
   :init (progn
-	  (ivy-mode t)
-	  (setq projectile-completion-system 'ivy)
-	  (setq ivy-re-builders-alist
-		'((t . ivy--regex-ignore-order)))
-	  )
+          (ivy-mode t)
+          (setq projectile-completion-system 'ivy)
+          (setq ivy-re-builders-alist
+                '((t . ivy--regex-ignore-order)))
+          )
   :bind (("C-x b" . ivy-switch-buffer)
          ("C-c h" . ivy-recentf)
-	 ("C-c v" . ivy-push-view)
-	 ("C-c V" . ivy-pop-view)
+         ("C-c v" . ivy-push-view)
+         ("C-c V" . ivy-pop-view)
          :map projectile-command-map ("h" . projectile-find-file)
-	 :map ivy-minibuffer-map
-	    ("C-p" . my/ivy-projectile-find-file-on-selection)
-	    ("<next>" . ivy-scroll-up-command)
-	    ("<prior>" . ivy-scroll-down-command)
-	    ))
+         :map ivy-minibuffer-map
+            ("C-p" . my/ivy-projectile-find-file-on-selection)
+            ("<next>" . ivy-scroll-up-command)
+            ("<prior>" . ivy-scroll-down-command)
+            ))
 
 (use-package wgrep
   :ensure t)
@@ -235,11 +234,11 @@
 (defun my/ivy-projectile-find-file-on-selection()
   (interactive)
   (let* ((directory (if (s-starts-with? "/" ivy--current)
-			ivy--current
-		      (concat ivy--directory ivy--current))))
+                        ivy--current
+                      (concat ivy--directory ivy--current))))
     (run-with-timer 0 nil (lambda (d)
-			    (let* ((default-directory  d))
-			      (projectile-find-file))) directory)
+                            (let* ((default-directory  d))
+                              (projectile-find-file))) directory)
     (minibuffer-keyboard-quit)))
 
 (defun my/projectile-git-status ()
@@ -259,8 +258,8 @@
          ("M-x" . counsel-M-x)
          :map projectile-command-map
          ("s s" . my/projectile-counsel-ag)
-	 ("g" . my/projectile-git-status)
-	 ))
+         ("g" . my/projectile-git-status)
+         ))
 
 (use-package
   projectile
@@ -311,11 +310,11 @@
 ;; use project-specific pylintrc when exists
 (add-hook 'python-mode-hook
           (lambda () (let ((root-dir (projectile-project-root)))
-		       (when root-dir
-			 (let ((pylintrc (concat (file-name-as-directory root-dir) ".pylintrc")))
-			   (when (file-exists-p pylintrc)
-			     (make-local-variable 'flycheck-pylintrc)
-			     (setq flycheck-pylintrc pylintrc)))))))
+                       (when root-dir
+                         (let ((pylintrc (concat (file-name-as-directory root-dir) ".pylintrc")))
+                           (when (file-exists-p pylintrc)
+                             (make-local-variable 'flycheck-pylintrc)
+                             (setq flycheck-pylintrc pylintrc)))))))
 
 (use-package
   flyspell
@@ -375,10 +374,10 @@
   :ensure t
   :diminish wrap-region-mode
   :config (progn
-	    (add-hook 'prog-mode-hook (lambda () (wrap-region-mode t)))
-	    (add-hook 'markdown-mode-hook (lambda () (wrap-region-mode t)))
-	    (wrap-region-add-wrapper "*" "*")
-	    (wrap-region-add-wrapper "`" "`")))
+            (add-hook 'prog-mode-hook (lambda () (wrap-region-mode t)))
+            (add-hook 'markdown-mode-hook (lambda () (wrap-region-mode t)))
+            (wrap-region-add-wrapper "*" "*")
+            (wrap-region-add-wrapper "`" "`")))
 
 
 (-map
@@ -420,9 +419,9 @@
   dumb-jump
   :ensure t
   :config (progn
-	    (dumb-jump-mode)
-	    (setq dumb-jump-selector 'ivy)
-	    ))
+            (dumb-jump-mode)
+            (setq dumb-jump-selector 'ivy)
+            ))
 
 (use-package
   expand-region
@@ -527,7 +526,7 @@
   :bind (("<C-s-up>" . drag-stuff-up)
          ("<C-s-down>" . drag-stuff-down))
   :config (progn
-	    (drag-stuff-global-mode t)))
+            (drag-stuff-global-mode t)))
 
 ;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ;; Source control
@@ -609,21 +608,21 @@
 ;; Close the compilation window if there was no error at all.
 (setq compilation-exit-message-function
       (lambda (status code msg)
-	;; If M-x compile exists with a 0
-	(when (and (eq status 'exit) (zerop code))
-	  ;; then bury the *compilation* buffer, so that C-x b doesn't go there
-  	  (bury-buffer "*compilation*")
-  	  ;; and return to whatever were looking at before
-  	  (replace-buffer-in-windows "*compilation*"))
-	;; Always return the anticipated result of compilation-exit-message-function
-  	(cons msg code)))
+        ;; If M-x compile exists with a 0
+        (when (and (eq status 'exit) (zerop code))
+          ;; then bury the *compilation* buffer, so that C-x b doesn't go there
+          (bury-buffer "*compilation*")
+          ;; and return to whatever were looking at before
+          (replace-buffer-in-windows "*compilation*"))
+        ;; Always return the anticipated result of compilation-exit-message-function
+        (cons msg code)))
 
 (setq compilation-scroll-output t)
 
 (use-package compilation
   :bind (("<f9>" . compile)
-	 ("<M-f9>" . projectile-compile-project)
-	 ))
+         ("<M-f9>" . projectile-compile-project)
+         ))
 
 
 ;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -742,8 +741,8 @@ If point was already at that position, move point to beginning of line."
 ;; ReStructured Text (rst)
 (use-package rst-mode
   :config (progn
-	    ;; remove C-c <num> from map
-	    (add-hook 'rst-mode-hook '(lambda ()
+            ;; remove C-c <num> from map
+            (add-hook 'rst-mode-hook '(lambda ()
                                   (mapcar (lambda (k) (define-key rst-mode-map (kbd (format "C-c %s" k)) nil))
                                           (list 1 2 3 4))))
 
@@ -768,27 +767,31 @@ If point was already at that position, move point to beginning of line."
 
 (use-package
   org-plus-contrib
-  :ensure t
+  :ensure t)
+
+(use-package
+  org
   :mode ("\\.org\\'" . org-mode)
   :bind (("C-<f12>" . my/open-todo)
          ("C-c c" . org-capture)
          ("C-c a" . org-agenda)
          )
   :config
-  (add-hook 'org-mode-hook
-            (lambda ()
-              (define-key org-mode-map (kbd "M-h")    nil))
-            'append)
+  (progn
+    (add-hook 'org-mode-hook
+              (lambda ()
+                (define-key org-mode-map (kbd "M-h")    nil))
+              'append)
 
-  (setq org-src-fontify-natively t)
+    (setq org-src-fontify-natively t)
 
-  (load-file (in-custom-d "vmalloc-org-setup.el"))
+    (load-file (in-custom-d "vmalloc-org-setup.el"))
 
-  (defadvice org-kill-line (after fix-cookies activate)
-    (myorg-update-parent-cookie))
+    (defadvice org-kill-line (after fix-cookies activate)
+      (myorg-update-parent-cookie))
 
-  (defadvice kill-whole-line (after fix-cookies activate)
-    (myorg-update-parent-cookie)))
+    (defadvice kill-whole-line (after fix-cookies activate)
+      (myorg-update-parent-cookie))))
 
 (use-package org-bullets
   :ensure t
@@ -818,4 +821,3 @@ If point was already at that position, move point to beginning of line."
 
 
 ;;; init.el ends here
-

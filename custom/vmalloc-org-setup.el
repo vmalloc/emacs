@@ -22,6 +22,7 @@
 
 (use-package ox-reveal
   :ensure t
+  :init (load-library "ox-reveal")
   :config (progn
             (setq org-reveal-root "http://cdn.jsdelivr.net/reveal.js/3.0.0/"
                   )
