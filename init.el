@@ -216,7 +216,8 @@
           (setq ivy-re-builders-alist
                 '((t . ivy--regex-ignore-order)))
           )
-  :bind (("C-x b" . ivy-switch-buffer)
+  :bind (("C-s" . swiper)
+         ("C-x b" . ivy-switch-buffer)
          ("C-c h" . ivy-recentf)
          ("C-c v" . ivy-push-view)
          ("C-c V" . ivy-pop-view)
