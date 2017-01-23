@@ -320,7 +320,9 @@
 (use-package
   flyspell
   :ensure t
-  :config (add-hook 'text-mode-hook (lambda () (flyspell-mode t))))
+  :config (add-hook 'text-mode-hook (lambda ()
+                                      (unless (derived-mode-p 'git-commit-mode)
+                                        (flyspell-mode t)))))
 
 
 ;; Defaults --------------------------------------------------------------------
