@@ -5,9 +5,9 @@
       '(("DOING" . "yellow")
         ("PENDING" . "gray")))
 
-(setq org-priority-faces '((?A . (:foreground "red" :weight 'bold))
-                           (?B . (:foreground "yellow"))
-                           (?C . (:foreground "green"))))
+(setq org-priority-faces '((?A . (:foreground "OrangeRed3" :weight 'bold))
+                           (?B . (:foreground "Orange2"))
+                           (?C . (:foreground "DarkOliveGreen3"))))
 
 
 (setq org-capture-templates
@@ -15,6 +15,16 @@
          "* TODO %?\n  %i\n  %a")
         ("j" "Journal" entry (file+datetree "journal.org")
          "* %?\nEntered on %U\n  %i\n  %a")))
+
+
+(use-package org-projectile
+  :bind (("C-c n p" . org-projectile:project-todo-completing-read))
+  :config
+  (progn
+    (setq org-projectile:projects-file (concat org-directory "/projects.org"))
+    (setq org-agenda-files (append org-agenda-files (org-projectile:todo-files)))
+    (add-to-list 'org-capture-templates (org-projectile:project-todo-entry "p")))
+  :ensure t)
 
 ;; for reveal.js exporting
 (use-package htmlize

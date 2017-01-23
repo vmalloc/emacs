@@ -783,6 +783,7 @@ If point was already at that position, move point to beginning of line."
   (progn
     (add-hook 'org-mode-hook
               (lambda ()
+                (visual-line-mode 1)
                 (define-key org-mode-map (kbd "M-h")    nil))
               'append)
 
@@ -820,7 +821,6 @@ If point was already at that position, move point to beginning of line."
 (use-package mode-icons
   :ensure t
   :config (mode-icons-mode 1))
-
 
 
 ;;; init.el ends here
