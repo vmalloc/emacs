@@ -12,17 +12,22 @@
 
 (setq org-capture-templates
       '(("t" "Todo" entry (file+headline "todo.org" "Tasks")
-         "* TODO %?\n  %i\n  %a")
+         "* TODO %?\n")
+        ("T" "Deadline Todo" entry (file+headline "todo.org" "Tasks")
+         "* %?\nDEADLINE %t")
         ("j" "Journal" entry (file+datetree "journal.org")
          "* %?\nEntered on %U\n  %i\n  %a")))
 
+(setq org-refile-targets
+      '(("todo.org" :maxlevel . 1)
+        ("projects.org" :maxlevel . 1)))
 
 (use-package org-projectile
   :bind (("C-c n p" . org-projectile:project-todo-completing-read))
+  :after projectile
   :config
   (progn
     (setq org-projectile:projects-file (concat org-directory "/projects.org"))
-    (setq org-agenda-files (append org-agenda-files (org-projectile:todo-files)))
     (add-to-list 'org-capture-templates (org-projectile:project-todo-entry "p")))
   :ensure t)
 
