@@ -317,6 +317,11 @@
                              (make-local-variable 'flycheck-pylintrc)
                              (setq flycheck-pylintrc pylintrc)))))))
 
+(use-package jedi
+  :ensure t
+  :config (add-hook 'python-mode-hook 'jedi:setup))
+
+
 (use-package
   flyspell
   :ensure t)
