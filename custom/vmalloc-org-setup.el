@@ -1,5 +1,5 @@
 (setq org-todo-keywords
-      '((sequence "TODO" "PENDING" "DOING" "|" "VERIFY" "DONE" "DELEGATED")))
+      '((sequence "TODO" "PENDING" "NEXT" "DOING" "|" "VERIFY" "DONE" "DELEGATED")))
 
 (setq org-todo-keyword-faces
       '(("DOING" . "yellow")
@@ -14,9 +14,12 @@
       '(("t" "Todo" entry (file+headline "todo.org" "Tasks")
          "* TODO %?\n")
         ("T" "Deadline Todo" entry (file+headline "todo.org" "Tasks")
-         "* %?\nDEADLINE %t")
+         "* %?\nDEADLINE: %t")
         ("j" "Journal" entry (file+datetree "journal.org")
-         "* %?\nEntered on %U\n  %i\n  %a")))
+         "* %?\nEntered on %U\n  %i\n  %a")
+        ("l" "Toolbox Link" entry (file+headline "toolbox.org" "Links")
+         "* %?       :toolbox:link:")
+        ))
 
 (setq org-refile-targets
       '(("todo.org" :maxlevel . 1)
@@ -28,7 +31,7 @@
   :config
   (progn
     (setq org-projectile:projects-file (concat org-directory "/projects.org"))
-    (add-to-list 'org-capture-templates (org-projectile:project-todo-entry "p")))
+    (add-to-list 'org-capture-templates (org-projectile:project-todo-entry "p" org-projectile:linked-capture-template)))
   :ensure t)
 
 ;; for reveal.js exporting
