@@ -20,3 +20,4 @@ irony/
 /network-security.data
 flycheck_*
 .emacs-custom.el
+/.python-environments
