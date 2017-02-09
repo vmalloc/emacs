@@ -595,16 +595,10 @@
   jira-commit
   :bind (("C-c J" . commit-jira-issue-interactive)))
 
-(use-package
-  iterm
-  :config (progn
-            (global-set-key (kbd "S-<f9>")  'shell-command-on-iterm)
-            (global-set-key (kbd "C-S-<f9>")  'repeat-last-shell-command-on-iterm)
-            (global-set-key (kbd "C-M-s-<f9>")
-                            '(lambda ()
-                               (interactive)
-                               (setq current-prefix-arg t)
-                               (call-interactively 'shell-command-on-iterm)))))
+(use-package emamux
+  :ensure t
+  :bind (("S-<f9>" . emamux:send-command))
+  )
 
 ;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ;; Compilation
