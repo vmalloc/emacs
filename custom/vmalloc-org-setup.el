@@ -18,7 +18,9 @@
         ("j" "Journal" entry (file+datetree "journal.org")
          "* %?\nEntered on %U\n  %i\n  %a")
         ("l" "Toolbox Link" entry (file+headline "toolbox.org" "Links")
-         "* %?       :toolbox:link:")
+         "* [[%c][%^{Title for link}]]       :toolbox:link:
+%?
+")
         ))
 
 (setq org-refile-targets
