@@ -13,18 +13,16 @@
 (setq org-capture-templates
       '(("t" "Todo" entry (file+headline "todo.org" "Tasks")
          "* TODO %?\n")
-        ("T" "Deadline Todo" entry (file+headline "todo.org" "Tasks")
-         "* %?\nDEADLINE: %t")
         ("j" "Journal" entry (file+datetree "journal.org")
          "* %?\nEntered on %U\n  %i\n  %a")
         ("l" "Toolbox Link" entry (file+headline "toolbox.org" "Links")
          "* [[%c][%^{Title for link}]]       :toolbox:link:
 %?
-")
-        ))
+")))
 
 (setq org-refile-targets
       '(("todo.org" :maxlevel . 1)
+        ("planned-meetings.org" :maxlevel . 3)
         ("projects.org" :maxlevel . 1)))
 
 (use-package org-projectile
