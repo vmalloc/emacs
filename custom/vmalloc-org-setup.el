@@ -28,7 +28,7 @@
 %?
 ")
         ("m" "Merge request" entry (file+headline "todo.org" "Merge Requests")
-          "* PENDING Merge request %c")
+          "* PENDING Merge request: %? %c")
         ))
 
 (setq org-refile-targets
