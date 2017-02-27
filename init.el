@@ -105,6 +105,9 @@
   :config (progn
             (setq ibuffer-saved-filter-groups
                   (quote (("default"
+                           ("Org"
+                            (or
+                             (mode . org-mode)))
                            ("Web"
                             (or
                              (mode . nxhtml-mode)
