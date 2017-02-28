@@ -19,7 +19,7 @@
 
 
 (setq org-capture-templates
-      '(("t" "Todo" entry (file+headline "todo.org" "Tasks")
+      '(("t" "Todo" entry (file "todo.org")
          "* TODO %?\n")
         ("j" "Journal" entry (file+datetree "journal.org")
          "* %?\nEntered on %U\n  %i\n  %a")
@@ -27,7 +27,7 @@
          "* [[%c][%^{Title for link}]]       :toolbox:link:
 %?
 ")
-        ("m" "Merge request" entry (file+headline "todo.org" "Merge Requests")
+        ("m" "Merge request" entry (file "merge_requests.org")
           "* PENDING Merge request: %? %c")
         ))
 
