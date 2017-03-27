@@ -765,6 +765,11 @@ If point was already at that position, move point to beginning of line."
   (interactive)
   (find-file org-default-notes-file))
 
+(defun my/org-search()
+  (interactive)
+  (require 'org)
+  (counsel-ag nil org-directory))
+
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
 
 (use-package
@@ -775,6 +780,7 @@ If point was already at that position, move point to beginning of line."
   org
   :mode ("\\.org\\'" . org-mode)
   :bind (("C-<f12>" . my/open-todo)
+         ("C-<f11>" . my/org-search)
          ("C-c c" . org-capture)
          ("C-c a" . org-agenda)
          )

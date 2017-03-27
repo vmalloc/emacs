@@ -3,10 +3,21 @@
 (setq org-default-notes-file (concat org-directory "/todo.org"))
 
 (setq org-agenda-files (list org-directory))
+(setq org-agenda-span 1)
+
+(add-to-list 'org-emphasis-alist
+             '("*" (:foreground "yellow")
+               ))
+(add-to-list 'org-emphasis-alist
+            '("~" (:foreground "white")
+               ))
+
 
 
 (setq org-todo-keywords
       '((sequence "TODO" "PENDING" "NEXT" "DOING" "|" "VERIFY" "DONE" "DELEGATED")))
+
+(setq org-enforce-todo-dependencies t)
 
 (setq org-todo-keyword-faces
       '(("DOING" . "yellow")
@@ -21,6 +32,10 @@
 (setq org-capture-templates
       '(("t" "Todo" entry (file "todo.org")
          "* TODO %?\n")
+        ("T" "Link TODO" entry (file "todo.org")
+         "* TODO [[%c][%^{Title for link}]]
+%?
+")
         ("j" "Journal" entry (file+datetree "journal.org")
          "* %?\nEntered on %U\n  %i\n  %a")
         ("l" "Toolbox Link" entry (file+headline "toolbox.org" "Links")
@@ -28,7 +43,7 @@
 %?
 ")
         ("m" "Merge request" entry (file "merge_requests.org")
-          "* PENDING Merge request: %? %c")
+          "* NEEDS-CR Merge request: %? %c")
         ))
 
 (setq org-refile-targets
