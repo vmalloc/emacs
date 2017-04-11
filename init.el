@@ -207,8 +207,9 @@
           (setq helm-input-idle-delay 0)
           (setq helm-exit-idle-delay 0)
           (require 'helm-config))
-  :bind (("M-i" . helm-semantic)
-         ("C-x y" . helm-show-kill-ring)))
+  :bind (("M-i" . helm-semantic)))
+
+
 
 (use-package
   swiper
@@ -219,11 +220,18 @@
           (setq ivy-re-builders-alist
                 '((t . ivy--regex-ignore-order)))
           )
+  :config
+  (ivy-set-actions
+   t
+   '(("g" (lambda (s) (projectile-vc s)) "Git status")
+     ("s" (lambda (s) (counsel-ag nil s)) "Ag")))
+  (setq counsel-yank-pop-separator "\n- - - - - - - - - - - - - - - - - - - -\n")
   :bind (("C-s" . swiper)
          ("C-x b" . ivy-switch-buffer)
          ("C-c h" . ivy-recentf)
          ("C-c v" . ivy-push-view)
          ("C-c V" . ivy-pop-view)
+         ("C-x y" . counsel-yank-pop)
          :map projectile-command-map ("h" . projectile-find-file)
          :map ivy-minibuffer-map
             ("C-p" . my/ivy-projectile-find-file-on-selection)
