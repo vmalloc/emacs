@@ -214,13 +214,13 @@
 (use-package
   swiper
   :ensure t
-  :init (progn
-          (ivy-mode t)
-          (setq projectile-completion-system 'ivy)
-          (setq ivy-re-builders-alist
-                '((t . ivy--regex-ignore-order)))
-          )
-  :config
+  :init
+  (ivy-mode t)
+  (setq projectile-completion-system 'ivy)
+  (setq magit-completing-read-function 'ivy-completing-read)
+  (setq ivy-re-builders-alist
+        '((t . ivy--regex-ignore-order)))
+
   (ivy-set-actions
    t
    '(("g" (lambda (s) (projectile-vc s)) "Git status")
