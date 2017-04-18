@@ -756,20 +756,23 @@ If point was already at that position, move point to beginning of line."
 
 ;; ReStructured Text (rst)
 (use-package rst-mode
-  :config (progn
-            ;; remove C-c <num> from map
-            (add-hook 'rst-mode-hook '(lambda ()
-                                  (mapcar (lambda (k) (define-key rst-mode-map (kbd (format "C-c %s" k)) nil))
-                                          (list 1 2 3 4))))
+  :config
+  ;; remove C-c <num> from map
+  (add-hook 'rst-mode-hook '(lambda ()
+                              (mapcar (lambda (k) (define-key rst-mode-map (kbd (format "C-c %s" k)) nil))
+                                      (list 1 2 3 4))))
 
-            (setq rst-preferred-adornments
-                  '((?= simple 0)
-                    (?- simple 0)
-                    (?~ simple 0)
-                    (?+ simple 0)
-                    (?` simple 0)
-                    (?# simple 0)
-                    (?@ simple 0)))))
+  (setq rst-preferred-adornments
+        '((?= simple 0)
+          (?- simple 0)
+          (?~ simple 0)
+          (?+ simple 0)
+          (?` simple 0)
+          (?# simple 0)
+          (?@ simple 0)))
+  (add-hook 'rst-mode-hook (lambda () (turn-on-auto-fill)))
+  )
+
 
 
 
