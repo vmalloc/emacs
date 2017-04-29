@@ -21,3 +21,4 @@ irony/
 flycheck_*
 .emacs-custom.el
 /.python-environments
+/.org-id-locations
