@@ -824,6 +824,9 @@ If point was already at that position, move point to beginning of line."
   :config
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 
+(use-package org-cliplink
+  :ensure t)
+
 
 ;; Server -----------------------------------------------------------------------
 
