@@ -199,19 +199,6 @@
 (advice-add 'projectile-switch-project :around #'my/projectile-disable-remove-current-project)
 
 (use-package
-  helm
-  :diminish helm-mode
-  :ensure t
-  :init (progn
-          (helm-mode t)
-          (setq helm-input-idle-delay 0)
-          (setq helm-exit-idle-delay 0)
-          (require 'helm-config))
-  :bind (("M-i" . helm-semantic)))
-
-
-
-(use-package
   swiper
   :ensure t
   :init
@@ -222,9 +209,10 @@
         '((t . ivy--regex-ignore-order)))
 
   (ivy-set-actions
-   t
+   'projectile-switch-project
    '(("g" (lambda (s) (projectile-vc s)) "Git status")
      ("s" (lambda (s) (counsel-ag nil s)) "Ag")))
+
   (setq counsel-yank-pop-separator "\n- - - - - - - - - - - - - - - - - - - -\n")
   :bind (("C-s" . swiper)
          ("C-x b" . ivy-switch-buffer)
@@ -672,8 +660,9 @@ If point was already at that position, move point to beginning of line."
 
 ;; Semantic mode ---------------------------------------------------------------
 (use-package semantic
-  :init (semantic-mode t))
-
+  :init (semantic-mode t)
+  :bind (("M-i" . counsel-semantic))
+  )
 
 ;; Rust ------------------------------------------------------------------------
 (use-package
@@ -793,6 +782,11 @@ If point was already at that position, move point to beginning of line."
   org-plus-contrib
   :ensure t)
 
+(defun my/projectile-org-directory()
+  (interactive)
+  (let ((default-directory org-directory))
+    (projectile-find-file)))
+
 (use-package
   org
   :mode ("\\.org\\'" . org-mode)
@@ -800,6 +794,8 @@ If point was already at that position, move point to beginning of line."
          ("C-<f11>" . my/org-search)
          ("C-c c" . org-capture)
          ("C-c a" . org-agenda)
+         ("<f12>" . my/projectile-org-directory)
+         ("M-<f12>" . counsel-org-agenda-headlines)
          )
   :config
   (progn
