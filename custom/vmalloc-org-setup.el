@@ -2,7 +2,7 @@
 
 (setq org-default-notes-file (concat org-directory "/todo.org"))
 
-(setq org-agenda-files (list org-directory))
+(setq org-agenda-files (list org-directory (concat org-directory "/projects")))
 (setq org-agenda-span 1)
 
 (add-to-list 'org-emphasis-alist
