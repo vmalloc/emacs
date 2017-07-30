@@ -494,7 +494,6 @@
   :ensure t
   :defer t
   :diminish yas-minor-mode
-  :init (yas-global-mode 1)
   :config (progn
             (setq yas-snippet-dirs (list (in-emacs-d "snippets") yas-installed-snippets-dir))
             (setq yas-indent-line 'fixed) ; for indented snippets
@@ -502,6 +501,8 @@
             (define-key yas-minor-mode-map (kbd "TAB") nil)
             ;; Set Yasnippet's key binding to shift+tab
             (define-key yas-minor-mode-map (kbd "<backtab>") 'yas-expand)))
+
+(add-hook 'after-init-hook (lambda () (yas-global-mode 1)))
 
 
 
@@ -754,6 +755,7 @@ If point was already at that position, move point to beginning of line."
 
 ;; ReStructured Text (rst)
 (use-package rst-mode
+  :defer t
   :config
   ;; remove C-c <num> from map
   (add-hook 'rst-mode-hook '(lambda ()
@@ -794,6 +796,7 @@ If point was already at that position, move point to beginning of line."
 
 (defun my/projectile-org-directory()
   (interactive)
+  (require 'org)
   (let ((default-directory org-directory))
     (projectile-find-file)))
 
