@@ -190,6 +190,7 @@
 (use-package
   projectile
   :ensure t
+  :defer t
   :config (projectile-global-mode))
 
 (defun my/projectile-disable-remove-current-project (orig-fun &rest args)
@@ -491,6 +492,7 @@
 (use-package
   yasnippet
   :ensure t
+  :defer t
   :diminish yas-minor-mode
   :init (yas-global-mode 1)
   :config (progn
@@ -563,6 +565,7 @@
 
 (use-package magit
   :ensure t
+  :defer t
   :config
   (progn
     (defadvice magit-status (around magit-fullscreen activate)
@@ -576,6 +579,12 @@
     (add-hook 'magit-mode-hook 'magit-load-config-extensions))
 
   :bind (("C-c g" . magit-status)))
+
+
+(use-package magit-gitflow
+  :ensure t
+  :config
+  (add-hook 'magit-mode-hook 'turn-on-magit-gitflow))
 
 
 ;; ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -780,6 +789,7 @@ If point was already at that position, move point to beginning of line."
 
 (use-package
   org-plus-contrib
+  :defer t
   :ensure t)
 
 (defun my/projectile-org-directory()
@@ -789,6 +799,7 @@ If point was already at that position, move point to beginning of line."
 
 (use-package
   org
+  :defer t
   :mode ("\\.org\\'" . org-mode)
   :bind (("C-<f12>" . my/open-todo)
          ("C-<f11>" . my/org-search)

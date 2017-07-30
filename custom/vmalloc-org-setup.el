@@ -48,6 +48,7 @@
 
 (setq org-refile-targets
       '(("todo.org" :maxlevel . 1)
+        ("personal-todo.org" :maxlevel . 1)
         ("planned-meetings.org" :maxlevel . 3)
         ("projects.org" :maxlevel . 1)))
 
