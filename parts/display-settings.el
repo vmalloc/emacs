@@ -1,3 +1,9 @@
+;; theme
+(use-package atom-one-dark-theme
+  :ensure t
+  :if window-system
+  :init (load-theme 'atom-one-dark))
+
 ;; show-paren
 (setq show-paren-delay 0)
 (show-paren-mode)
