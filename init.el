@@ -187,11 +187,26 @@
   :defer t
   :ensure t)
 
+
+(defun my/counsel-rg (&optional initial-directory)
+  "Run `counsel-rg' in working directory or in INITIAL-DIRECTORY if non-nil."
+  (interactive)
+  (counsel-rg nil (or initial-directory default-directory)))
+
+(defun my/counsel-projectile-rg ()
+  "Run `counsel-rg' in the PROJECT-ROOT."
+  (interactive)
+  (my/counsel-rg (projectile-project-root)))
+
+
 (use-package
   projectile
   :ensure t
   :defer t
+  :bind (:map projectile-command-map
+         ("s" . my/counsel-projectile-rg))
   :config (projectile-global-mode))
+
 
 (defun my/projectile-disable-remove-current-project (orig-fun &rest args)
   "ORIG-FUN ARGS."
@@ -212,7 +227,7 @@
   (ivy-set-actions
    'projectile-switch-project
    '(("g" (lambda (s) (projectile-vc s)) "Git status")
-     ("s" (lambda (s) (counsel-ag nil s)) "Ag")))
+     ("s" (lambda (s) (counsel-rg nil s)) "Ag")))
 
   (setq counsel-yank-pop-separator "\n- - - - - - - - - - - - - - - - - - - -\n")
   :bind (("C-s" . swiper)
@@ -667,12 +682,6 @@ If point was already at that position, move point to beginning of line."
 ;; Disable electric-indent-mode
 (electric-indent-mode -1)
 
-
-;; Semantic mode ---------------------------------------------------------------
-(use-package semantic
-  :init (semantic-mode t)
-  :bind (("M-i" . counsel-semantic))
-  )
 
 ;; Rust ------------------------------------------------------------------------
 (use-package
