@@ -23,6 +23,7 @@
         markdown-cycle
         markdown-exdent-or-delete
         my/insert-line-after
+        org-return-indent
         org-self-insert-command
         org-shiftmetaright
         org-shiftright
