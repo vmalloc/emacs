@@ -202,9 +202,7 @@
 (use-package
   projectile
   :ensure t
-  :defer t
-  :bind (:map projectile-command-map
-         ("s" . my/counsel-projectile-rg))
+  :demand
   :config (projectile-global-mode))
 
 
@@ -263,18 +261,14 @@
     (projectile-switch-project)))
 
 
-(defun my/projectile-counsel-ag()
-  (interactive)
-  (counsel-ag nil (projectile-project-root)))
-
 (use-package
   counsel
   :ensure t
   :bind (("C-x C-f" . counsel-find-file)
          ("M-x" . counsel-M-x)
          :map projectile-command-map
-         ("s s" . my/projectile-counsel-ag)
          ("g" . my/projectile-git-status)
+         ("s s" . my/counsel-projectile-rg)
          ))
 
 (use-package
